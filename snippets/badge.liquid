@@ -13,7 +13,7 @@
 
 {% liquid
   assign badge_tone = tone | default: 'sale'
-  unless badge_tone == 'sale' or badge_tone == 'sold-out' or badge_tone == 'manual'
+  unless badge_tone == 'sale' or badge_tone == 'sold-out' or badge_tone == 'manual' or badge_tone == 'new'
     assign badge_tone = 'sale'
   endunless
   assign badge_class = 'product-badge product-badge--' | append: badge_tone

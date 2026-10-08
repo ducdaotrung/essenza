@@ -188,6 +188,6 @@
     { "type": "select", "id": "icon_size", "label": "Icon size", "options": [{ "value": "inherit", "label": "Inherit" }, { "value": "custom", "label": "Custom" }], "default": "inherit", "visible_if": "{{ block.settings.show_icon }}" },
     { "type": "range", "id": "icon_width", "label": "Icon width", "min": 12, "max": 32, "step": 1, "unit": "px", "default": 20, "visible_if": "{{ block.settings.show_icon and block.settings.icon_size == 'custom' }}" }
   ],
-  "presets": [{ "name": "Countdown timer", "settings": { "hide_when_expired": true, "gap_desktop": 16, "gap_mobile": 12, "message": "<p>Hurry up! Sale ends in:</p>", "style": "inline", "type": "fixed_time", "end_time": "2026-12-25 12:00", "button_label": "Shop now", "button_style": "tertiary", "show_icon": false, "color_type": "inherit" } }]
+  "presets": [{ "name": "Countdown timer", "category": "t:general.header", "settings": { "hide_when_expired": true, "gap_desktop": 16, "gap_mobile": 12, "message": "<p>Hurry up! Sale ends in:</p>", "style": "inline", "type": "fixed_time", "end_time": "2026-12-25 12:00", "button_label": "Shop now", "button_style": "tertiary", "show_icon": false, "color_type": "inherit" } }]
 }
 {% endschema %}

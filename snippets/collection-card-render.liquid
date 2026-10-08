@@ -19,12 +19,10 @@
   endif
   assign collection_card_scheme = collection_card_scheme | default: 'scheme-1' | handleize
   assign collection_card_placement = block.settings.placement | default: 'below_image'
-  assign collection_card_radius = 'var(--card-radius)'
+  assign collection_card_radius = '16px'
   case block.settings.corner_radius
     when 'square'
       assign collection_card_radius = 'var(--radius-square)'
-    when 'rounded'
-      assign collection_card_radius = 'var(--radius-rounded)'
   endcase
 
   assign collection_card_shadow = 'none'
@@ -160,5 +158,8 @@
 
   <div class="collection-card-kernel__content">
     {{ card_content }}
+    <span class="collection-card-kernel__action" aria-hidden="true">
+      {% render 'icon', icon: 'chevron-right', width: 20 %}
+    </span>
   </div>
 </article>

@@ -34,7 +34,8 @@
               "type": "_collections-page-card",
               "static": true,
               "settings": {
-                "ratio": "landscape_3_2",
+                "ratio": "custom",
+                "ratio_custom": 1.1667,
                 "color_type": "inherit"
               },
               "blocks": {
@@ -42,7 +43,7 @@
                   "type": "collection-card-title",
                   "settings": {
                     "heading_size": "md",
-                    "html_tag": "h2"
+                    "html_tag": "h4"
                   }
                 }
               },

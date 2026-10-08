@@ -34,6 +34,10 @@
   endif
 
   assign collection_list_view_all_mobile_height = block.settings.button_height_mobile | default: 'inherit'
+  assign collection_list_view_all_mobile_alignment = block.settings.mobile_alignment | default: 'left'
+  unless collection_list_view_all_mobile_alignment == 'left' or collection_list_view_all_mobile_alignment == 'center' or collection_list_view_all_mobile_alignment == 'right'
+    assign collection_list_view_all_mobile_alignment = 'left'
+  endunless
   assign collection_list_view_all_mobile_height_value = blank
   case collection_list_view_all_mobile_height
     when 'small'
@@ -55,7 +59,7 @@
 
 {% if collection_list_view_all_can_render %}
   <div
-    class="collection-list-view-all{% if block.settings.full_width_mobile %} collection-list-view-all--full-width-mobile{% endif %}"
+    class="collection-list-view-all collection-list-view-all--mobile-align-{{ collection_list_view_all_mobile_alignment }}{% if block.settings.full_width_mobile %} collection-list-view-all--full-width-mobile{% endif %}"
     {% if collection_list_view_all_style_attribute != blank %}style="{{ collection_list_view_all_style_attribute }}"{% endif %}
     {{ block.shopify_attributes }}
   >
@@ -105,6 +109,18 @@
     .collection-list-view-all .collection-list-view-all__button--mobile {
       display: inline-flex;
       min-height: var(--collection-list-view-all-height-mobile, var(--button-height-mobile));
+    }
+
+    .collection-list-view-all--mobile-align-left {
+      text-align: left;
+    }
+
+    .collection-list-view-all--mobile-align-center {
+      text-align: center;
+    }
+
+    .collection-list-view-all--mobile-align-right {
+      text-align: right;
     }
 
     .collection-list-view-all--full-width-mobile,
@@ -239,6 +255,17 @@
         { "value": "text", "label": "t:options.button_style.text" }
       ],
       "default": "outline"
+    },
+    {
+      "type": "select",
+      "id": "mobile_alignment",
+      "label": "t:labels.alignment",
+      "options": [
+        { "value": "left", "label": "t:options.alignment.left" },
+        { "value": "center", "label": "t:options.alignment.center" },
+        { "value": "right", "label": "t:options.alignment.right" }
+      ],
+      "default": "left"
     },
     {
       "type": "select",

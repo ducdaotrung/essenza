@@ -44,9 +44,9 @@
     assign collection_card_title_custom_size = 24
   endif
 
-  assign collection_card_title_tag = block.settings.html_tag | default: 'h3'
+  assign collection_card_title_tag = block.settings.html_tag | default: 'h4'
   unless collection_card_title_tag == 'div' or collection_card_title_tag == 'h1' or collection_card_title_tag == 'h2' or collection_card_title_tag == 'h3' or collection_card_title_tag == 'h4' or collection_card_title_tag == 'h5' or collection_card_title_tag == 'h6'
-    assign collection_card_title_tag = 'h3'
+    assign collection_card_title_tag = 'h4'
   endunless
 
   assign collection_card_title_count_font = block.settings.product_count_font | default: 'body'
@@ -62,6 +62,10 @@
   assign collection_card_title_product_count = collection_card_title_collection.products_count
   if collection_card_title_product_count == blank
     assign collection_card_title_product_count = collection_card_title_collection.all_products_count
+  endif
+  assign collection_card_title_count_label = 'items'
+  if collection_card_title_product_count == 1
+    assign collection_card_title_count_label = 'item'
   endif
   assign collection_card_title_show_count = false
   if block.settings.show_product_count and collection_card_title_collection != blank
@@ -129,25 +133,27 @@
   {% if collection_card_title_style != blank %}style="{{ collection_card_title_style }}"{% endif %}
   {{ block.shopify_attributes }}
 >
-  <{{ collection_card_title_tag }} class="collection-card-title__heading heading-text heading-{{ collection_card_title_size }}">
-    {{ collection_card_title | escape }}
-    {% if collection_card_title_show_count %}
-      <span
-        class="collection-card-title__count font-{{ collection_card_title_count_font }} body-{{ collection_card_title_count_size }}"
-        aria-label="{{ 'collection_list.products_count' | t: count: collection_card_title_product_count | escape }}"
-      >
-        {{ collection_card_title_product_count }}
-      </span>
-    {% endif %}
-  </{{ collection_card_title_tag }}>
+  <div class="collection-card-title__top-row">
+    <{{ collection_card_title_tag }} class="collection-card-title__heading heading-text heading-{{ collection_card_title_size }}">
+      {{ collection_card_title | escape }}
+    </{{ collection_card_title_tag }}>
+  </div>
+  {% if collection_card_title_show_count %}
+    <span
+      class="collection-card-title__count font-{{ collection_card_title_count_font }} body-{{ collection_card_title_count_size }}"
+      aria-label="{{ collection_card_title_product_count }} {{ collection_card_title_count_label }}"
+    >
+      {{ collection_card_title_product_count }} {{ collection_card_title_count_label }}
+    </span>
+  {% endif %}
 </div>
 
 {% stylesheet %}
   .collection-card-title {
     display: flex;
     flex-direction: column;
-    align-items: var(--collection-card-title-align, inherit);
-    gap: 0.2rem;
+    align-items: flex-start;
+    gap: 0;
     padding-top: var(--collection-card-title-padding-top, 0px);
     padding-right: var(--collection-card-title-padding-right, 0px);
     padding-bottom: var(--collection-card-title-padding-bottom, 0px);
@@ -159,16 +165,18 @@
     margin: 0;
     min-width: 0;
     overflow-wrap: anywhere;
+    text-transform: capitalize;
+    text-align: left;
   }
 
   .collection-card-title__heading.heading-custom { font-size: var(--collection-card-title-custom-size, var(--font-heading-custom)); }
 
   .collection-card-title__count {
-    display: inline-block;
+    display: block;
     white-space: nowrap;
-    vertical-align: top;
-    padding-inline-start: 6px;
-    color: color-mix(in srgb, currentColor 70%, transparent);
+    color: #666;
+    font-size: 16px;
+    text-align: left;
   }
 
   @media (max-width: 767.98px) {
@@ -236,7 +244,7 @@
         { "value": "h5", "label": "t:options.html_tag.h5" },
         { "value": "h6", "label": "t:options.html_tag.h6" }
       ],
-      "default": "h3"
+      "default": "h4"
     },
     {
       "type": "select",
@@ -364,7 +372,7 @@
       "settings": {
         "show_product_count": true,
         "heading_size": "sm",
-        "html_tag": "h3",
+        "html_tag": "h4",
         "product_count_font": "body",
         "product_count_font_size": "sm",
         "padding_top": 0,

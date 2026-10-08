@@ -239,13 +239,16 @@
 
     .collection-list__actions {
       order: 3;
-      align-self: var(--collection-list-justify-mobile, start);
-      width: 100%;
+      align-self: flex-start;
+      width: auto;
     }
 
-    .collection-list__actions .collection-list-view-all,
+    .collection-list__actions .collection-list-view-all {
+      width: auto;
+    }
+
     .collection-list__actions .collection-list-view-all__button--mobile {
-      width: 100%;
+      width: auto;
     }
   }
 {% endstylesheet %}
@@ -413,7 +416,7 @@
       "blocks": [
         { "type": "header", "id": "header", "static": true, "blocks": [{ "type": "heading", "settings": { "text": "<p>Collection list</p>", "html_tag": "h2" } }] },
         { "type": "view-all-button", "id": "view-all", "static": true },
-        { "type": "collection-list-items", "id": "collection-list", "static": true, "blocks": [{ "type": "collection-card", "id": "collection-card", "static": true, "blocks": [{ "type": "collection-card-title", "id": "title", "static": true }] }] }
+        { "type": "collection-list-items", "id": "collection-list", "static": true, "blocks": [{ "type": "collection-card", "id": "collection-card", "static": true, "blocks": [{ "type": "collection-card-title", "id": "title", "static": true, "settings": { "html_tag": "h4" } }] }] }
       ]
     }
   ]

@@ -172,9 +172,13 @@
   endunless
 
   assign group_radius = block.settings.corner_radius | default: 'square'
-  unless group_radius == 'square' or group_radius == 'slightly_rounded' or group_radius == 'rounded' or group_radius == 'pill'
+  unless group_radius == 'square' or group_radius == 'slightly_rounded' or group_radius == 'rounded' or group_radius == 'pill' or group_radius == 'custom'
     assign group_radius = 'square'
   endunless
+  assign group_custom_radius = block.settings.custom_corner_radius | default: 0 | plus: 0
+  if group_custom_radius < 0 or group_custom_radius > 100
+    assign group_custom_radius = 0
+  endif
 
   assign group_shadow = block.settings.shadow | default: 'none'
   unless group_shadow == 'none' or group_shadow == 'small' or group_shadow == 'medium' or group_shadow == 'large'
@@ -256,6 +260,7 @@
 %}
 
 {% capture group_style %}
+  {% if group_radius == 'custom' %}--group-radius: {{ group_custom_radius }}px;{% endif %}
   {% render 'layout-flow-group-style',
     direction: group_direction,
     position: group_position_name,
@@ -749,9 +754,21 @@
         { "value": "square", "label": "t:options.radius_preset.square" },
         { "value": "slightly_rounded", "label": "t:options.radius_preset.slightly_rounded" },
         { "value": "rounded", "label": "t:options.radius_preset.rounded" },
-        { "value": "pill", "label": "t:options.radius_preset.pill" }
+        { "value": "pill", "label": "t:options.radius_preset.pill" },
+        { "value": "custom", "label": "Custom" }
       ],
       "default": "square"
+    },
+    {
+      "type": "range",
+      "id": "custom_corner_radius",
+      "label": "Custom corner radius",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0,
+      "visible_if": "{{ block.settings.corner_radius == 'custom' }}"
     },
     {
       "type": "select",

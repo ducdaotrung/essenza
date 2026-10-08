@@ -117,6 +117,21 @@
   endif
 %}
 
+{% liquid
+  assign new_badge_visible = false
+  if context != 'product-page' and product != blank
+    for product_tag in product.tags
+      assign normalized_new_tag = product_tag | strip | downcase
+      if normalized_new_tag == 'new'
+        assign new_badge_visible = true
+        break
+      endif
+    endfor
+  endif
+  if new_badge_visible
+    assign has_visible_badge = true
+  endif
+%}
 {% if has_visible_badge %}
   {% assign badges_class = 'product-card__badges' %}
   {% if context == 'product-page' %}
@@ -127,6 +142,9 @@
       {% render 'badge', text: sold_out_label, tone: 'sold-out' %}
     {% elsif sale_status and show_sale_badge != false %}
       {% render 'badge', text: sale_label, tone: 'sale' %}
+    {% endif %}
+    {% if new_badge_visible %}
+      {% render 'badge', text: 'NEW', tone: 'new' %}
     {% endif %}
     {% if collection_rule_1_visible %}
       {% render 'badge', text: settings.badge_collection_label_1, tone: 'manual' %}

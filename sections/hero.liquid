@@ -46,13 +46,21 @@
   endif
 
   assign hero_desktop_height = section.settings.desktop_height | default: 'medium'
-  unless hero_desktop_height == 'adapt' or hero_desktop_height == 'extra_small' or hero_desktop_height == 'small' or hero_desktop_height == 'medium' or hero_desktop_height == 'large' or hero_desktop_height == 'extra_large' or hero_desktop_height == 'full_screen'
+  unless hero_desktop_height == 'adapt' or hero_desktop_height == 'extra_small' or hero_desktop_height == 'small' or hero_desktop_height == 'medium' or hero_desktop_height == 'large' or hero_desktop_height == 'extra_large' or hero_desktop_height == 'full_screen' or hero_desktop_height == 'custom'
     assign hero_desktop_height = 'medium'
   endunless
   assign hero_mobile_height = section.settings.mobile_height | default: 'adapt'
-  unless hero_mobile_height == 'adapt' or hero_mobile_height == 'extra_small' or hero_mobile_height == 'small' or hero_mobile_height == 'medium' or hero_mobile_height == 'large' or hero_mobile_height == 'extra_large' or hero_mobile_height == 'full_screen'
+  unless hero_mobile_height == 'adapt' or hero_mobile_height == 'extra_small' or hero_mobile_height == 'small' or hero_mobile_height == 'medium' or hero_mobile_height == 'large' or hero_mobile_height == 'extra_large' or hero_mobile_height == 'full_screen' or hero_mobile_height == 'custom'
     assign hero_mobile_height = 'adapt'
   endunless
+  assign hero_custom_height_desktop = section.settings.custom_height_desktop | default: 720 | plus: 0
+  if hero_custom_height_desktop < 100 or hero_custom_height_desktop > 2000
+    assign hero_custom_height_desktop = 720
+  endif
+  assign hero_custom_height_mobile = section.settings.custom_height_mobile | default: 500 | plus: 0
+  if hero_custom_height_mobile < 100 or hero_custom_height_mobile > 1200
+    assign hero_custom_height_mobile = 500
+  endif
 
   assign hero_desktop_position = section.settings.desktop_position | default: 'bottom_left'
   assign hero_mobile_position = section.settings.mobile_position | default: 'center_center'
@@ -78,6 +86,8 @@
 {% capture hero_style %}
   {% if hero_desktop_gap != 12 %}--hero-content-gap: {{ hero_desktop_gap }}px;{% endif %}
   {% if hero_mobile_gap != hero_desktop_gap %}--hero-content-gap-mobile: {{ hero_mobile_gap }}px;{% endif %}
+  --hero-custom-height-desktop: {{ hero_custom_height_desktop }}px;
+  --hero-custom-height-mobile: {{ hero_custom_height_mobile }}px;
   {% if hero_content_width == 'custom' and hero_content_max_width != 640 %}--hero-content-max-width: {{ hero_content_max_width }}px;{% endif %}
   --section-padding-top: {{ hero_padding_top }}px;
   --section-padding-bottom: {{ hero_padding_bottom }}px;
@@ -163,6 +173,7 @@
   .hero--desktop-large { --hero-min-height: 90rem; }
   .hero--desktop-extra_large { --hero-min-height: 108rem; }
   .hero--desktop-full_screen { --hero-min-height: 100svh; }
+  .hero--desktop-custom { --hero-min-height: var(--hero-custom-height-desktop, 720px); }
 
   .hero__surface > .media {
     position: absolute;
@@ -333,6 +344,7 @@
     .hero--mobile-large { --hero-min-height: 76rem; }
     .hero--mobile-extra_large { --hero-min-height: 90rem; }
     .hero--mobile-full_screen { --hero-min-height: 100svh; }
+    .hero--mobile-custom { --hero-min-height: var(--hero-custom-height-mobile, 500px); }
 
     .hero__content {
       gap: var(--hero-content-gap-mobile, var(--hero-content-gap, 1.2rem));
@@ -557,9 +569,17 @@
         { "value": "medium", "label": "t:options.hero_height.medium" },
         { "value": "large", "label": "t:options.hero_height.large" },
         { "value": "extra_large", "label": "t:options.hero_height.extra_large" },
-        { "value": "full_screen", "label": "t:options.hero_height.full_screen" }
+        { "value": "full_screen", "label": "t:options.hero_height.full_screen" },
+        { "value": "custom", "label": "Custom" }
       ],
       "default": "medium"
+    },
+    {
+      "type": "number",
+      "id": "custom_height_desktop",
+      "label": "Height (px)",
+      "default": 720,
+      "visible_if": "{{ section.settings.desktop_height == 'custom' }}"
     },
     {
       "type": "select",
@@ -572,9 +592,17 @@
         { "value": "medium", "label": "t:options.hero_height.medium" },
         { "value": "large", "label": "t:options.hero_height.large" },
         { "value": "extra_large", "label": "t:options.hero_height.extra_large" },
-        { "value": "full_screen", "label": "t:options.hero_height.full_screen" }
+        { "value": "full_screen", "label": "t:options.hero_height.full_screen" },
+        { "value": "custom", "label": "Custom" }
       ],
       "default": "adapt"
+    },
+    {
+      "type": "number",
+      "id": "custom_height_mobile",
+      "label": "Height (px)",
+      "default": 500,
+      "visible_if": "{{ section.settings.mobile_height == 'custom' }}"
     },
     {
       "type": "header",

@@ -184,6 +184,10 @@
     padding-left: var(--image-block-padding-left, 0px);
   }
 
+  .image-block.size-style--contain {
+    max-width: min(var(--size-style-max-width, 100%), 100%);
+  }
+
   .image-block__media {
     width: 100%;
     max-width: 100%;
@@ -214,6 +218,10 @@
       padding-right: var(--image-block-padding-right-mobile, var(--image-block-padding-right, 0px));
       padding-bottom: var(--image-block-padding-bottom-mobile, var(--image-block-padding-bottom, 0px));
       padding-left: var(--image-block-padding-left-mobile, var(--image-block-padding-left, 0px));
+    }
+
+    .image-block.size-style--contain {
+      max-width: min(var(--size-style-max-width-mobile, var(--size-style-max-width, 100%)), 100%);
     }
 
     .image-block__media {
@@ -343,13 +351,10 @@
       "visible_if": "{{ block.settings.device == 'desktop' }}"
     },
     {
-      "type": "range",
+      "type": "number",
       "id": "max_width_desktop",
       "label": "t:labels.max_width",
-      "min": 0,
-      "max": 1600,
-      "step": 16,
-      "unit": "px",
+      "info": "Width in pixels (0–1600). Set to 0 to remove the limit.",
       "default": 1600,
       "visible_if": "{{ block.settings.device == 'desktop' and block.settings.limit_width_desktop }}"
     },
@@ -413,13 +418,10 @@
       "visible_if": "{{ block.settings.device == 'mobile' }}"
     },
     {
-      "type": "range",
+      "type": "number",
       "id": "max_width_mobile",
       "label": "t:labels.max_width_mobile",
-      "min": 0,
-      "max": 1600,
-      "step": 16,
-      "unit": "px",
+      "info": "Width in pixels (0–1600). Set to 0 to remove the limit.",
       "default": 1600,
       "visible_if": "{{ block.settings.device == 'mobile' and block.settings.limit_width_mobile }}"
     },

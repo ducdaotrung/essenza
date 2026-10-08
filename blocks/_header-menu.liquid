@@ -962,6 +962,27 @@
       padding: 0;
     }
 
+    .header__mobile-drawer-link,
+    .header__mobile-drawer-details > summary,
+    .header__mobile-drawer-submenu > ul > li > a:not(.btn),
+    .header__mobile-drawer-submenu-details > summary,
+    .header__mobile-drawer-tertiary > li > a:not(.btn) {
+      justify-content: center;
+      text-align: center;
+      padding-inline: calc(var(--icon-size-small) + 0.5rem);
+    }
+
+    .header__mobile-drawer-details > summary,
+    .header__mobile-drawer-submenu-details > summary {
+      position: relative;
+    }
+
+    .header__mobile-drawer-details > summary > .header__mobile-drawer-chevron,
+    .header__mobile-drawer-submenu-details > summary > .header__mobile-drawer-chevron {
+      position: absolute;
+      inset-inline-end: 0;
+    }
+
     .header__mobile-drawer-mega-slot:empty {
       display: none;
     }

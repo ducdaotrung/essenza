@@ -47,6 +47,40 @@
     text-align: var(--card-align);
   }
 
+  .collection-card-kernel__content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 40px;
+    grid-template-rows: auto auto;
+    align-items: center;
+    column-gap: 12px;
+    row-gap: 0;
+  }
+
+  .collection-card-kernel__content > :first-child {
+    min-width: 0;
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    align-self: stretch;
+  }
+
+  .collection-card-kernel__action {
+    display: grid;
+    flex: 0 0 40px;
+    width: 40px;
+    height: 40px;
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    place-items: center;
+    border-radius: 50%;
+    background: #ececec;
+    color: #1a1a1a;
+  }
+
+  .collection-card-kernel__action svg {
+    width: 20px;
+    height: 20px;
+  }
+
   .collection-card-kernel--linked .collection-card-kernel__content {
     pointer-events: none;
   }
