@@ -1,3 +1,4 @@
+{%- capture theme_size_text_size -%}{%- render 'typography-size-token', size: block.settings.text_size, role: 'body', fallback: 'md' -%}{%- endcapture -%}
 {% doc %}
   Renders links to the store policies configured in Shopify.
 
@@ -19,7 +20,7 @@
     assign policy_links_gap_mobile = 12
   endif
 
-  assign policy_links_text_size = block.settings.text_size | default: 'md'
+  assign policy_links_text_size = theme_size_text_size | default: 'md'
   unless policy_links_text_size == 'xs' or policy_links_text_size == 'sm' or policy_links_text_size == 'md' or policy_links_text_size == 'lg' or policy_links_text_size == 'xl' or policy_links_text_size == 'xxl'
     assign policy_links_text_size = 'md'
   endunless
@@ -153,6 +154,7 @@
       "id": "text_size",
       "label": "t:labels.text_size",
       "options": [
+        { "value": "display", "label": "t:options.heading_size.display" },
         { "value": "xs", "label": "t:options.text_size.xs" },
         { "value": "sm", "label": "t:options.text_size.sm" },
         { "value": "md", "label": "t:options.text_size.md" },
@@ -160,7 +162,7 @@
         { "value": "xl", "label": "t:options.text_size.xl" },
         { "value": "xxl", "label": "t:options.text_size.xxl" }
       ],
-      "default": "md"
+      "default": "display"
     },
     {
       "type": "color",
@@ -176,7 +178,7 @@
       "settings": {
         "gap_desktop": 25,
         "gap_mobile": 12,
-        "text_size": "md"
+        "text_size": "display"
       }
     }
   ]

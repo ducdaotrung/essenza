@@ -1,4 +1,6 @@
-{% capture normalized_heading_size %}{% render 'heading-size-token', size: block.settings.heading_size, fallback: 'lg' %}{% endcapture %}
+{%- assign theme_typography_tag = block.settings.html_heading_tag | default: 'h2' -%}
+{%- capture theme_size_heading_size -%}{%- render 'typography-size-token', size: block.settings.heading_size, role: 'heading', fallback: 'lg', tag: theme_typography_tag -%}{%- endcapture -%}
+{% capture normalized_heading_size %}{% render 'heading-size-token', size: theme_size_heading_size, fallback: 'lg' %}{% endcapture %}
 {% assign normalized_heading_size = normalized_heading_size | strip %}
 {% doc %}
   Renders the article comments list and comment form when comments are enabled.
@@ -142,7 +144,7 @@
           "label": "t:options.heading_size.custom"
         }
       ],
-      "default": "lg"
+      "default": "display"
     },
     {
       "type": "range",

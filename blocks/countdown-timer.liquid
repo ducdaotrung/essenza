@@ -1,3 +1,6 @@
+{%- capture theme_size_number_size -%}{%- render 'typography-size-token', size: block.settings.number_size, role: 'heading', fallback: 'md' -%}{%- endcapture -%}
+{%- capture theme_size_label_size -%}{%- render 'typography-size-token', size: block.settings.label_size, role: 'body', fallback: 'sm' -%}{%- endcapture -%}
+{%- capture theme_size_font_size -%}{%- render 'typography-size-token', size: block.settings.font_size, role: 'body', fallback: 'md' -%}{%- endcapture -%}
 {% doc %}
   Renders a live countdown timer with fixed-time and duration modes.
 
@@ -21,7 +24,7 @@
     assign countdown_inline_font = 'accent'
   endunless
 
-  assign countdown_inline_font_size = block.settings.font_size | default: 'md'
+  assign countdown_inline_font_size = theme_size_font_size | default: 'md'
   unless countdown_inline_font_size == 'xs' or countdown_inline_font_size == 'sm' or countdown_inline_font_size == 'md' or countdown_inline_font_size == 'lg' or countdown_inline_font_size == 'xl' or countdown_inline_font_size == 'xxl'
     assign countdown_inline_font_size = 'md'
   endunless
@@ -164,7 +167,7 @@
     assign countdown_seconds_display = '0' | append: countdown_seconds
   endif
 
-  assign countdown_number_size = block.settings.number_size | default: 'md'
+  assign countdown_number_size = theme_size_number_size | default: 'md'
   case countdown_number_size
     when 'heading_1'
       assign countdown_number_size = 'display'
@@ -224,7 +227,7 @@
       assign countdown_number_text_transform = 'var(--font-heading-custom-text-transform)'
   endcase
 
-  assign countdown_label_size = block.settings.label_size | default: 'sm'
+  assign countdown_label_size = theme_size_label_size | default: 'sm'
   case countdown_label_size
     when 'small'
       assign countdown_label_size = 'sm'
@@ -805,7 +808,7 @@
         { "value": "xs", "label": "t:options.heading_size.xs" },
         { "value": "custom", "label": "t:options.heading_size.custom" }
       ],
-      "default": "md",
+      "default": "display",
       "visible_if": "{{ block.settings.style == 'with_labels' }}"
     },
     {
@@ -824,6 +827,7 @@
       "id": "label_size",
       "label": "t:labels.label_size",
       "options": [
+        { "value": "display", "label": "t:options.heading_size.display" },
         { "value": "xs", "label": "t:options.text_size.xs" },
         { "value": "sm", "label": "t:options.text_size.sm" },
         { "value": "md", "label": "t:options.text_size.md" },
@@ -831,7 +835,7 @@
         { "value": "xl", "label": "t:options.text_size.xl" },
         { "value": "xxl", "label": "t:options.text_size.xxl" }
       ],
-      "default": "sm",
+      "default": "display",
       "visible_if": "{{ block.settings.style == 'with_labels' }}"
     },
     {
@@ -851,6 +855,7 @@
       "id": "font_size",
       "label": "t:labels.font_size",
       "options": [
+        { "value": "display", "label": "t:options.heading_size.display" },
         { "value": "xs", "label": "t:options.text_size.xs" },
         { "value": "sm", "label": "t:options.text_size.sm" },
         { "value": "md", "label": "t:options.text_size.md" },
@@ -858,7 +863,7 @@
         { "value": "xl", "label": "t:options.text_size.xl" },
         { "value": "xxl", "label": "t:options.text_size.xxl" }
       ],
-      "default": "md",
+      "default": "display",
       "visible_if": "{{ block.settings.style == 'inline' or block.settings.style == 'inline_superscript' }}"
     },
     {
@@ -1012,8 +1017,8 @@
         "duration_hours": 24,
         "duration_minutes": 0,
         "hide_when_expired": true,
-        "number_size": "md",
-        "label_size": "sm",
+        "number_size": "display",
+        "label_size": "display",
         "color_type": "inherit"
       }
     }

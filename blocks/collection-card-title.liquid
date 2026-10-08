@@ -1,3 +1,6 @@
+{%- assign theme_typography_tag = block.settings.html_tag | default: 'h4' -%}
+{%- capture theme_size_heading_size -%}{%- render 'typography-size-token', size: block.settings.heading_size, role: 'heading', fallback: 'sm', tag: theme_typography_tag -%}{%- endcapture -%}
+{%- capture theme_size_product_count_font_size -%}{%- render 'typography-size-token', size: block.settings.product_count_font_size, role: 'body', fallback: 'sm' -%}{%- endcapture -%}
 {% doc %}
   Renders a collection card title with an optional product count.
 
@@ -16,7 +19,7 @@
     assign collection_card_title = 'collection_list.default_title' | t
   endif
 
-  assign collection_card_title_size = block.settings.heading_size | default: 'sm'
+  assign collection_card_title_size = theme_size_heading_size | default: 'sm'
   unless collection_card_title_size == 'display' or collection_card_title_size == 'xl' or collection_card_title_size == 'lg' or collection_card_title_size == 'md' or collection_card_title_size == 'sm' or collection_card_title_size == 'xs' or collection_card_title_size == 'custom' or collection_card_title_size == 'heading_1' or collection_card_title_size == 'heading_2' or collection_card_title_size == 'heading_3' or collection_card_title_size == 'heading_4' or collection_card_title_size == 'heading_5' or collection_card_title_size == 'heading_6'
     assign collection_card_title_size = 'sm'
   endunless
@@ -54,7 +57,7 @@
     assign collection_card_title_count_font = 'body'
   endunless
 
-  assign collection_card_title_count_size = block.settings.product_count_font_size | default: 'sm'
+  assign collection_card_title_count_size = theme_size_product_count_font_size | default: 'sm'
   unless collection_card_title_count_size == 'xs' or collection_card_title_count_size == 'sm' or collection_card_title_count_size == 'md' or collection_card_title_count_size == 'lg' or collection_card_title_count_size == 'xl' or collection_card_title_count_size == 'xxl'
     assign collection_card_title_count_size = 'sm'
   endunless
@@ -217,7 +220,7 @@
         { "value": "xs", "label": "t:options.heading_size.xs" },
         { "value": "custom", "label": "t:options.heading_size.custom" }
       ],
-      "default": "sm"
+      "default": "display"
     },
     {
       "type": "range",
@@ -261,6 +264,7 @@
       "id": "product_count_font_size",
       "label": "Product count font size",
       "options": [
+        { "value": "display", "label": "t:options.heading_size.display" },
         { "value": "xs", "label": "Extra small" },
         { "value": "sm", "label": "Small" },
         { "value": "md", "label": "Medium" },
@@ -268,7 +272,7 @@
         { "value": "xl", "label": "Extra large" },
         { "value": "xxl", "label": "2X large" }
       ],
-      "default": "sm"
+      "default": "display"
     },
     {
       "type": "header",
@@ -371,10 +375,10 @@
       "category": "t:general.basic",
       "settings": {
         "show_product_count": true,
-        "heading_size": "sm",
+        "heading_size": "display",
         "html_tag": "h4",
         "product_count_font": "body",
-        "product_count_font_size": "sm",
+        "product_count_font_size": "display",
         "padding_top": 0,
         "padding_bottom": 0,
         "padding_left": 0,

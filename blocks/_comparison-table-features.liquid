@@ -1,3 +1,4 @@
+{%- capture theme_size_font_size -%}{%- render 'typography-size-token', size: block.settings.font_size, role: 'body', fallback: 'lg' -%}{%- endcapture -%}
 {% doc %}
   Renders the static feature column with legacy slots or editable row blocks.
 
@@ -55,7 +56,7 @@
       assign comparison_feature_font_family = 'var(--font-accent-family)'
   endcase
 
-  assign comparison_feature_size = block.settings.font_size | default: 'lg'
+  assign comparison_feature_size = theme_size_font_size | default: 'lg'
   unless comparison_feature_size == 'xs' or comparison_feature_size == 'sm' or comparison_feature_size == 'md' or comparison_feature_size == 'lg' or comparison_feature_size == 'xl' or comparison_feature_size == 'xxl'
     assign comparison_feature_size = 'lg'
   endunless
@@ -336,6 +337,7 @@
       "id": "font_size",
       "label": "t:labels.text_size",
       "options": [
+        { "value": "display", "label": "t:options.heading_size.display" },
         {
           "value": "xs",
           "label": "t:options.text_size.xs"
@@ -361,7 +363,7 @@
           "label": "t:options.text_size.xxl"
         }
       ],
-      "default": "lg"
+      "default": "display"
     },
     {
       "type": "header",

@@ -374,7 +374,7 @@
               "type": "heading",
               "settings": {
                 "text": "<p>Image card</p>",
-                "heading_size": "lg",
+                "heading_size": "display",
                 "html_tag": "h2"
               }
             },
@@ -413,7 +413,7 @@
               "type": "heading",
               "settings": {
                 "text": "<p>Image card</p>",
-                "heading_size": "lg",
+                "heading_size": "display",
                 "html_tag": "h2"
               }
             },
@@ -663,7 +663,7 @@
               "type": "heading",
               "settings": {
                 "text": "<p>Collection tabs</p>",
-                "heading_size": "lg",
+                "heading_size": "display",
                 "custom_heading_size": 24,
                 "html_tag": "h2",
                 "text_color": "",
@@ -699,7 +699,7 @@
             "gap_desktop": 16,
             "gap_mobile": 16,
             "font": "heading",
-            "heading_size": "sm",
+            "heading_size": "display",
             "custom_heading_size": 24
           },
           "blocks": {}
@@ -780,7 +780,7 @@
           "static": true,
           "settings": {
             "text": "<p>The pavilion standard</p>",
-            "text_size": "md",
+            "text_size": "display",
             "text_color": "",
             "width": "fit",
             "max_width": 640,
@@ -804,7 +804,7 @@
           "static": true,
           "settings": {
             "text": "<p>Every piece that leaves our studio passes through no fewer than forty pairs of hands. We believe jewelry should outlive trends and outlive us.</p>",
-            "size": "lg",
+            "size": "display",
             "font_size": 40,
             "text_color": "",
             "width": "custom",
@@ -935,7 +935,7 @@
               "type": "heading",
               "settings": {
                 "text": "<p>Heading</p>",
-                "heading_size": "lg",
+                "heading_size": "display",
                 "custom_heading_size": 24,
                 "html_tag": "h2",
                 "text_color": "",
@@ -1052,7 +1052,7 @@
               "type": "heading",
               "settings": {
                 "text": "<p>Heading</p>",
-                "heading_size": "lg",
+                "heading_size": "display",
                 "custom_heading_size": 24,
                 "html_tag": "h2",
                 "text_color": "",
@@ -1169,7 +1169,7 @@
               "type": "heading",
               "settings": {
                 "text": "<p>Heading</p>",
-                "heading_size": "lg",
+                "heading_size": "display",
                 "custom_heading_size": 24,
                 "html_tag": "h2",
                 "text_color": "",
@@ -1280,7 +1280,7 @@
               "type": "heading",
               "settings": {
                 "text": "<p>Featured collection</p>",
-                "heading_size": "lg",
+                "heading_size": "display",
                 "custom_heading_size": 24,
                 "html_tag": "h2",
                 "text_color": "",
@@ -1496,7 +1496,7 @@
                   "type": "heading",
                   "settings": {
                     "text": "<p>Heading</p>",
-                    "heading_size": "lg",
+                    "heading_size": "display",
                     "custom_heading_size": 24,
                     "html_tag": "h3",
                     "text_color": "",
@@ -1521,7 +1521,7 @@
                   "type": "text",
                   "settings": {
                     "text": "<p>Use this text to share information about your brand, describe products, or highlight announcements. You can also promote special offers or communicate important messages to customers.</p>",
-                    "text_size": "sm",
+                    "text_size": "display",
                     "text_color": "",
                     "width": "custom",
                     "max_width": 500,
@@ -1701,7 +1701,7 @@
                   "type": "heading",
                   "settings": {
                     "text": "<p>Heading</p>",
-                    "heading_size": "lg",
+                    "heading_size": "display",
                     "custom_heading_size": 24,
                     "html_tag": "h3",
                     "text_color": "",
@@ -1726,7 +1726,7 @@
                   "type": "text",
                   "settings": {
                     "text": "<p>Use this text to share information about your brand, describe products, or highlight announcements. You can also promote special offers or communicate important messages to customers.</p>",
-                    "text_size": "sm",
+                    "text_size": "display",
                     "text_color": "",
                     "width": "custom",
                     "max_width": 500,
@@ -1906,7 +1906,7 @@
                   "type": "heading",
                   "settings": {
                     "text": "<p>Heading</p>",
-                    "heading_size": "lg",
+                    "heading_size": "display",
                     "custom_heading_size": 24,
                     "html_tag": "h3",
                     "text_color": "",
@@ -1931,7 +1931,7 @@
                   "type": "text",
                   "settings": {
                     "text": "<p>Use this text to share information about your brand, describe products, or highlight announcements. You can also promote special offers or communicate important messages to customers.</p>",
-                    "text_size": "sm",
+                    "text_size": "display",
                     "text_color": "",
                     "width": "custom",
                     "max_width": 500,
@@ -2031,7 +2031,7 @@
               "type": "heading",
               "settings": {
                 "text": "<p>Scrolling cards</p>",
-                "heading_size": "lg",
+                "heading_size": "display",
                 "custom_heading_size": 24,
                 "html_tag": "h2",
                 "text_color": "",
@@ -2110,7 +2110,7 @@
               "type": "heading",
               "settings": {
                 "text": "<p>Main Heading</p>",
-                "heading_size": "md",
+                "heading_size": "display",
                 "custom_heading_size": 24,
                 "html_tag": "h2",
                 "text_color": "",
@@ -2164,7 +2164,7 @@
                   "type": "heading",
                   "settings": {
                     "text": "<p>Maecenas ut porta dui, eu consequat nunc. In hac habitasse platea dictumst. Sed sollicitudin orci at sapien dignissim, rhoncus facilisis libero pretium. Aenean id dapibus risus. Etiam non rhoncus nunc, eu commodo nunc. Aliquam sit amet condimentum nunc, rhoncus tincidunt libero. In mollis, nulla non hendrerit faucibus, sem massa auctor nibh.</p>",
-                    "heading_size": "xs",
+                    "heading_size": "display",
                     "custom_heading_size": 24,
                     "html_tag": "div",
                     "text_color": "",
@@ -2205,7 +2205,7 @@
                   "type": "heading",
                   "settings": {
                     "text": "<p>Maecenas ut porta dui, eu consequat nunc. In hac habitasse platea dictumst. Sed sollicitudin orci at sapien dignissim, rhoncus facilisis libero pretium. Aenean id dapibus risus. Etiam non rhoncus nunc, eu commodo nunc. Aliquam sit amet condimentum nunc, rhoncus tincidunt libero. In mollis, nulla non hendrerit faucibus, sem massa auctor nibh.</p>",
-                    "heading_size": "xs",
+                    "heading_size": "display",
                     "custom_heading_size": 24,
                     "html_tag": "div",
                     "text_color": "",
@@ -2246,7 +2246,7 @@
                   "type": "heading",
                   "settings": {
                     "text": "<p>Maecenas ut porta dui, eu consequat nunc. In hac habitasse platea dictumst. Sed sollicitudin orci at sapien dignissim, rhoncus facilisis libero pretium. Aenean id dapibus risus. Etiam non rhoncus nunc, eu commodo nunc. Aliquam sit amet condimentum nunc, rhoncus tincidunt libero. In mollis, nulla non hendrerit faucibus, sem massa auctor nibh.</p>",
-                    "heading_size": "xs",
+                    "heading_size": "display",
                     "custom_heading_size": 24,
                     "html_tag": "div",
                     "text_color": "",
@@ -2367,7 +2367,7 @@
               "type": "heading",
               "settings": {
                 "text": "<p>Shop the Look</p>",
-                "heading_size": "md",
+                "heading_size": "display",
                 "custom_heading_size": 24,
                 "html_tag": "h2",
                 "text_color": "",
@@ -2601,7 +2601,7 @@
           "static": true,
           "settings": {
             "text": "<p>Main Heading Text Placeholder</p>",
-            "heading_size": "md",
+            "heading_size": "display",
             "custom_heading_size": 24,
             "html_tag": "h2",
             "text_color": "",
@@ -2789,7 +2789,7 @@
                   "type": "heading",
                   "settings": {
                     "text": "<p>Collection Heading</p>",
-                    "heading_size": "xs",
+                    "heading_size": "display",
                     "custom_heading_size": 24,
                     "html_tag": "h3",
                     "text_color": "",
@@ -2924,7 +2924,7 @@
                   "type": "heading",
                   "settings": {
                     "text": "<p>Collection Heading</p>",
-                    "heading_size": "xs",
+                    "heading_size": "display",
                     "custom_heading_size": 24,
                     "html_tag": "h3",
                     "text_color": "",
@@ -3059,7 +3059,7 @@
                   "type": "heading",
                   "settings": {
                     "text": "<p>Collection Heading</p>",
-                    "heading_size": "xs",
+                    "heading_size": "display",
                     "custom_heading_size": 24,
                     "html_tag": "h3",
                     "text_color": "",
@@ -3194,7 +3194,7 @@
                   "type": "heading",
                   "settings": {
                     "text": "<p>Collection Heading</p>",
-                    "heading_size": "xs",
+                    "heading_size": "display",
                     "custom_heading_size": 24,
                     "html_tag": "h3",
                     "text_color": "",
@@ -3329,7 +3329,7 @@
                   "type": "heading",
                   "settings": {
                     "text": "<p>Collection Heading</p>",
-                    "heading_size": "xs",
+                    "heading_size": "display",
                     "custom_heading_size": 24,
                     "html_tag": "h3",
                     "text_color": "",
@@ -3500,7 +3500,7 @@
                 "product_title_MLq9Vn": {
                   "type": "product-title",
                   "settings": {
-                    "heading_size": "xl",
+                    "heading_size": "display",
                     "custom_heading_size": 24,
                     "html_tag": "h2",
                     "text_case": "original",
@@ -3520,7 +3520,7 @@
                   "type": "product-price",
                   "settings": {
                     "font": "body",
-                    "font_size": "md",
+                    "font_size": "display",
                     "letter_spacing": "normal",
                     "show_sale_badge": false,
                     "show_tax_shipping_notice": false,
@@ -3547,7 +3547,7 @@
               "type": "product-description",
               "settings": {
                 "height_limit": "none",
-                "text_size": "md",
+                "text_size": "display",
                 "padding_top": 0,
                 "padding_bottom": 0,
                 "padding_left": 0,
@@ -3693,11 +3693,11 @@
             "content_panel_width": "30",
             "preheading": "",
             "heading": "Heading",
-            "heading_size": "xl",
+            "heading_size": "display",
             "custom_heading_size": 24,
             "html_tag": "h2",
             "text": "<p>Add a short paragraph to support the heading</p>",
-            "text_size": "lg",
+            "text_size": "display",
             "content_color_scheme": "scheme-3",
             "text_alignment": "left",
             "text_position": "bottom_left",
@@ -3780,11 +3780,11 @@
             "content_panel_width": "30",
             "preheading": "",
             "heading": "Heading",
-            "heading_size": "xl",
+            "heading_size": "display",
             "custom_heading_size": 24,
             "html_tag": "h2",
             "text": "<p>Add a short paragraph to support the heading</p>",
-            "text_size": "lg",
+            "text_size": "display",
             "content_color_scheme": "scheme-3",
             "text_alignment": "left",
             "text_position": "bottom_left",
@@ -3867,11 +3867,11 @@
             "content_panel_width": "30",
             "preheading": "",
             "heading": "Heading",
-            "heading_size": "xl",
+            "heading_size": "display",
             "custom_heading_size": 24,
             "html_tag": "h2",
             "text": "<p>Add a short paragraph to support the heading</p>",
-            "text_size": "lg",
+            "text_size": "display",
             "content_color_scheme": "scheme-3",
             "text_alignment": "left",
             "text_position": "bottom_left",
@@ -4009,7 +4009,7 @@
               "type": "heading",
               "settings": {
                 "text": "<p>Main Heading</p>",
-                "heading_size": "lg",
+                "heading_size": "display",
                 "custom_heading_size": 24,
                 "html_tag": "h2",
                 "text_color": "",
@@ -4034,7 +4034,7 @@
               "type": "text",
               "settings": {
                 "text": "<p>This is placeholder text for a paragraph that provides a short and engaging description</p>",
-                "text_size": "md",
+                "text_size": "display",
                 "text_color": "",
                 "width": "fit",
                 "max_width": 640,
@@ -4140,7 +4140,7 @@
                     "style": "text",
                     "text_case": "uppercase",
                     "font": "accent",
-                    "font_size": "sm",
+                    "font_size": "display",
                     "letter_spacing": "normal",
                     "text_color": "",
                     "padding_top": 0,
@@ -4155,7 +4155,7 @@
                   "type": "blog-card-title",
                   "settings": {
                     "line_limit": "no_limit",
-                    "heading_size": "sm",
+                    "heading_size": "display",
                     "custom_heading_size": 24,
                     "html_tag": "h3",
                     "padding_top": 8,
@@ -4170,7 +4170,7 @@
                   "type": "blog-card-description",
                   "settings": {
                     "text_limit": "two",
-                    "size": "sm",
+                    "size": "display",
                     "padding_top": 0,
                     "padding_bottom": 6,
                     "customize_mobile_padding": false,
@@ -4195,7 +4195,7 @@
                     "show_comment_icon": true,
                     "comment_icon": "comment",
                     "separator_icon": "vertical-rule",
-                    "size": "xs",
+                    "size": "display",
                     "text_color": "",
                     "layout": "horizontal",
                     "gap": 12,
@@ -4296,7 +4296,7 @@
               "type": "heading",
               "settings": {
                 "text": "<p>Follow Us On Instagram</p>",
-                "heading_size": "lg",
+                "heading_size": "display",
                 "custom_heading_size": 24,
                 "html_tag": "h2",
                 "text_color": "",
@@ -4418,10 +4418,10 @@
                   "settings": {
                     "alt_text": "",
                     "tag": "@pam_sam",
-                    "tag_font_size": "md",
+                    "tag_font_size": "display",
                     "tag_font_size_custom": 16,
                     "customize_mobile_tag_font_size": false,
-                    "tag_font_size_mobile": "md",
+                    "tag_font_size_mobile": "display",
                     "tag_font_size_custom_mobile": 14,
                     "social_network": "instagram",
                     "social_url": "",
@@ -4473,10 +4473,10 @@
                   "settings": {
                     "alt_text": "",
                     "tag": "@pam_sam",
-                    "tag_font_size": "md",
+                    "tag_font_size": "display",
                     "tag_font_size_custom": 16,
                     "customize_mobile_tag_font_size": false,
-                    "tag_font_size_mobile": "md",
+                    "tag_font_size_mobile": "display",
                     "tag_font_size_custom_mobile": 14,
                     "social_network": "instagram",
                     "social_url": "",
@@ -4528,10 +4528,10 @@
                   "settings": {
                     "alt_text": "",
                     "tag": "@pam_sam",
-                    "tag_font_size": "md",
+                    "tag_font_size": "display",
                     "tag_font_size_custom": 16,
                     "customize_mobile_tag_font_size": false,
-                    "tag_font_size_mobile": "md",
+                    "tag_font_size_mobile": "display",
                     "tag_font_size_custom_mobile": 14,
                     "social_network": "instagram",
                     "social_url": "",
@@ -4583,10 +4583,10 @@
                   "settings": {
                     "alt_text": "",
                     "tag": "@pam_sam",
-                    "tag_font_size": "md",
+                    "tag_font_size": "display",
                     "tag_font_size_custom": 16,
                     "customize_mobile_tag_font_size": false,
-                    "tag_font_size_mobile": "md",
+                    "tag_font_size_mobile": "display",
                     "tag_font_size_custom_mobile": 14,
                     "social_network": "instagram",
                     "social_url": "",
@@ -4706,7 +4706,7 @@
               "type": "heading",
               "settings": {
                 "text": "<p>Main Heading Text Placeholder</p>",
-                "heading_size": "xl",
+                "heading_size": "display",
                 "custom_heading_size": 24,
                 "html_tag": "h2",
                 "text_color": "",
@@ -4900,7 +4900,7 @@
                   "type": "heading",
                   "settings": {
                     "text": "<p>Medium Heading</p>",
-                    "heading_size": "sm",
+                    "heading_size": "display",
                     "custom_heading_size": 24,
                     "html_tag": "h3",
                     "text_color": "",
@@ -4925,7 +4925,7 @@
                   "type": "text",
                   "settings": {
                     "text": "<p>Lorem ipsum dolor sit amet</p>",
-                    "text_size": "sm",
+                    "text_size": "display",
                     "text_color": "",
                     "width": "fill",
                     "max_width": 640,
@@ -5086,7 +5086,7 @@
                   "type": "heading",
                   "settings": {
                     "text": "<p>Medium Heading</p>",
-                    "heading_size": "sm",
+                    "heading_size": "display",
                     "custom_heading_size": 24,
                     "html_tag": "h3",
                     "text_color": "",
@@ -5111,7 +5111,7 @@
                   "type": "text",
                   "settings": {
                     "text": "<p>Lorem ipsum dolor sit amet</p>",
-                    "text_size": "sm",
+                    "text_size": "display",
                     "text_color": "",
                     "width": "fill",
                     "max_width": 640,
@@ -5272,7 +5272,7 @@
                   "type": "heading",
                   "settings": {
                     "text": "<p>Medium Heading</p>",
-                    "heading_size": "sm",
+                    "heading_size": "display",
                     "custom_heading_size": 24,
                     "html_tag": "h3",
                     "text_color": "",
@@ -5297,7 +5297,7 @@
                   "type": "text",
                   "settings": {
                     "text": "<p>Lorem ipsum dolor sit amet</p>",
-                    "text_size": "sm",
+                    "text_size": "display",
                     "text_color": "",
                     "width": "fill",
                     "max_width": 640,
@@ -5458,7 +5458,7 @@
                   "type": "heading",
                   "settings": {
                     "text": "<p>Medium Heading</p>",
-                    "heading_size": "sm",
+                    "heading_size": "display",
                     "custom_heading_size": 24,
                     "html_tag": "h3",
                     "text_color": "",
@@ -5483,7 +5483,7 @@
                   "type": "text",
                   "settings": {
                     "text": "<p>Lorem ipsum dolor sit amet</p>",
-                    "text_size": "sm",
+                    "text_size": "display",
                     "text_color": "",
                     "width": "fill",
                     "max_width": 640,

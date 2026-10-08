@@ -1,3 +1,4 @@
+{%- capture theme_size_text_size -%}{%- render 'typography-size-token', size: block.settings.text_size, role: 'body', fallback: 'md' -%}{%- endcapture -%}
 {% doc %}
   Renders the current product description when it is present. A configured
   height limit is progressively enhanced with an overflow-aware Read more /
@@ -26,7 +27,7 @@
     assign description_has_content = true
   endif
 
-  assign description_size = block.settings.text_size | default: 'md'
+  assign description_size = theme_size_text_size | default: 'md'
   unless description_size == 'xs' or description_size == 'sm' or description_size == 'md' or description_size == 'lg' or description_size == 'xl' or description_size == 'xxl'
     assign description_size = 'md'
   endunless
@@ -152,6 +153,7 @@
       "id": "text_size",
       "label": "t:labels.text_size",
       "options": [
+        { "value": "display", "label": "t:options.heading_size.display" },
         { "value": "xs", "label": "t:options.text_size.xs" },
         { "value": "sm", "label": "t:options.text_size.sm" },
         { "value": "md", "label": "t:options.text_size.md" },
@@ -159,7 +161,7 @@
         { "value": "xl", "label": "t:options.text_size.xl" },
         { "value": "xxl", "label": "t:options.text_size.xxl" }
       ],
-      "default": "md"
+      "default": "display"
     },
     {
       "type": "header",

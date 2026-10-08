@@ -1,10 +1,11 @@
+{%- capture theme_size_font_size -%}{%- render 'typography-size-token', size: block.settings.font_size, role: 'body' -%}{%- endcapture -%}
 {% liquid
   assign localization_trigger = block.settings.dropdown_trigger | default: 'click'
   unless localization_trigger == 'click' or localization_trigger == 'hover'
     assign localization_trigger = 'click'
   endunless
 
-  assign localization_font_size = block.settings.font_size | default: 'md'
+  assign localization_font_size = theme_size_font_size | default: 'md'
   unless localization_font_size == 'xs' or localization_font_size == 'sm' or localization_font_size == 'md'
     assign localization_font_size = 'md'
   endunless
@@ -450,11 +451,12 @@
       "id": "font_size",
       "label": "Font size",
       "options": [
+        { "value": "display", "label": "t:options.heading_size.display" },
         { "value": "xs", "label": "Extra small" },
         { "value": "sm", "label": "Small" },
         { "value": "md", "label": "Medium" }
       ],
-      "default": "md"
+      "default": "display"
     }
   ],
   "presets": [

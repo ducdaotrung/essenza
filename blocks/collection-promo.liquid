@@ -1,3 +1,5 @@
+{%- capture theme_size_heading_size -%}{%- render 'typography-size-token', size: block.settings.heading_size, role: 'heading', fallback: 'xl' -%}{%- endcapture -%}
+{%- capture theme_size_text_size -%}{%- render 'typography-size-token', size: block.settings.text_size, role: 'body', fallback: 'md' -%}{%- endcapture -%}
 {% doc %}
   Repeatable editorial card in the collection product grid.
   Content fields and media controls stay on this block so each promo card can be
@@ -11,8 +13,8 @@
   assign promo_alignment = block.settings.content_alignment | default: 'center'
   assign promo_position_y = block.settings.content_position | default: 'center'
   assign promo_media_type = block.settings.media_type | default: 'image'
-  assign promo_text_size = block.settings.text_size | default: 'md'
-  assign promo_heading_size = block.settings.heading_size | default: 'xl'
+  assign promo_text_size = theme_size_text_size | default: 'md'
+  assign promo_heading_size = theme_size_heading_size | default: 'xl'
   assign promo_heading_scale = promo_heading_size
   assign promo_heading_level = 2
   case promo_heading_size
@@ -393,7 +395,7 @@
           "label": "t:options.heading_size.custom"
         }
       ],
-      "default": "xl"
+      "default": "display"
     },
 {
   "type": "range",
@@ -411,13 +413,14 @@
       "id": "text_size",
       "label": "Text size",
       "options": [
+        { "value": "display", "label": "t:options.heading_size.display" },
         { "value": "xs", "label": "Extra small" },
         { "value": "sm", "label": "Small" },
         { "value": "md", "label": "Medium" },
         { "value": "lg", "label": "Large" },
         { "value": "xl", "label": "Extra large" }
       ],
-      "default": "md"
+      "default": "display"
     },
     { "type": "header", "content": "Button" },
     {
@@ -593,8 +596,8 @@
         "overlay_color": "#00000033",
         "subheading": "<p>[ Save 20% off ]</p>",
         "heading": "<p>Curate Your Set</p>",
-        "heading_size": "xl",
-        "text_size": "md",
+        "heading_size": "display",
+        "text_size": "display",
         "button_label": "Curate now",
         "button_style": "primary",
         "color_scheme": "scheme-1",

@@ -1,0 +1,18 @@
+{
+  "external_validation": "blocked",
+  "accessibility": "blocked",
+  "theme_editor": "blocked",
+  "schema": "pass",
+  "responsive": "pass",
+  "contract": "pass",
+  "js": "pass",
+  "release": "blocked",
+  "css": "pass",
+  "notes": [
+    "Desktop and mobile storefront verified.",
+    "Three images must be selected in Theme Editor.",
+    "External validator was rejected by automatic approval review.",
+    "Theme Editor lifecycle and image link/alt verification remain pending."
+  ],
+  "liquid": "pass"
+}

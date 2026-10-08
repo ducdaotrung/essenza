@@ -121,6 +121,10 @@
   assign section_gap = 48
   assign grid_gap = 24
   assign body_size = settings.type_body_size | default: 16
+  assign body_size_mobile = body_size
+  if settings.type_body_customize_mobile_size
+    assign body_size_mobile = settings.type_body_size_mobile | default: body_size
+  endif
   assign body_xs_size = 12
   assign body_sm_size = 14
   assign body_lg_size = 18
@@ -1213,6 +1217,7 @@
 
   @media (max-width: 767.98px) {
     :root {
+      --font-body-md: {{ body_size_mobile }}px;
       --font-heading-xs: {{ heading_6_size_mobile }}px;
       --font-heading-sm: {{ heading_5_size_mobile }}px;
       --font-heading-md: {{ heading_4_size_mobile }}px;
@@ -1304,7 +1309,11 @@
     }
   {% endfor %}
 
-  .btn {
+  {%- comment -%}
+    Global button colors are root fallbacks. Scheme scopes override these
+    inherited tokens; setting them on .btn would mask the active scheme.
+  {%- endcomment -%}
+  :root {
     {% if settings.button_primary_background_color != blank %}
       --button-primary-background: {{ settings.button_primary_background_color }};
     {% endif %}

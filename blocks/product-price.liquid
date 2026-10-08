@@ -1,3 +1,4 @@
+{%- capture theme_size_font_size -%}{%- render 'typography-size-token', size: block.settings.font_size, role: 'body', fallback: 'md' -%}{%- endcapture -%}
 {% doc %}
   Renders the selected product variant price and templates used by the scoped
   variant picker. Price formatting and commerce tokens come from Theme Settings.
@@ -12,7 +13,7 @@
     assign price_font = 'body'
   endunless
 
-  assign price_size = block.settings.font_size | default: 'md'
+  assign price_size = theme_size_font_size | default: 'md'
   unless price_size == 'xs' or price_size == 'sm' or price_size == 'md' or price_size == 'lg' or price_size == 'xl' or price_size == 'xxl'
     assign price_size = 'md'
   endunless
@@ -203,6 +204,7 @@
       "id": "font_size",
       "label": "t:labels.font_size",
       "options": [
+        { "value": "display", "label": "t:options.heading_size.display" },
         { "value": "xs", "label": "t:options.product_price_size.xs" },
         { "value": "sm", "label": "t:options.product_price_size.sm" },
         { "value": "md", "label": "t:options.product_price_size.md" },
@@ -210,7 +212,7 @@
         { "value": "xl", "label": "t:options.product_price_size.xl" },
         { "value": "xxl", "label": "t:options.product_price_size.xxl" }
       ],
-      "default": "md"
+      "default": "display"
     },
     {
       "type": "select",

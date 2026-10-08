@@ -1,3 +1,4 @@
+{%- capture theme_size_font_size -%}{%- render 'typography-size-token', size: block.settings.font_size, role: 'body', fallback: 'md' -%}{%- endcapture -%}
 {% doc %}
   Renders a reusable before-and-after image comparison block.
 
@@ -168,7 +169,7 @@
     assign comparison_font_transform = 'var(--font-accent-text-transform)'
   endif
 
-  assign comparison_font_size = block.settings.font_size | default: 'md'
+  assign comparison_font_size = theme_size_font_size | default: 'md'
   unless comparison_font_size == 'xs' or comparison_font_size == 'sm' or comparison_font_size == 'md' or comparison_font_size == 'lg' or comparison_font_size == 'xl' or comparison_font_size == 'xxl'
     assign comparison_font_size = 'md'
   endunless
@@ -547,6 +548,7 @@
       "id": "font_size",
       "label": "t:labels.font_size",
       "options": [
+        { "value": "display", "label": "t:options.heading_size.display" },
         { "value": "xs", "label": "t:options.text_size.xs" },
         { "value": "sm", "label": "t:options.text_size.sm" },
         { "value": "md", "label": "t:options.text_size.md" },
@@ -554,7 +556,7 @@
         { "value": "xl", "label": "t:options.text_size.xl" },
         { "value": "xxl", "label": "t:options.text_size.xxl" }
       ],
-      "default": "md"
+      "default": "display"
     },
     {
       "type": "select",
@@ -705,7 +707,7 @@
         "before_label": "<p>Before</p>",
         "after_label": "<p>After</p>",
         "font": "body",
-        "font_size": "md",
+        "font_size": "display",
         "letter_spacing": "normal",
         "show_text_background": true,
         "corner_radius": "inherit",

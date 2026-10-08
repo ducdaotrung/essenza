@@ -1,4 +1,6 @@
-{% capture normalized_heading_size %}{% render 'heading-size-token', size: block.settings.title_size, fallback: 'xl' %}{% endcapture %}
+{%- assign theme_typography_tag = block.settings.html_title_tag | default: 'h1' -%}
+{%- capture theme_size_title_size -%}{%- render 'typography-size-token', size: block.settings.title_size, role: 'heading', fallback: 'xl', tag: theme_typography_tag -%}{%- endcapture -%}
+{% capture normalized_heading_size %}{% render 'heading-size-token', size: theme_size_title_size, fallback: 'xl' %}{% endcapture %}
 {% assign normalized_heading_size = normalized_heading_size | strip %}
 {% doc %}
   Renders article title and metadata for the Article section.
@@ -166,7 +168,7 @@
           "label": "t:options.heading_size.custom"
         }
       ],
-      "default": "xl"
+      "default": "display"
     },
     {
       "type": "range",

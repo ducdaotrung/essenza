@@ -1,3 +1,6 @@
+{%- assign theme_typography_tag = block.settings.html_tag | default: 'h2' -%}
+{%- capture theme_size_heading_size -%}{%- render 'typography-size-token', size: block.settings.heading_size, role: 'heading', fallback: 'lg', tag: theme_typography_tag -%}{%- endcapture -%}
+{%- capture theme_size_menu_size -%}{%- render 'typography-size-token', size: block.settings.menu_size, role: 'body', fallback: 'md' -%}{%- endcapture -%}
 {% doc %}
   Renders the first level of a navigation menu with an optional heading and a
   mobile disclosure. Nested menu links are intentionally not rendered.
@@ -35,7 +38,7 @@
 
   assign collapse_menu_on_mobile = block.settings.collapse_menu_on_mobile | default: true, allow_false: true
 
-  assign heading_size = block.settings.heading_size | default: 'lg'
+  assign heading_size = theme_size_heading_size | default: 'lg'
   unless heading_size == 'display' or heading_size == 'xl' or heading_size == 'lg' or heading_size == 'md' or heading_size == 'sm' or heading_size == 'xs' or heading_size == 'custom'
     assign heading_size = 'lg'
   endunless
@@ -56,7 +59,7 @@
     assign heading_color = 'var(--body-color)'
   endif
 
-  assign menu_size = block.settings.menu_size | default: 'md'
+  assign menu_size = theme_size_menu_size | default: 'md'
   unless menu_size == 'xs' or menu_size == 'sm' or menu_size == 'md' or menu_size == 'lg' or menu_size == 'xl' or menu_size == 'xxl'
     assign menu_size = 'md'
   endunless
@@ -258,7 +261,7 @@
         { "value": "xs", "label": "t:options.heading_size.xs" },
         { "value": "custom", "label": "t:options.heading_size.custom" }
       ],
-      "default": "lg"
+      "default": "display"
     },
     {
       "type": "range",
@@ -303,6 +306,7 @@
       "id": "menu_size",
       "label": "t:labels.text_size",
       "options": [
+        { "value": "display", "label": "t:options.heading_size.display" },
         { "value": "xs", "label": "t:options.text_size.xs" },
         { "value": "sm", "label": "t:options.text_size.sm" },
         { "value": "md", "label": "t:options.text_size.md" },
@@ -310,7 +314,7 @@
         { "value": "xl", "label": "t:options.text_size.xl" },
         { "value": "xxl", "label": "t:options.text_size.xxl" }
       ],
-      "default": "md"
+      "default": "display"
     },
     {
       "type": "color",
@@ -330,8 +334,8 @@
         "heading_gap": 16,
         "menu_gap": 8,
         "html_tag": "h2",
-        "heading_size": "lg",
-        "menu_size": "md"
+        "heading_size": "display",
+        "menu_size": "display"
       }
     }
   ]

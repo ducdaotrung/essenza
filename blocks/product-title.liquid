@@ -1,3 +1,5 @@
+{%- assign theme_typography_tag = block.settings.html_tag | default: 'h1' -%}
+{%- capture theme_size_heading_size -%}{%- render 'typography-size-token', size: block.settings.heading_size, role: 'heading', fallback: 'xl', tag: theme_typography_tag -%}{%- endcapture -%}
 {% doc %}
   Renders the current product title. Typography uses the shared visual heading
   roles (`display`, `xl`, `lg`, `md`, `sm`, `xs`, `custom`) while the HTML tag
@@ -8,7 +10,7 @@
 {% liquid
   assign product_title = closest.product | default: product
 
-  assign title_size = block.settings.heading_size | default: block.settings.size | default: block.settings.title_size | default: 'xl'
+  assign title_size = theme_size_heading_size | default: block.settings.size | default: block.settings.title_size | default: 'xl'
   unless title_size == 'display' or title_size == 'xl' or title_size == 'lg' or title_size == 'md' or title_size == 'sm' or title_size == 'xs' or title_size == 'custom' or title_size == 'heading_1' or title_size == 'heading_2' or title_size == 'heading_3' or title_size == 'heading_4' or title_size == 'heading_5' or title_size == 'heading_6'
     assign title_size = 'xl'
   endunless
@@ -129,7 +131,7 @@
         { "value": "xs", "label": "t:options.heading_size.xs" },
         { "value": "custom", "label": "t:options.heading_size.custom" }
       ],
-      "default": "xl"
+      "default": "display"
     },
     {
       "type": "range",

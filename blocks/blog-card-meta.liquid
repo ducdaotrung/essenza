@@ -1,3 +1,4 @@
+{%- capture theme_size_size -%}{%- render 'typography-size-token', size: block.settings.size, role: 'body', fallback: 'xs' -%}{%- endcapture -%}
 {% doc %}
   Renders article details inside Blog Card.
 
@@ -10,7 +11,7 @@
   if blog_card_meta_article == blank or request.design_mode
     assign blog_card_meta_is_placeholder = true
   endif
-  assign blog_card_meta_size = block.settings.size | default: 'xs'
+  assign blog_card_meta_size = theme_size_size | default: 'xs'
   unless blog_card_meta_size == 'xs' or blog_card_meta_size == 'sm' or blog_card_meta_size == 'md' or blog_card_meta_size == 'lg' or blog_card_meta_size == 'xl' or blog_card_meta_size == 'xxl'
     assign blog_card_meta_size = 'xs'
   endunless
@@ -440,6 +441,7 @@
       "id": "size",
       "label": "Size",
       "options": [
+        { "value": "display", "label": "t:options.heading_size.display" },
         { "value": "xs", "label": "Extra small" },
         { "value": "sm", "label": "Small" },
         { "value": "md", "label": "Medium" },
@@ -447,7 +449,7 @@
         { "value": "xl", "label": "Extra large" },
         { "value": "xxl", "label": "2X large" }
       ],
-      "default": "xs"
+      "default": "display"
     },
     {
       "type": "color",
@@ -574,7 +576,7 @@
         "gap": 12,
         "icon_size": 18,
         "icon_gap": 6,
-        "size": "xs",
+        "size": "display",
         "text_color": "",
         "padding_top": 0,
         "padding_bottom": 4,

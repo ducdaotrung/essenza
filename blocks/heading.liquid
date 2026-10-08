@@ -36,7 +36,7 @@
         assign heading_size = 'sm'
       when 'h6'
         assign heading_size = 'xs'
-      else
+      when 'h2', 'div'
         assign heading_size = 'xl'
     endcase
   endif

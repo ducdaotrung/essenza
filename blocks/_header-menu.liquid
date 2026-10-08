@@ -1,3 +1,5 @@
+{%- capture theme_size_font_size -%}{%- render 'typography-size-token', size: block.settings.font_size, role: 'body', fallback: 'md' -%}{%- endcapture -%}
+{%- capture theme_size_submenu_font_size -%}{%- render 'typography-size-token', size: block.settings.submenu_font_size, role: 'body', fallback: 'md' -%}{%- endcapture -%}
 {% liquid
   assign country_selector_label = 'localization.country_label' | t
   assign language_selector_label = 'localization.language_label' | t
@@ -15,7 +17,7 @@
     assign menu_font = 'accent'
   endunless
 
-  assign menu_font_size = block.settings.font_size | default: 'md'
+  assign menu_font_size = theme_size_font_size | default: 'md'
   unless menu_font_size == 'xs' or menu_font_size == 'sm' or menu_font_size == 'md' or menu_font_size == 'lg' or menu_font_size == 'xl' or menu_font_size == 'xxl'
     assign menu_font_size = 'md'
   endunless
@@ -35,7 +37,7 @@
     assign submenu_font = 'body'
   endunless
 
-  assign submenu_font_size = block.settings.submenu_font_size | default: 'md'
+  assign submenu_font_size = theme_size_submenu_font_size | default: 'md'
   unless submenu_font_size == 'sm' or submenu_font_size == 'md' or submenu_font_size == 'lg' or submenu_font_size == 'xl' or submenu_font_size == 'xxl'
     assign submenu_font_size = 'md'
   endunless
@@ -1208,6 +1210,7 @@
       "id": "font_size",
       "label": "t:labels.font_size",
       "options": [
+        { "value": "display", "label": "t:options.heading_size.display" },
         { "value": "xs", "label": "t:options.menu_font_size.extra_small" },
         { "value": "sm", "label": "t:options.menu_font_size.small" },
         { "value": "md", "label": "t:options.menu_font_size.medium" },
@@ -1215,7 +1218,7 @@
         { "value": "xl", "label": "t:options.menu_font_size.extra_large" },
         { "value": "xxl", "label": "t:options.menu_font_size.double_extra_large" }
       ],
-      "default": "md"
+      "default": "display"
     },
     {
       "type": "select",
@@ -1264,13 +1267,14 @@
       "id": "submenu_font_size",
       "label": "Font size",
       "options": [
+        { "value": "display", "label": "t:options.heading_size.display" },
         { "value": "sm", "label": "Small" },
         { "value": "md", "label": "Medium" },
         { "value": "lg", "label": "Large" },
         { "value": "xl", "label": "Extra large" },
         { "value": "xxl", "label": "Double extra large" }
       ],
-      "default": "md"
+      "default": "display"
     },
     {
       "type": "select",

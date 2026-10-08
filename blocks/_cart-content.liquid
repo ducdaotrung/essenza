@@ -1,6 +1,8 @@
+{%- assign theme_typography_tag = block.settings.html_tag | default: 'h1' -%}
+{%- capture theme_size_heading_size -%}{%- render 'typography-size-token', size: block.settings.heading_size, role: 'heading', fallback: 'xl', tag: theme_typography_tag -%}{%- endcapture -%}
 {% doc %}Fixed cart content column; title and count precede merchant-managed cart components.{% enddoc %}
 <div class="cart-page__content cart-stack" style="--cart-gap: {{ block.settings.gap_desktop }}px; --cart-gap-mobile: {{ block.settings.gap_mobile }}px; --cart-pad-top: {{ block.settings.padding_top | default: 0 }}px; --cart-pad-bottom: {{ block.settings.padding_bottom | default: 0 }}px;{% if block.settings.customize_mobile_padding %} --cart-pad-top-mobile: {{ block.settings.padding_top_mobile }}px; --cart-pad-bottom-mobile: {{ block.settings.padding_bottom_mobile }}px;{% endif %}" {{ block.shopify_attributes }}>
-  <{{ block.settings.html_tag }} class="heading-text heading-{{ block.settings.heading_size }} cart-page__title"{% if block.settings.heading_size == 'custom' %} style="font-size: {{ block.settings.custom_heading_size }}px"{% endif %}>{{ 'cart.title' | t }}{% if block.settings.show_cart_count %} <span class="body-text body-sm">({{ cart.item_count }})</span>{% endif %}</{{ block.settings.html_tag }}>
+  <{{ block.settings.html_tag }} class="heading-text heading-{{ theme_size_heading_size }} cart-page__title"{% if theme_size_heading_size == 'custom' %} style="font-size: {{ block.settings.custom_heading_size }}px"{% endif %}>{{ 'cart.title' | t }}{% if block.settings.show_cart_count %} <span class="body-text body-sm">({{ cart.item_count }})</span>{% endif %}</{{ block.settings.html_tag }}>
   {% content_for 'blocks' %}
 </div>
 
@@ -77,7 +79,7 @@
           "label": "CUSTOM"
         }
       ],
-      "default": "xl"
+      "default": "display"
     },
     {
       "type": "range",

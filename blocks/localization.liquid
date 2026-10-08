@@ -1,3 +1,4 @@
+{%- capture theme_size_font_size -%}{%- render 'typography-size-token', size: block.settings.font_size, role: 'body', fallback: 'md' -%}{%- endcapture -%}
 {% doc %}
   Renders the footer localization controls using the same country and language
   interaction contract as the header localization block. The footer keeps its
@@ -13,7 +14,7 @@
     assign localization_trigger = 'click'
   endunless
 
-  assign localization_font_size = block.settings.font_size | default: 'md'
+  assign localization_font_size = theme_size_font_size | default: 'md'
   unless localization_font_size == 'xs' or localization_font_size == 'sm' or localization_font_size == 'md' or localization_font_size == 'lg' or localization_font_size == 'xl' or localization_font_size == 'xxl'
     assign localization_font_size = 'md'
   endunless
@@ -463,6 +464,7 @@
       "id": "font_size",
       "label": "t:labels.font_size",
       "options": [
+        { "value": "display", "label": "t:options.heading_size.display" },
         { "value": "xs", "label": "t:options.text_size.xs" },
         { "value": "sm", "label": "t:options.text_size.sm" },
         { "value": "md", "label": "t:options.text_size.md" },
@@ -470,7 +472,7 @@
         { "value": "xl", "label": "t:options.text_size.xl" },
         { "value": "xxl", "label": "t:options.text_size.xxl" }
       ],
-      "default": "md"
+      "default": "display"
     }
   ],
   "presets": [
@@ -483,7 +485,7 @@
         "show_country_name": false,
         "show_country_flag": true,
         "show_language_selector": false,
-        "font_size": "md"
+        "font_size": "display"
       }
     }
   ]

@@ -1,3 +1,4 @@
+{%- capture theme_size_heading_size -%}{%- render 'typography-size-token', size: block.settings.heading_size, role: 'heading', fallback: 'sm' -%}{%- endcapture -%}
 {% doc %}
   Fixed collection filter role. Owns sidebar/drawer behavior and native Shopify facets.
 {% enddoc %}
@@ -27,7 +28,7 @@
  elsif filter_button_style == 'text'
   assign filter_button_style = 'tertiary'
  endif
- assign filter_heading_size = block.settings.heading_size | default: 'sm'
+ assign filter_heading_size = theme_size_heading_size | default: 'sm'
  case filter_heading_size
   when 'h3'
    assign filter_heading_size = 'lg'
@@ -419,6 +420,7 @@
       "id": "heading_size",
       "label": "t:labels.heading_size",
       "options": [
+        { "value": "display", "label": "t:options.heading_size.display" },
         {
           "value": "lg",
           "label": "t:options.heading_size.lg"
@@ -436,7 +438,7 @@
           "label": "t:options.heading_size.xs"
         }
       ],
-      "default": "sm"
+      "default": "display"
     },
     {
       "type": "select",

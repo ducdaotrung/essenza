@@ -63,11 +63,11 @@
                     "icon": "plus",
                     "heading_gap": 16,
                     "menu_gap": 8,
-                    "heading_size": "xs",
+                    "heading_size": "display",
                     "custom_heading_size": 24,
                     "html_tag": "h2",
                     "heading_color": "",
-                    "menu_size": "md",
+                    "menu_size": "display",
                     "menu_color": ""
                   },
                   "blocks": {}
@@ -107,11 +107,11 @@
                     "icon": "plus",
                     "heading_gap": 16,
                     "menu_gap": 8,
-                    "heading_size": "xs",
+                    "heading_size": "display",
                     "custom_heading_size": 24,
                     "html_tag": "h2",
                     "heading_color": "",
-                    "menu_size": "md",
+                    "menu_size": "display",
                     "menu_color": ""
                   },
                   "blocks": {}
@@ -177,7 +177,7 @@
                   "type": "heading",
                   "settings": {
                     "text": "<p>Join our newsletter and get 15% off your first purchase</p>",
-                    "heading_size": "xs",
+                    "heading_size": "display",
                     "custom_heading_size": 24,
                     "html_tag": "h2",
                     "text_color": "",
@@ -424,7 +424,7 @@
                   "type": "text",
                   "settings": {
                     "text": "<p>© 2026 Omnise. Powered by Shopify.</p>",
-                    "text_size": "sm",
+                    "text_size": "display",
                     "text_color": "",
                     "width": "fit",
                     "max_width": 640,
@@ -451,7 +451,7 @@
                     "show_country_name": false,
                     "show_country_flag": true,
                     "show_language_selector": true,
-                    "font_size": "md"
+                    "font_size": "display"
                   },
                   "blocks": {}
                 }
@@ -526,7 +526,7 @@
                   "settings": {
                     "gap_desktop": 24,
                     "gap_mobile": 12,
-                    "text_size": "xs",
+                    "text_size": "display",
                     "text_color": ""
                   },
                   "blocks": {}

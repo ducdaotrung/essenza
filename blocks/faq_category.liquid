@@ -1,14 +1,17 @@
+{%- assign theme_typography_tag = block.settings.html_tag | default: 'h4' -%}
+{%- capture theme_size_heading_size -%}{%- render 'typography-size-token', size: block.settings.heading_size, role: 'heading', fallback: 'md', tag: theme_typography_tag -%}{%- endcapture -%}
+{%- capture theme_size_heading_size_mobile -%}{%- render 'typography-size-token', size: block.settings.heading_size_mobile, role: 'heading', fallback: 'md', tag: theme_typography_tag -%}{%- endcapture -%}
 {% liquid
   assign faq_category_title = block.settings.title | default: 'FAQ category'
   assign faq_category_show_title = block.settings.show_title
   if faq_category_show_title == nil
     assign faq_category_show_title = true
   endif
-  assign faq_category_heading_size = block.settings.heading_size | default: 'md'
+  assign faq_category_heading_size = theme_size_heading_size | default: 'md'
   unless faq_category_heading_size == 'display' or faq_category_heading_size == 'xl' or faq_category_heading_size == 'lg' or faq_category_heading_size == 'md' or faq_category_heading_size == 'sm' or faq_category_heading_size == 'xs' or faq_category_heading_size == 'custom'
     assign faq_category_heading_size = 'md'
   endunless
-  assign faq_category_heading_size_mobile = block.settings.heading_size_mobile | default: 'md'
+  assign faq_category_heading_size_mobile = theme_size_heading_size_mobile | default: 'md'
   unless faq_category_heading_size_mobile == 'display' or faq_category_heading_size_mobile == 'xl' or faq_category_heading_size_mobile == 'lg' or faq_category_heading_size_mobile == 'md' or faq_category_heading_size_mobile == 'sm' or faq_category_heading_size_mobile == 'xs' or faq_category_heading_size_mobile == 'custom'
     assign faq_category_heading_size_mobile = 'md'
   endunless
@@ -85,7 +88,7 @@
         { "value": "xs", "label": "t:options.heading_size.xs" },
         { "value": "custom", "label": "t:options.heading_size.custom" }
       ],
-      "default": "md",
+      "default": "display",
       "visible_if": "{{ block.settings.show_title }}"
     },
     {
@@ -112,7 +115,7 @@
         { "value": "xs", "label": "t:options.heading_size.xs" },
         { "value": "custom", "label": "t:options.heading_size.custom" }
       ],
-      "default": "md",
+      "default": "display",
       "visible_if": "{{ block.settings.show_title }}"
     },
     {
@@ -155,7 +158,7 @@
       "settings": {
         "show_title": true,
         "title": "FAQ category",
-        "heading_size": "md",
+        "heading_size": "display",
         "html_tag": "h4"
       },
       "blocks": [

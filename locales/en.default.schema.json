@@ -1240,6 +1240,7 @@
       "check": "Check",
       "shield_check": "Shield check",
       "circle": "Circle",
+      "circle_fill": "Circle (filled)",
       "square": "Square",
       "triangle": "Triangle",
       "diamond": "Diamond",

@@ -1,9 +1,10 @@
+{%- capture theme_size_text_size -%}{%- render 'typography-size-token', size: block.settings.text_size, role: 'body', fallback: 'sm' -%}{%- endcapture -%}
 {% doc %}
   Renders the collection breadcrumb inside the collection banner.
   The current collection title and ancestor links come from Shopify routes.
 {% enddoc %}
 {% liquid
-  assign breadcrumb_size = block.settings.text_size | default: 'sm'
+  assign breadcrumb_size = theme_size_text_size | default: 'sm'
   unless breadcrumb_size == 'xs' or breadcrumb_size == 'sm' or breadcrumb_size == 'md' or breadcrumb_size == 'lg' or breadcrumb_size == 'xl'
     assign breadcrumb_size = 'sm'
   endunless
@@ -70,13 +71,14 @@
       "id": "text_size",
       "label": "Text size",
       "options": [
+        { "value": "display", "label": "t:options.heading_size.display" },
         { "value": "xs", "label": "Extra small" },
         { "value": "sm", "label": "Small" },
         { "value": "md", "label": "Medium" },
         { "value": "lg", "label": "Large" },
         { "value": "xl", "label": "Extra large" }
       ],
-      "default": "sm"
+      "default": "display"
     },
     {
       "type": "range",

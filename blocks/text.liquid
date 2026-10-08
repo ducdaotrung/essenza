@@ -11,9 +11,13 @@
 
 {% liquid
   assign text_size = block.settings.text_size | default: 'md'
-  unless text_size == 'xs' or text_size == 'sm' or text_size == 'md' or text_size == 'lg' or text_size == 'xl' or text_size == 'xxl'
+  unless text_size == 'display' or text_size == 'xs' or text_size == 'sm' or text_size == 'md' or text_size == 'lg' or text_size == 'xl' or text_size == 'xxl'
     assign text_size = 'md'
   endunless
+
+  if text_size == 'display'
+    assign text_size = 'md'
+  endif
 
   assign text_width_mode = block.settings.width | default: 'fit'
   unless text_width_mode == 'fit' or text_width_mode == 'fill' or text_width_mode == 'custom'
@@ -181,6 +185,7 @@
       "id": "text_size",
       "label": "t:labels.text_size",
       "options": [
+        { "value": "display", "label": "t:options.heading_size.display" },
         { "value": "xs", "label": "t:options.text_size.xs" },
         { "value": "sm", "label": "t:options.text_size.sm" },
         { "value": "md", "label": "t:options.text_size.md" },
@@ -188,7 +193,7 @@
         { "value": "xl", "label": "t:options.text_size.xl" },
         { "value": "xxl", "label": "t:options.text_size.xxl" }
       ],
-      "default": "md"
+      "default": "display"
     },
     {
       "type": "select",
@@ -364,7 +369,7 @@
       "category": "t:general.basic",
       "settings": {
         "text": "<p>Text</p>",
-        "text_size": "md",
+        "text_size": "display",
         "width": "fit",
         "customize_mobile_size": false,
         "max_width": 640,

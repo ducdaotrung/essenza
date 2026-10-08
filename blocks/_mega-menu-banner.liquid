@@ -1,3 +1,5 @@
+{%- capture theme_size_heading_size -%}{%- render 'typography-size-token', size: block.settings.heading_size, role: 'heading', fallback: 'lg' -%}{%- endcapture -%}
+{%- capture theme_size_text_size -%}{%- render 'typography-size-token', size: block.settings.text_size, role: 'body', fallback: 'md' -%}{%- endcapture -%}
 {% liquid
   assign banner_scheme = block.settings.color_scheme | default: 'scheme-1'
   if block.settings.color_scheme.id != blank
@@ -7,7 +9,7 @@
   if block.settings.open_new_tab
     assign banner_target = '_blank'
   endif
-  assign banner_heading_size = block.settings.heading_size | default: 'lg'
+  assign banner_heading_size = theme_size_heading_size | default: 'lg'
   unless banner_heading_size == 'display' or banner_heading_size == 'xl' or banner_heading_size == 'lg' or banner_heading_size == 'md' or banner_heading_size == 'sm' or banner_heading_size == 'xs' or banner_heading_size == 'custom'
     assign banner_heading_size = 'lg'
   endunless
@@ -15,7 +17,7 @@
   if banner_heading_custom_size < 10 or banner_heading_custom_size > 100
     assign banner_heading_custom_size = 24
   endif
-  assign banner_text_size = block.settings.text_size | default: 'md'
+  assign banner_text_size = theme_size_text_size | default: 'md'
   unless banner_text_size == 'xs' or banner_text_size == 'sm' or banner_text_size == 'md' or banner_text_size == 'lg' or banner_text_size == 'xl' or banner_text_size == 'xxl'
     assign banner_text_size = 'md'
   endunless
@@ -97,9 +99,10 @@
     { "type": "text_alignment", "id": "alignment", "label": "t:labels.alignment", "default": "left" },
     { "type": "select", "id": "content_position", "label": "Position", "options": [{ "value": "top", "label": "Top" }, { "value": "center", "label": "Center" }, { "value": "bottom", "label": "Bottom" }], "default": "bottom" },
     { "type": "header", "content": "t:general.typography" },
-    { "type": "select", "id": "heading_size", "label": "t:labels.heading_size", "options": [{ "value": "display", "label": "t:options.heading_size.display" }, { "value": "xl", "label": "t:options.heading_size.xl" }, { "value": "lg", "label": "t:options.heading_size.lg" }, { "value": "md", "label": "t:options.heading_size.md" }, { "value": "sm", "label": "t:options.heading_size.sm" }, { "value": "xs", "label": "t:options.heading_size.xs" }, { "value": "custom", "label": "t:options.heading_size.custom" }], "default": "lg" },
+    { "type": "select", "id": "heading_size", "label": "t:labels.heading_size", "options": [{ "value": "display", "label": "t:options.heading_size.display" }, { "value": "xl", "label": "t:options.heading_size.xl" }, { "value": "lg", "label": "t:options.heading_size.lg" }, { "value": "md", "label": "t:options.heading_size.md" }, { "value": "sm", "label": "t:options.heading_size.sm" }, { "value": "xs", "label": "t:options.heading_size.xs" }, { "value": "custom", "label": "t:options.heading_size.custom" }], "default": "display" },
     { "type": "range", "id": "custom_heading_size", "label": "Custom size", "min": 10, "max": 100, "step": 1, "unit": "px", "default": 24, "visible_if": "{{ block.settings.heading_size == 'custom' }}" },
-    { "type": "select", "id": "text_size", "label": "t:labels.text_size", "options": [{ "value": "xs", "label": "t:options.text_size.xs" }, { "value": "sm", "label": "t:options.text_size.sm" }, { "value": "md", "label": "t:options.text_size.md" }, { "value": "lg", "label": "t:options.text_size.lg" }, { "value": "xl", "label": "t:options.text_size.xl" }, { "value": "xxl", "label": "t:options.text_size.xxl" }], "default": "md" },
+    { "type": "select", "id": "text_size", "label": "t:labels.text_size", "options": [
+        { "value": "display", "label": "t:options.heading_size.display" },{ "value": "xs", "label": "t:options.text_size.xs" }, { "value": "sm", "label": "t:options.text_size.sm" }, { "value": "md", "label": "t:options.text_size.md" }, { "value": "lg", "label": "t:options.text_size.lg" }, { "value": "xl", "label": "t:options.text_size.xl" }, { "value": "xxl", "label": "t:options.text_size.xxl" }], "default": "display" },
     { "type": "header", "content": "t:general.button" },
     { "type": "text", "id": "label", "label": "t:labels.button_label" },
     { "type": "select", "id": "button_style", "label": "t:labels.style", "options": [{ "value": "primary", "label": "t:options.button_variant.primary" }, { "value": "secondary", "label": "t:options.button_variant.secondary" }, { "value": "tertiary", "label": "t:options.button_variant.tertiary" }], "default": "primary" },

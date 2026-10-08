@@ -13,7 +13,24 @@
   "sections": {
     "announcement-bar": {
       "type": "announcement-bar",
+      "blocks": {
+        "announcement-text": {
+          "type": "announcement-text",
+          "settings": {
+            "text": "Valentine’s day sale: Save up to 50% with code VALENTINE",
+            "show_chevron": true,
+            "text_color": "",
+            "width": "fill",
+            "max_width": 640
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "announcement-text"
+      ],
       "settings": {
+        "bottom_separator": false,
         "type": "slider",
         "speed": 1,
         "direction": "left",
@@ -24,31 +41,14 @@
         "font_size": "sm",
         "background_type": "none",
         "overlay": false,
+        "overlay_color": "#00000033",
         "gap": 16,
         "color_scheme": "scheme-4",
-        "bottom_separator": false,
         "padding_top": 8,
         "padding_right": 0,
         "padding_bottom": 8,
-        "padding_left": 0,
-        "overlay_color": "#00000033"
-      },
-      "blocks": {
-        "announcement-text": {
-          "type": "announcement-text",
-          "settings": {
-            "text": "Valentine’s day sale: Save up to 50% with code VALENTINE ",
-            "show_chevron": true,
-            "width": "fill",
-            "text_color": "",
-            "max_width": 640
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "announcement-text"
-      ]
+        "padding_left": 0
+      }
     },
     "header": {
       "type": "header",
@@ -74,12 +74,12 @@
                 "show_dropdown_icon": true,
                 "dropdown_trigger": "hover",
                 "font": "accent",
-                "font_size": "md",
+                "font_size": "display",
                 "letter_spacing": "normal",
                 "text_case": "original",
                 "text_color": "",
                 "submenu_font": "body",
-                "submenu_font_size": "md",
+                "submenu_font_size": "display",
                 "submenu_text_case": "original",
                 "submenu_text_color": ""
               },
@@ -98,7 +98,7 @@
                     "max_width": 850,
                     "collections": [],
                     "font": "accent",
-                    "font_size": "xl",
+                    "font_size": "display",
                     "letter_spacing": "normal"
                   },
                   "blocks": {
@@ -117,9 +117,9 @@
                         "text": "<p>Choose your favorites and save up to 20%.</p>",
                         "alignment": "left",
                         "content_position": "bottom",
-                        "heading_size": "lg",
+                        "heading_size": "display",
                         "custom_heading_size": 24,
-                        "text_size": "md",
+                        "text_size": "display",
                         "label": "",
                         "button_style": "primary",
                         "show_icon": false,
@@ -156,9 +156,9 @@
                         "text": "<p>Choose your favorites and save up to 20%.</p>",
                         "alignment": "left",
                         "content_position": "bottom",
-                        "heading_size": "lg",
+                        "heading_size": "display",
                         "custom_heading_size": 24,
-                        "text_size": "md",
+                        "text_size": "display",
                         "label": "",
                         "button_style": "primary",
                         "show_icon": false,
@@ -194,7 +194,9 @@
             "header-logo": {
               "type": "_header-logo",
               "settings": {
-                "position": "left"
+                "position": "left",
+                "customize_mobile_position": true,
+                "position_mobile": "center"
               },
               "blocks": {}
             },
@@ -211,7 +213,7 @@
                 "show_country_name": false,
                 "show_country_flag": false,
                 "show_language_selector": false,
-                "font_size": "md"
+                "font_size": "display"
               },
               "blocks": {}
             },
@@ -221,7 +223,7 @@
                 "type": "icon",
                 "label": "Search",
                 "font": "accent",
-                "font_size": "md",
+                "font_size": "display",
                 "letter_spacing": "relaxed"
               },
               "blocks": {}
@@ -232,7 +234,7 @@
                 "type": "icon",
                 "label": "Account",
                 "font": "accent",
-                "font_size": "md",
+                "font_size": "display",
                 "letter_spacing": "normal"
               },
               "blocks": {}

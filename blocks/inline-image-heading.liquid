@@ -1,15 +1,11 @@
 {% doc %}
-  Renders rich editorial text with a heading typography role and inline image markers.
-  [img1] through [img5] map to the ordered image settings; disabled or empty
-  image slots are omitted on the storefront. Scroll reveal is progressive enhancement.
-
-  The HTML tag can remain a div for editorial copy or use h1 through h6 for a heading.
+  Static heading with inline images, using the shared editorial renderer.
 {% enddoc %}
-{% render 'editorial-text-content', block: block %}
+{% render 'editorial-text-content', block: block, disable_scroll_reveal: true, show_image_placeholders: true %}
 
 {% schema %}
 {
-  "name": "Editorial text",
+  "name": "Inline image heading",
   "tag": null,
   "settings": [
     { "type": "header", "content": "t:general.content" },
@@ -20,7 +16,7 @@
       "info": "Insert [img1], [img2], and so on where you want images to appear. Numbers correspond to the image order.",
       "default": "<p>Use this text to share information about your brand, describe products, or highlight announcements. You can also promote special offers or communicate important messages to customers.</p>"
     },
-    {"type":"select","id":"html_tag","label":"t:labels.html_tag","info":"t:info.heading_html_tag","options":[{"value":"div","label":"t:options.html_tag.paragraph"},{"value":"h1","label":"t:options.html_tag.h1"},{"value":"h2","label":"t:options.html_tag.h2"},{"value":"h3","label":"t:options.html_tag.h3"},{"value":"h4","label":"t:options.html_tag.h4"},{"value":"h5","label":"t:options.html_tag.h5"},{"value":"h6","label":"t:options.html_tag.h6"}],"default":"div"},
+    {"type":"select","id":"html_tag","label":"t:labels.html_tag","info":"t:info.heading_html_tag","options":[{"value":"div","label":"t:options.html_tag.paragraph"},{"value":"h1","label":"t:options.html_tag.h1"},{"value":"h2","label":"t:options.html_tag.h2"},{"value":"h3","label":"t:options.html_tag.h3"},{"value":"h4","label":"t:options.html_tag.h4"},{"value":"h5","label":"t:options.html_tag.h5"},{"value":"h6","label":"t:options.html_tag.h6"}],"default":"h2"},
     {
       "type": "select",
       "id": "size",
@@ -95,10 +91,6 @@
       "default": 480,
       "visible_if": "{{ block.settings.customize_mobile_size and block.settings.width_mobile == 'custom' }}"
     },
-    {"type": "header", "content": "Scroll settings"},
-    {"type": "checkbox", "id": "enable_scroll_reveal", "label": "Enable scroll reveal", "default": true},
-    {"type": "select", "id": "scroll_speed", "label": "Scroll speed", "options": [{"value": "slow", "label": "Slow"}, {"value": "medium", "label": "Medium"}, {"value": "fast", "label": "Fast"}], "default": "medium", "visible_if": "{{ block.settings.enable_scroll_reveal }}"},
-    {"type": "range", "id": "start_opacity", "label": "Start opacity", "min": 0, "max": 100, "step": 1, "unit": "%", "default": 30, "visible_if": "{{ block.settings.enable_scroll_reveal }}"},
     {"type": "header", "content": "Image 1"},
     {"type": "checkbox", "id": "show_image_1", "label": "Show image", "default": false},
     {"type": "image_picker", "id": "image_1", "label": "t:labels.image", "visible_if": "{{ block.settings.show_image_1 }}"},
@@ -120,20 +112,6 @@
     {"type": "range", "id": "image_width_mobile_3", "label": "t:labels.mobile_width", "min": 20, "max": 300, "step": 4, "unit": "px", "default": 64, "visible_if": "{{ block.settings.show_image_3 }}"},
     {"type": "url", "id": "image_link_3", "label": "t:labels.link", "visible_if": "{{ block.settings.show_image_3 }}"},
     {"type": "checkbox", "id": "image_new_tab_3", "label": "t:labels.open_in_new_tab", "default": false, "visible_if": "{{ block.settings.show_image_3 }}"},
-    {"type": "header", "content": "Image 4"},
-    {"type": "checkbox", "id": "show_image_4", "label": "Show image", "default": false},
-    {"type": "image_picker", "id": "image_4", "label": "t:labels.image", "visible_if": "{{ block.settings.show_image_4 }}"},
-    {"type": "range", "id": "image_width_4", "label": "t:labels.desktop_width", "min": 20, "max": 500, "step": 5, "unit": "px", "default": 90, "visible_if": "{{ block.settings.show_image_4 }}"},
-    {"type": "range", "id": "image_width_mobile_4", "label": "t:labels.mobile_width", "min": 20, "max": 300, "step": 4, "unit": "px", "default": 64, "visible_if": "{{ block.settings.show_image_4 }}"},
-    {"type": "url", "id": "image_link_4", "label": "t:labels.link", "visible_if": "{{ block.settings.show_image_4 }}"},
-    {"type": "checkbox", "id": "image_new_tab_4", "label": "t:labels.open_in_new_tab", "default": false, "visible_if": "{{ block.settings.show_image_4 }}"},
-    {"type": "header", "content": "Image 5"},
-    {"type": "checkbox", "id": "show_image_5", "label": "Show image", "default": false},
-    {"type": "image_picker", "id": "image_5", "label": "t:labels.image", "visible_if": "{{ block.settings.show_image_5 }}"},
-    {"type": "range", "id": "image_width_5", "label": "t:labels.desktop_width", "min": 20, "max": 500, "step": 5, "unit": "px", "default": 90, "visible_if": "{{ block.settings.show_image_5 }}"},
-    {"type": "range", "id": "image_width_mobile_5", "label": "t:labels.mobile_width", "min": 20, "max": 300, "step": 4, "unit": "px", "default": 64, "visible_if": "{{ block.settings.show_image_5 }}"},
-    {"type": "url", "id": "image_link_5", "label": "t:labels.link", "visible_if": "{{ block.settings.show_image_5 }}"},
-    {"type": "checkbox", "id": "image_new_tab_5", "label": "t:labels.open_in_new_tab", "default": false, "visible_if": "{{ block.settings.show_image_5 }}"},
     {"type": "header", "content": "Border"},
     {"type": "select", "id": "corner_radius", "label": "Image border radius", "options": [{"value": "inherit", "label": "Default"}, {"value": "square", "label": "t:options.radius_preset.square"}, {"value": "rounded", "label": "t:options.radius_preset.rounded"}, {"value": "full", "label": "t:options.radius_preset.full"}, {"value": "custom", "label": "t:options.radius_preset.custom"}], "default": "inherit"},
     {"type": "range", "id": "custom_corner_radius", "label": "t:labels.custom_corner_radius", "min": 0, "max": 40, "step": 1, "unit": "px", "default": 0, "visible_if": "{{ block.settings.corner_radius == 'custom' }}"},
@@ -150,7 +128,7 @@
   ],
   "presets": [
     {
-      "name": "Editorial text",
+      "name": "Inline image heading",
       "category": "t:general.basic",
       "settings": { "size": "display", "width": "custom", "max_width": 900 }
     }

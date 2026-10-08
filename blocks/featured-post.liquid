@@ -1,4 +1,5 @@
-{% capture normalized_heading_size %}{% render 'heading-size-token', size: block.settings.title_size, fallback: 'xl' %}{% endcapture %}
+{%- capture theme_size_title_size -%}{%- render 'typography-size-token', size: block.settings.title_size, role: 'heading', fallback: 'xl', tag: 'h2' -%}{%- endcapture -%}
+{% capture normalized_heading_size %}{% render 'heading-size-token', size: theme_size_title_size, fallback: 'xl' %}{% endcapture %}
 {% assign normalized_heading_size = normalized_heading_size | strip %}
 {% doc %}
   Renders the first article as a featured blog post with optional content.
@@ -318,7 +319,7 @@
           "label": "t:options.heading_size.custom"
         }
       ],
-      "default": "xl",
+      "default": "display",
       "visible_if": "{{ block.settings.show_title }}"
     },
     {

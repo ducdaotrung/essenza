@@ -16,7 +16,7 @@
           "type": "heading",
           "settings": {
             "text": "<p>Collections list</p>",
-            "heading_size": "xl",
+            "heading_size": "display",
             "html_tag": "h1"
           }
         },
@@ -37,7 +37,7 @@
                 "collection-card-title-0": {
                   "type": "collection-card-title",
                   "settings": {
-                    "heading_size": "md",
+                    "heading_size": "display",
                     "html_tag": "h4"
                   }
                 }

@@ -1,3 +1,4 @@
+{%- capture theme_size_heading_size -%}{%- render 'typography-size-token', size: block.settings.heading_size, role: 'heading', fallback: 'sm' -%}{%- endcapture -%}
 {% doc %}
   Renders a product disclosure with content sourced from the product
   description or a merchant-authored rich text value.
@@ -21,7 +22,7 @@
     assign accordion_icon = 'plus'
   endunless
 
-  assign accordion_heading_size = block.settings.heading_size | default: 'sm'
+  assign accordion_heading_size = theme_size_heading_size | default: 'sm'
   unless accordion_heading_size == 'display' or accordion_heading_size == 'xl' or accordion_heading_size == 'lg' or accordion_heading_size == 'md' or accordion_heading_size == 'sm' or accordion_heading_size == 'xs' or accordion_heading_size == 'custom'
     assign accordion_heading_size = 'sm'
   endunless
@@ -235,7 +236,7 @@
         { "value": "xs", "label": "t:options.heading_size.xs" },
         { "value": "custom", "label": "t:options.heading_size.custom" }
       ],
-      "default": "sm"
+      "default": "display"
     },
     {
       "type": "range",

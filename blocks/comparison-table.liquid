@@ -1,3 +1,5 @@
+{%- capture theme_size_heading_size -%}{%- render 'typography-size-token', size: block.settings.heading_size, role: 'body', fallback: 'md' -%}{%- endcapture -%}
+{%- capture theme_size_description_font_size -%}{%- render 'typography-size-token', size: block.settings.description_font_size, role: 'body', fallback: 'md' -%}{%- endcapture -%}
 {% liquid
   assign comparison_table_row_style = block.settings.row_style | default: 'background'
   unless comparison_table_row_style == 'border' or comparison_table_row_style == 'background'
@@ -119,7 +121,7 @@
   endif
 
   assign comparison_table_heading_font = block.settings.heading_font | default: 'heading'
-  assign comparison_table_heading_size = block.settings.heading_size | default: 'md'
+  assign comparison_table_heading_size = theme_size_heading_size | default: 'md'
   unless comparison_table_heading_size == 'xs' or comparison_table_heading_size == 'sm' or comparison_table_heading_size == 'md' or comparison_table_heading_size == 'lg' or comparison_table_heading_size == 'xl' or comparison_table_heading_size == 'xxl'
     assign comparison_table_heading_size = 'md'
   endunless
@@ -140,7 +142,7 @@
       assign comparison_table_description_font_family = 'var(--font-accent-family)'
       assign comparison_table_description_font_weight = 'var(--font-accent-weight)'
   endcase
-  assign comparison_table_description_font_size = block.settings.description_font_size | default: 'md'
+  assign comparison_table_description_font_size = theme_size_description_font_size | default: 'md'
   unless comparison_table_description_font_size == 'xs' or comparison_table_description_font_size == 'sm' or comparison_table_description_font_size == 'md' or comparison_table_description_font_size == 'lg' or comparison_table_description_font_size == 'xl' or comparison_table_description_font_size == 'xxl'
     assign comparison_table_description_font_size = 'md'
   endunless
@@ -867,6 +869,7 @@
       "id": "heading_size",
       "label": "t:labels.heading_size",
       "options": [
+        { "value": "display", "label": "t:options.heading_size.display" },
         {
           "value": "xs",
           "label": "t:options.text_size.xs"
@@ -892,7 +895,7 @@
           "label": "t:options.text_size.xxl"
         }
       ],
-      "default": "md"
+      "default": "display"
     },
     {
       "type": "select",
@@ -919,6 +922,7 @@
       "id": "description_font_size",
       "label": "Description font size",
       "options": [
+        { "value": "display", "label": "t:options.heading_size.display" },
         {
           "value": "xs",
           "label": "t:options.text_size.xs"
@@ -944,7 +948,7 @@
           "label": "t:options.text_size.xxl"
         }
       ],
-      "default": "md"
+      "default": "display"
     },
     {
       "type": "header",

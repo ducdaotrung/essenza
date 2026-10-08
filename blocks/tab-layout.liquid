@@ -1,3 +1,4 @@
+{%- capture theme_size_heading_size -%}{%- render 'typography-size-token', size: block.settings.heading_size, role: 'heading', fallback: 'lg' -%}{%- endcapture -%}
 {% doc %}
   Renders the fixed navigation composition for a Collection Tabs section.
   Collection Tab blocks are supplied by the section at the same level as this
@@ -35,7 +36,7 @@
     assign tab_layout_font = 'body'
   endunless
 
-  assign tab_layout_font_size = block.settings.heading_size
+  assign tab_layout_font_size = theme_size_heading_size
   if tab_layout_font_size == blank
     assign tab_layout_font_size = block.settings.font_size
   endif
@@ -785,7 +786,7 @@
         { "value": "xs", "label": "t:options.heading_size.xs" },
         { "value": "custom", "label": "t:options.heading_size.custom" }
       ],
-      "default": "lg"
+      "default": "display"
     },
     {
       "type": "range",
@@ -810,7 +811,7 @@
         "gap_desktop": 16,
         "gap_mobile": 16,
         "font": "body",
-        "heading_size": "lg"
+        "heading_size": "display"
       }
     }
   ]

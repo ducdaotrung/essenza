@@ -1,3 +1,4 @@
+{%- capture theme_size_progress_font_size -%}{%- render 'typography-size-token', size: block.settings.progress_font_size, role: 'body', fallback: 'md' -%}{%- endcapture -%}
 {% liquid
   assign bundle_summary_desktop_scheme = block.settings.desktop_color_scheme | default: 'scheme-1'
   if block.settings.desktop_color_scheme.id != blank
@@ -31,7 +32,7 @@
 
   assign bundle_summary_initial_message = block.settings.initial_message | strip_html | strip
   assign bundle_summary_unlocked_message = block.settings.unlocked_message | strip_html | strip
-  assign bundle_summary_message_font_size = block.settings.progress_font_size | default: 'md'
+  assign bundle_summary_message_font_size = theme_size_progress_font_size | default: 'md'
   unless bundle_summary_message_font_size == 'xs' or bundle_summary_message_font_size == 'sm' or bundle_summary_message_font_size == 'md' or bundle_summary_message_font_size == 'lg' or bundle_summary_message_font_size == 'xl' or bundle_summary_message_font_size == 'xxl'
     assign bundle_summary_message_font_size = 'md'
   endunless
@@ -993,7 +994,8 @@
     { "type": "header", "content": "Message" },
     { "type": "inline_richtext", "id": "initial_message", "label": "Initial message", "default": "Add [x] more items to unlock [label]!", "info": "Use [x] for the remaining amount or quantity needed to reach the next goal, and [label] for the upcoming goal label." },
     { "type": "inline_richtext", "id": "unlocked_message", "label": "Reward unlocked message", "default": "🎉 Your offer is unlocked!" },
-    { "type": "select", "id": "progress_font_size", "label": "t:labels.font_size", "options": [{ "value": "xs", "label": "t:options.text_size.xs" }, { "value": "sm", "label": "t:options.text_size.sm" }, { "value": "md", "label": "t:options.text_size.md" }, { "value": "lg", "label": "t:options.text_size.lg" }, { "value": "xl", "label": "t:options.text_size.xl" }, { "value": "xxl", "label": "t:options.text_size.xxl" }], "default": "md" },
+    { "type": "select", "id": "progress_font_size", "label": "t:labels.font_size", "options": [
+        { "value": "display", "label": "t:options.heading_size.display" },{ "value": "xs", "label": "t:options.text_size.xs" }, { "value": "sm", "label": "t:options.text_size.sm" }, { "value": "md", "label": "t:options.text_size.md" }, { "value": "lg", "label": "t:options.text_size.lg" }, { "value": "xl", "label": "t:options.text_size.xl" }, { "value": "xxl", "label": "t:options.text_size.xxl" }], "default": "display" },
     { "type": "color", "id": "progress_color", "label": "Progress bar color", "default": "#32A84C" },
     { "type": "header", "content": "Discount settings" },
     { "type": "paragraph", "content": "Enter the exact value you configured in Discounts in the Shopify admin. [Learn more](https://help.shopify.com/en/manual/products/bundles/shopify-bundles#product-bundles-and-discounts)." },
