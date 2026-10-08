@@ -301,6 +301,15 @@
     show_image_first_mobile: block.settings.show_image_first_mobile,
     separate_images: comparison_separate_images
   %}
+  {% assign comparison_product = block.settings.product %}
+  {% if comparison_product != blank %}
+    <div class="image-compare-block__product body-text body-md">
+      <a href="{{ comparison_product.url }}">{{ comparison_product.title | escape }}</a>
+      {% render 'price', item: comparison_product, context: 'product-card' %}
+    </div>
+  {% elsif block.settings.product_caption != blank %}
+    <div class="image-compare-block__product image-compare-block__product--caption body-text body-md">{{ block.settings.product_caption }}</div>
+  {% endif %}
 </div>
 
 {% stylesheet %}
@@ -309,6 +318,30 @@
     min-width: 0;
     padding-top: var(--image-compare-padding-top, 0px);
     padding-bottom: var(--image-compare-padding-bottom, 0px);
+  }
+
+  .image-compare-block__product {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  .image-compare-block__product a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .image-compare-block__product--caption strong {
+    font-weight: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .image-compare-block__product--caption p {
+    margin: 0;
   }
 
   @media (max-width: 767.98px) {
@@ -331,6 +364,8 @@
   "name": "t:general.image_comparison",
   "tag": null,
   "settings": [
+    { "type": "product", "id": "product", "label": "Product below comparison" },
+    { "type": "richtext", "id": "product_caption", "label": "Product caption", "info": "Shown when no product is selected. Selecting a product uses its actual title, link and price." },
     {
       "type": "select",
       "id": "comparison_style",

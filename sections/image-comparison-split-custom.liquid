@@ -197,12 +197,18 @@
 
   .image-comparison-split-custom__content--direction-horizontal > .group {
     grid-column: 1;
-    align-self: stretch;
+    align-self: var(--image-comparison-split-custom-content-align, center);
   }
 
   .image-comparison-split-custom__content--direction-horizontal > .image-compare-block {
     grid-column: 2;
     align-self: var(--image-comparison-split-custom-content-align, center);
+  }
+
+  .image-comparison-split-custom .image-compare__label {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 0;
   }
 
   @media (min-width: 768px) {
