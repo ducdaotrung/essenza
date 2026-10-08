@@ -35,11 +35,15 @@
     data-shop-the-look-block-id="{{ block.id }}"
     {{ block.shopify_attributes }}
   >
+    {% if block.settings.compact %}
+      {% render 'product-summary', product: shop_the_look_product, shop_look: true %}
+    {% else %}
     {% render 'product-card',
       product: shop_the_look_product,
       placeholder: shop_the_look_product_placeholder,
       class: 'shop-the-look-product__card'
     %}
+    {% endif %}
 
     <div class="shop-the-look-product__hotspot-source" data-shop-the-look-hotspot-source hidden aria-hidden="true">
       {% assign shop_the_look_hotspot_placeholder = false %}
@@ -95,6 +99,12 @@
   "name": "t:general.product",
   "tag": null,
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "compact",
+      "label": "Compact product row",
+      "default": false
+    },
     {
       "type": "product",
       "id": "product",

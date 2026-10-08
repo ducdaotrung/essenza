@@ -1,0 +1,63 @@
+<div style="--product-summary-font-size: {{ block.settings.font_size }}px; --product-summary-font-weight: {{ block.settings.font_weight }};" {{ block.shopify_attributes }}>
+{% render 'product-summary', product: block.settings.product, placeholder_title: block.settings.placeholder_title %}
+</div>
+{% schema %}
+{
+  "name": "Product summary",
+  "tag": "div",
+  "class": "product-summary-block",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product"
+    },
+    {
+      "type": "text",
+      "id": "placeholder_title",
+      "label": "Placeholder title",
+      "default": "Product title"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "label": "Font size",
+      "min": 10,
+      "max": 30,
+      "step": 1,
+      "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "select",
+      "id": "font_weight",
+      "label": "Font weight",
+      "options": [
+        {
+          "value": "400",
+          "label": "Regular"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semibold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
+      ],
+      "default": "600"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product summary",
+      "category": "t:general.product"
+    }
+  ]
+}
+{% endschema %}

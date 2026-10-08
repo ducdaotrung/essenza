@@ -1,0 +1,19 @@
+{
+  "contract": "pass",
+  "schema": "pass",
+  "liquid": "pass",
+  "css": "pass",
+  "javascript_syntax": "pass",
+  "responsive_code": "pass",
+  "accessibility_code": "pass",
+  "visual_preview": "blocked",
+  "theme_editor_lifecycle": "blocked",
+  "cart_runtime": "blocked",
+  "release": "blocked",
+  "notes": [
+    "Theme Check: 0 errors, 32 existing warnings.",
+    "Schema options and saved composition checked.",
+    "Storefront preview requires authentication; runtime and visual QA are not confirmed.",
+    "Example reviews and product names are placeholders; merchant must assign images and products."
+  ]
+}

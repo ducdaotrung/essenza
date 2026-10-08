@@ -1,0 +1,67 @@
+{% doc %} Video slide with an active-only product form. {% enddoc %}
+<article class="community-video-card swiper-slide" {{ block.shopify_attributes }}>
+  <div class="community-video-card__media">{% content_for 'blocks' %}</div>
+  <div class="community-video-card__product" data-community-product>
+    {% assign selected_product = block.settings.product %}
+    {% if selected_product != blank %}
+      {% assign product_unavailable = false %}{% unless selected_product.available %}{% assign product_unavailable = true %}{% endunless %}
+      {% assign card_form_id = 'CommunityProduct-' | append: section.id | append: '-' | append: block.id %}
+      {% form 'product', selected_product, id: card_form_id %}
+        {% render 'product-summary', product: selected_product, shop_look: true %}
+        {% render 'theme-button', label: 'Add to cart', type: 'submit', disabled: product_unavailable %}
+      {% endform %}
+    {% else %}
+      {% render 'product-summary', placeholder_title: 'Select a product' %}
+      {% render 'theme-button', label: 'Add to cart', disabled: true %}
+    {% endif %}
+  </div>
+</article>
+{% stylesheet %}
+.community-video-card { min-width:0; }
+.community-video-card__media { transform:scale(.9); transform-origin:center; transition:transform var(--motion-duration-standard); overflow:hidden; border-radius:16px; }
+.swiper-slide-active > .community-video-card__media { transform:scale(1); }
+.community-video-card__product { visibility:hidden; margin-top:16px; }
+.swiper-slide-active > .community-video-card__product { visibility:visible; }
+.community-video-card__product form { display:flex; flex-direction:column; gap:12px; }
+.community-video-card__product .product-summary { flex-wrap:wrap; }
+.community-video-card__product .product-summary__image { width:40px; height:40px; flex-basis:40px; }
+.community-video-card__product .product-summary__content { font-size:var(--font-body-md); }
+.community-video-card__product .btn { width:100%; }
+{% endstylesheet %}
+{% schema %}
+{
+  "name": "Video and product",
+  "tag": null,
+  "blocks": [
+    {
+      "type": "video"
+    }
+  ],
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Video and product",
+      "category": "Trust & social proof",
+      "blocks": [
+        {
+          "type": "video",
+          "settings": {
+            "aspect_ratio_desktop": "custom",
+            "custom_aspect_ratio_desktop": 0.6,
+            "aspect_ratio_mobile": "custom",
+            "custom_aspect_ratio_mobile": 0.6,
+            "width_desktop": "fill",
+            "width_mobile": "fill"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

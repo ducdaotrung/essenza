@@ -556,15 +556,20 @@ const initialize = (root) => {
   const manualLoopRequested = root.dataset.carouselManualLoop === 'true';
   const showNextSlidePreview = viewport.dataset.swiperNextSlidePreview === 'true';
   const desktopColumns = number(root.dataset.swiperColumnsDesktop, 4);
+  const mobileColumns = number(root.dataset.swiperColumnsMobile, 1);
+  const mobilePreviewRequested = viewport.dataset.swiperNextSlidePreviewMobile === 'true';
   const slideCount = Array.from(wrapper.children).filter((slide) => slide.classList.contains('swiper-slide')).length;
   const previewEnabled = showNextSlidePreview && slideCount > desktopColumns;
   viewport.dataset.swiperNextSlidePreview = String(previewEnabled);
   // The shared Swiper preview attribute is a CSS-only overflow hook. Sections
   // that require centered-slide runtime must opt in explicitly on their root.
   const useCenteredSlidePreview = root.dataset.showNextSlidePreviewOnDesktop === 'true';
+  const centerActiveSlide = root.dataset.carouselCentered === 'true';
   const transition = root.dataset.transition === 'fade' ? 'fade' : 'slide';
   const fade = transition === 'fade' && !useCenteredSlidePreview;
   if (fade) viewport.dataset.swiperNextSlidePreview = 'false';
+  const mobilePreviewEnabled = !fade && mobilePreviewRequested && mobileColumns === 1 && slideCount > 1;
+  viewport.dataset.swiperNextSlidePreviewMobile = String(mobilePreviewEnabled);
   const manualLoop = manualLoopRequested && loop ? createManualLoop(viewport) : null;
   const paginationModules = pagination && !manualLoop ? [Pagination] : [];
   const modules = fade ? [EffectFade, ...paginationModules] : paginationModules;
@@ -572,10 +577,11 @@ const initialize = (root) => {
     loop: loop && !manualLoop,
     initialSlide: manualLoop?.initialSlide || 0,
     effect: fade ? 'fade' : 'slide',
+    centeredSlides: centerActiveSlide,
     ...(fade ? { fadeEffect: { crossFade: true } } : {}),
     preventInteractionOnTransition: true,
     speed: prefersReducedMotion() ? 0 : 600,
-    slidesPerView: fade ? 1 : number(root.dataset.swiperColumnsMobile, 1),
+    slidesPerView: fade ? 1 : (mobilePreviewEnabled ? 1.2 : mobileColumns),
     spaceBetween: fade ? 0 : number(root.dataset.swiperGapMobile, 12),
     breakpoints: {
       [desktopBreakpoint]: {
@@ -675,8 +681,44 @@ const initialize = (root) => {
     updateFraction();
     fractionCleanup = () => swiper.off('init slideChange update', updateFraction);
   }
+  const pressSection = root.closest('[data-press-testimonials]');
+  const videoSection = root.closest('[data-community-videos]');
+  const syncActiveContent = () => {
+    if (swiper.destroyed) return;
+    const activeSlide = swiper.slides[swiper.activeIndex];
+    if (pressSection) {
+      const panel = pressSection.querySelector('[data-press-content]');
+      const quote = activeSlide?.querySelector('[data-press-quote]');
+      if (panel && quote) panel.innerHTML = quote.innerHTML;
+      root.querySelectorAll('[data-press-logo]').forEach((button) => button.setAttribute('aria-pressed', String(button.closest('.swiper-slide') === activeSlide)));
+    }
+    if (videoSection) {
+      root.querySelectorAll('.swiper-slide').forEach((slide) => {
+        const active = slide === activeSlide;
+        slide.querySelectorAll('video').forEach((video) => { if (!active) video.pause(); });
+        slide.querySelectorAll('[data-community-product]').forEach((panel) => { panel.inert = !active; });
+      });
+    }
+  };
+  const selectPressLogo = (event) => {
+    const button = event.target.closest('[data-press-logo]');
+    if (!button) return;
+    const slide = button.closest('.swiper-slide');
+    const index = Number(slide.dataset.swiperSlideIndex);
+    if (loop && Number.isFinite(index)) swiper.slideToLoop(index); else swiper.slideTo(swiper.slides.indexOf(slide));
+  };
+  if (pressSection || videoSection) {
+    swiper.on('slideChange update breakpoint', syncActiveContent);
+    if (pressSection) root.addEventListener('click', selectPressLogo);
+    syncActiveContent();
+  }
+  const activeContentCleanup = () => {
+    swiper.off('slideChange update breakpoint', syncActiveContent);
+    root.removeEventListener('click', selectPressLogo);
+  };
   const state = {
     swiper,
+    activeContentCleanup,
     testimonialGapCleanup,
     hotspotContentSchemeCleanup,
     lockedCleanup,
@@ -699,6 +741,7 @@ const initialize = (root) => {
 const destroy = (root) => {
   const state = instances.get(root);
   if (!state) return;
+  state.activeContentCleanup?.();
   state.autoplayCleanup?.();
   state.testimonialGapCleanup?.();
   state.hotspotContentSchemeCleanup?.();

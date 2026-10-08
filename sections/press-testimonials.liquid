@@ -1,0 +1,161 @@
+<section class="press-testimonials color-scheme {{ section.settings.color_scheme }}" data-press-testimonials style="--community-padding-top:{{ section.settings.padding_top }}px; --community-padding-bottom:{{ section.settings.padding_bottom }}px; --community-padding-top-mobile:{{ section.settings.padding_top_mobile }}px; --community-padding-bottom-mobile:{{ section.settings.padding_bottom_mobile }}px;">
+<div class="container page-width press-testimonials__content">
+<div class="press-testimonials__quote" data-press-content aria-live="polite" aria-atomic="true"></div>
+{% content_for 'blocks' %}
+</div></section>
+{% stylesheet %}
+.press-testimonials { padding-top:var(--community-padding-top,80px); padding-bottom:var(--community-padding-bottom,80px); overflow:hidden; }
+.press-testimonials__content { display:flex; flex-direction:column; gap:32px; }
+.press-testimonials .carousel-block__pagination--bullets { --swiper-pagination-bullet-active-width:8px; --swiper-pagination-bullet-active-height:8px; --swiper-pagination-bullet-active-hit-width:24px; }
+@media(max-width:767.98px) { .press-testimonials { padding-top:var(--community-padding-top-mobile,56px); padding-bottom:var(--community-padding-bottom-mobile,56px); } }
+.press-testimonials__quote { text-align:center; max-width:900px; margin-inline:auto; }
+.press-testimonials__quote p { margin:0; }
+.press-testimonials__content > .block-header { order:0; }
+.press-testimonials__quote { order:1; }
+.press-testimonials__content > .carousel-block { order:2; }
+{% endstylesheet %}
+{% schema %}
+{
+  "name": "Testimonials: Logos",
+  "tag": "div",
+  "blocks": [
+    {
+      "type": "header"
+    },
+    {
+      "type": "carousel"
+    }
+  ],
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding top mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding bottom mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 56
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials: Logos",
+      "category": "Trust & social proof",
+      "settings": {
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 56,
+        "padding_bottom_mobile": 56,
+        "color_scheme": "scheme-1"
+      },
+      "blocks": [
+        {
+          "type": "header",
+          "settings": {
+            "width": "fill",
+            "alignment": "center"
+          },
+          "blocks": [
+            {
+              "type": "text",
+              "settings": {
+                "text": "<p>ON PRESS</p>",
+                "text_size": "display"
+              }
+            }
+          ]
+        },
+        {
+          "type": "carousel",
+          "settings": {
+            "columns_desktop": "3",
+            "columns_mobile": "1",
+            "center_active_slide": true,
+            "loop": true,
+            "gap_desktop": 24,
+            "gap_mobile": 12,
+            "show_next_slide_preview_on_mobile": true,
+            "show_navigation_on_desktop": false,
+            "show_pagination_on_desktop": false,
+            "show_pagination_on_mobile": false
+          },
+          "blocks": [
+            {
+              "type": "press-testimonial-slide",
+              "settings": {
+                "name": "Marie Claire",
+                "quote": "<p>Beauty is an experience, a feeling that begins with self-care.</p>"
+              }
+            },
+            {
+              "type": "press-testimonial-slide",
+              "settings": {
+                "name": "L’Officiel",
+                "quote": "<p>A thoughtful approach to everyday skincare.</p>"
+              }
+            },
+            {
+              "type": "press-testimonial-slide",
+              "settings": {
+                "name": "M·A·C",
+                "quote": "<p>Beauty Is An Experience, A Feeling That Begins With Self-Care, Grows With Confidence, And Lingers Long After The First Impression.</p>"
+              }
+            },
+            {
+              "type": "press-testimonial-slide",
+              "settings": {
+                "name": "Vogue",
+                "quote": "<p>Discover beauty that fits your daily ritual.</p>"
+              }
+            },
+            {
+              "type": "press-testimonial-slide",
+              "settings": {
+                "name": "Lancôme",
+                "quote": "<p>Care for your skin, and let your confidence shine.</p>"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,251 @@
+<section class="community-video-carousel color-scheme {{ section.settings.color_scheme }}" data-community-videos style="--community-padding-top:{{ section.settings.padding_top }}px; --community-padding-bottom:{{ section.settings.padding_bottom }}px; --community-padding-top-mobile:{{ section.settings.padding_top_mobile }}px; --community-padding-bottom-mobile:{{ section.settings.padding_bottom_mobile }}px;">
+<div class="container page-width community-video-carousel__content">
+{% content_for 'blocks' %}
+</div></section>
+{% stylesheet %}
+.community-video-carousel { padding-top:var(--community-padding-top,80px); padding-bottom:var(--community-padding-bottom,80px); overflow:hidden; }
+.community-video-carousel__content { display:flex; flex-direction:column; gap:32px; }
+.community-video-carousel .carousel-block__pagination--bullets { --swiper-pagination-bullet-active-width:8px; --swiper-pagination-bullet-active-height:8px; --swiper-pagination-bullet-active-hit-width:24px; }
+@media(max-width:767.98px) { .community-video-carousel { padding-top:var(--community-padding-top-mobile,56px); padding-bottom:var(--community-padding-bottom-mobile,56px); } }
+{% endstylesheet %}
+{% schema %}
+{
+  "name": "Community videos",
+  "tag": "div",
+  "blocks": [
+    {
+      "type": "header"
+    },
+    {
+      "type": "carousel"
+    }
+  ],
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-4"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding top mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding bottom mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 56
+    }
+  ],
+  "presets": [
+    {
+      "name": "Community videos",
+      "category": "Trust & social proof",
+      "settings": {
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 56,
+        "padding_bottom_mobile": 56,
+        "color_scheme": "scheme-4"
+      },
+      "blocks": [
+        {
+          "type": "header",
+          "settings": {
+            "width": "fill",
+            "alignment": "center"
+          },
+          "blocks": [
+            {
+              "type": "heading",
+              "settings": {
+                "text": "<p>Loved By The Community</p>",
+                "heading_size": "display",
+                "html_tag": "h2"
+              }
+            },
+            {
+              "type": "text",
+              "settings": {
+                "text": "<p>Catch our bestsellers in action</p>",
+                "text_size": "display"
+              }
+            }
+          ]
+        },
+        {
+          "type": "carousel",
+          "settings": {
+            "columns_desktop": "5",
+            "columns_mobile": "1",
+            "center_active_slide": true,
+            "loop": true,
+            "show_next_slide_preview_on_desktop": true,
+            "show_next_slide_preview_on_mobile": true,
+            "gap_desktop": 24,
+            "gap_mobile": 12,
+            "show_navigation_on_desktop": false,
+            "show_pagination_on_desktop": true,
+            "show_pagination_on_mobile": true,
+            "pagination_type": "bullets",
+            "pagination_padding_desktop": 24,
+            "pagination_padding_mobile": 24
+          },
+          "blocks": [
+            {
+              "type": "video-product-slide",
+              "settings": {},
+              "blocks": [
+                {
+                  "type": "video",
+                  "settings": {
+                    "aspect_ratio_desktop": "custom",
+                    "custom_aspect_ratio_desktop": 0.6,
+                    "aspect_ratio_mobile": "custom",
+                    "custom_aspect_ratio_mobile": 0.6,
+                    "width_desktop": "fill",
+                    "width_mobile": "fill"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "video-product-slide",
+              "settings": {},
+              "blocks": [
+                {
+                  "type": "video",
+                  "settings": {
+                    "aspect_ratio_desktop": "custom",
+                    "custom_aspect_ratio_desktop": 0.6,
+                    "aspect_ratio_mobile": "custom",
+                    "custom_aspect_ratio_mobile": 0.6,
+                    "width_desktop": "fill",
+                    "width_mobile": "fill"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "video-product-slide",
+              "settings": {},
+              "blocks": [
+                {
+                  "type": "video",
+                  "settings": {
+                    "aspect_ratio_desktop": "custom",
+                    "custom_aspect_ratio_desktop": 0.6,
+                    "aspect_ratio_mobile": "custom",
+                    "custom_aspect_ratio_mobile": 0.6,
+                    "width_desktop": "fill",
+                    "width_mobile": "fill"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "video-product-slide",
+              "settings": {},
+              "blocks": [
+                {
+                  "type": "video",
+                  "settings": {
+                    "aspect_ratio_desktop": "custom",
+                    "custom_aspect_ratio_desktop": 0.6,
+                    "aspect_ratio_mobile": "custom",
+                    "custom_aspect_ratio_mobile": 0.6,
+                    "width_desktop": "fill",
+                    "width_mobile": "fill"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "video-product-slide",
+              "settings": {},
+              "blocks": [
+                {
+                  "type": "video",
+                  "settings": {
+                    "aspect_ratio_desktop": "custom",
+                    "custom_aspect_ratio_desktop": 0.6,
+                    "aspect_ratio_mobile": "custom",
+                    "custom_aspect_ratio_mobile": 0.6,
+                    "width_desktop": "fill",
+                    "width_mobile": "fill"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "video-product-slide",
+              "settings": {},
+              "blocks": [
+                {
+                  "type": "video",
+                  "settings": {
+                    "aspect_ratio_desktop": "custom",
+                    "custom_aspect_ratio_desktop": 0.6,
+                    "aspect_ratio_mobile": "custom",
+                    "custom_aspect_ratio_mobile": 0.6,
+                    "width_desktop": "fill",
+                    "width_mobile": "fill"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "video-product-slide",
+              "settings": {},
+              "blocks": [
+                {
+                  "type": "video",
+                  "settings": {
+                    "aspect_ratio_desktop": "custom",
+                    "custom_aspect_ratio_desktop": 0.6,
+                    "aspect_ratio_mobile": "custom",
+                    "custom_aspect_ratio_mobile": 0.6,
+                    "width_desktop": "fill",
+                    "width_mobile": "fill"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

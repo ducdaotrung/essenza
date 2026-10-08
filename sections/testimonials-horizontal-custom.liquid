@@ -56,6 +56,8 @@
 %}
 
 {% capture testimonials_horizontal_custom_style %}
+  --testimonial-card-radius: {{ section.settings.item_radius | default: 16 }}px;
+  --testimonial-dot-gap: {{ section.settings.dot_gap | default: 16 }}px;
   {% if testimonials_horizontal_custom_alignment != 'start' %}--flex-align: {{ testimonials_horizontal_custom_alignment }};{% endif %}
   {% if section.settings.customize_mobile_alignment and testimonials_horizontal_custom_alignment_mobile != testimonials_horizontal_custom_alignment %}--flex-align-mobile: {{ testimonials_horizontal_custom_alignment_mobile }};{% endif %}
   {% if testimonials_horizontal_custom_padding_top != 0 %}--section-padding-top: {{ testimonials_horizontal_custom_padding_top }}px;{% endif %}
@@ -98,6 +100,22 @@
 {% endif %}
 
 {% stylesheet %}
+  .testimonials-horizontal-custom .carousel-slide > .group {
+    border-radius: var(--testimonial-card-radius, 16px);
+  }
+  .testimonials-horizontal-custom .carousel-block__pagination--bullets {
+    --swiper-pagination-bullet-size: 8px;
+    --swiper-pagination-bullet-width: 8px;
+    --swiper-pagination-bullet-height: 8px;
+    --swiper-pagination-bullet-active-width: 8px;
+    --swiper-pagination-bullet-active-height: 8px;
+    --swiper-pagination-bullet-hit-width: 24px;
+    --swiper-pagination-bullet-active-hit-width: 24px;
+    --swiper-pagination-bullet-gap: max(0px, calc(var(--testimonial-dot-gap, 16px) - 16px));
+  }
+
+  .testimonials-horizontal-custom .carousel-slide .icon-block { color: #ffb800; }
+  .testimonials-horizontal-custom .carousel-slide > .group > .divider-block { margin-top: auto; }
   .testimonials-horizontal-custom {
     width: 100%;
     min-width: 0;
@@ -168,10 +186,18 @@
 {
   "name": "t:general.testimonials_horizontal_custom",
   "class": "section-testimonials-horizontal-custom",
-  "enabled_on": { "templates": ["*"] },
+  "enabled_on": {
+    "templates": [
+      "*"
+    ]
+  },
   "blocks": [
-    { "type": "@theme" },
-    { "type": "@app" }
+    {
+      "type": "header"
+    },
+    {
+      "type": "carousel"
+    }
   ],
   "settings": [
     {
@@ -183,9 +209,18 @@
       "id": "section_width",
       "label": "t:labels.section_width",
       "options": [
-        { "value": "page_width", "label": "t:options.section_width.page_width" },
-        { "value": "full_width", "label": "t:options.section_width.full_width" },
-        { "value": "full_width_no_padding", "label": "t:options.section_width.full_width_no_padding" }
+        {
+          "value": "page_width",
+          "label": "t:options.section_width.page_width"
+        },
+        {
+          "value": "full_width",
+          "label": "t:options.section_width.full_width"
+        },
+        {
+          "value": "full_width_no_padding",
+          "label": "t:options.section_width.full_width_no_padding"
+        }
       ],
       "default": "page_width"
     },
@@ -194,9 +229,18 @@
       "id": "alignment",
       "label": "t:labels.alignment",
       "options": [
-        { "value": "left", "label": "t:options.alignment.left" },
-        { "value": "center", "label": "t:options.alignment.center" },
-        { "value": "right", "label": "t:options.alignment.right" }
+        {
+          "value": "left",
+          "label": "t:options.alignment.left"
+        },
+        {
+          "value": "center",
+          "label": "t:options.alignment.center"
+        },
+        {
+          "value": "right",
+          "label": "t:options.alignment.right"
+        }
       ],
       "default": "center"
     },
@@ -211,9 +255,18 @@
       "id": "alignment_mobile",
       "label": "t:labels.alignment_mobile",
       "options": [
-        { "value": "left", "label": "t:options.alignment.left" },
-        { "value": "center", "label": "t:options.alignment.center" },
-        { "value": "right", "label": "t:options.alignment.right" }
+        {
+          "value": "left",
+          "label": "t:options.alignment.left"
+        },
+        {
+          "value": "center",
+          "label": "t:options.alignment.center"
+        },
+        {
+          "value": "right",
+          "label": "t:options.alignment.right"
+        }
       ],
       "default": "center",
       "visible_if": "{{ section.settings.customize_mobile_alignment }}"
@@ -303,6 +356,26 @@
       "unit": "px",
       "default": 0,
       "visible_if": "{{ section.settings.customize_mobile_padding }}"
+    },
+    {
+      "type": "range",
+      "id": "item_radius",
+      "label": "Item border radius",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "dot_gap",
+      "label": "Dot gap",
+      "min": 16,
+      "max": 48,
+      "step": 1,
+      "default": 16,
+      "unit": "px"
     }
   ],
   "presets": [
@@ -314,39 +387,29 @@
         "alignment": "center",
         "customize_mobile_alignment": false,
         "alignment_mobile": "center",
-        "gap_desktop": 40,
+        "gap_desktop": 32,
         "gap_mobile": 32,
         "color_scheme": "scheme-1",
-        "padding_top": 16,
-        "padding_bottom": 16,
-        "customize_mobile_padding": false,
-        "padding_top_mobile": 16,
-        "padding_bottom_mobile": 16
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "customize_mobile_padding": true,
+        "padding_top_mobile": 56,
+        "padding_bottom_mobile": 56,
+        "item_radius": 16,
+        "dot_gap": 16
       },
       "blocks": [
         {
           "type": "header",
           "settings": {
-            "width": "fit",
-            "customize_mobile_size": false,
-            "alignment": "center",
-            "customize_mobile_alignment": false,
-            "alignment_mobile": "center",
-            "gap_desktop": 8,
-            "gap_mobile": 8,
-            "customize_mobile_padding": false
+            "width": "fill",
+            "alignment": "center"
           },
           "blocks": [
             {
-              "type": "eyebrow",
-              "settings": {
-                "text": "<p>SECTION TAG</p>"
-              }
-            },
-            {
               "type": "heading",
               "settings": {
-                "text": "<p>Main Heading Placeholder</p>",
+                "text": "<p>Real People, Real Results</p>",
                 "heading_size": "display",
                 "html_tag": "h2"
               }
@@ -358,71 +421,118 @@
           "settings": {
             "columns_desktop": "3",
             "columns_mobile": "1",
-            "gap_desktop": 56,
-            "gap_mobile": 24,
+            "gap_desktop": 24,
+            "gap_mobile": 12,
             "width": "fill",
             "show_navigation_on_desktop": false,
-            "show_pagination_on_desktop": false,
-            "show_pagination_on_mobile": false,
-            "autoplay": false,
+            "show_pagination_on_desktop": true,
+            "show_pagination_on_mobile": true,
+            "pagination_type": "bullets",
+            "pagination_padding_desktop": 24,
+            "pagination_padding_mobile": 24,
             "loop": false,
-            "padding_top": 0,
-            "padding_bottom": 0,
-            "customize_mobile_padding": false
+            "autoplay": false,
+            "show_next_slide_preview_on_mobile": true
           },
           "blocks": [
             {
               "type": "slide",
               "settings": {
                 "direction": "vertical",
-                "alignment": "center",
-                "gap_desktop": 24,
-                "gap_mobile": 12,
+                "alignment": "left",
                 "height": "fill",
-                "appearance_type": "inherit",
-                "border_type": "none",
-                "corner_radius": "square",
-                "shadow": "none",
-                "customize_mobile_padding": false
+                "gap_desktop": 24,
+                "gap_mobile": 24,
+                "appearance_type": "scheme",
+                "background_color": "#ffffff",
+                "corner_radius": "rounded",
+                "padding_top": 32,
+                "padding_bottom": 32,
+                "padding_left": 32,
+                "padding_right": 32,
+                "color_scheme": "scheme-1",
+                "customize_mobile_padding": true,
+                "padding_top_mobile": 20,
+                "padding_bottom_mobile": 20,
+                "padding_left_mobile": 20,
+                "padding_right_mobile": 20
               },
               "blocks": [
                 {
-                  "type": "image",
+                  "type": "group",
                   "settings": {
-                    "image_ratio_desktop": "custom",
-                    "image_ratio_custom_width_desktop": 2,
-                    "image_ratio_custom_height_desktop": 1,
-                    "image_ratio_mobile": "custom",
-                    "image_ratio_custom_width_mobile": 2,
-                    "image_ratio_custom_height_mobile": 1,
-                    "width_desktop": "custom",
-                    "width_custom_desktop": 40,
-                    "width_mobile": "custom",
-                    "width_custom_mobile": 40,
-                    "limit_width_desktop": false,
-                    "limit_width_mobile": false,
-                    "corner_radius": "square"
+                    "direction": "horizontal",
+                    "width": "fill",
+                    "height": "fit",
+                    "gap_desktop": 16,
+                    "gap_mobile": 12,
+                    "position_horizontal": "top",
+                    "customize_mobile_alignment": false
+                  },
+                  "blocks": [
+                    {
+                      "type": "group",
+                      "settings": {
+                        "direction": "vertical",
+                        "width": "fill",
+                        "height": "fit",
+                        "gap_desktop": 8,
+                        "gap_mobile": 8,
+                        "alignment": "left"
+                      },
+                      "blocks": [
+                        {
+                          "type": "text",
+                          "settings": {
+                            "text": "<p>Jennie K.</p>",
+                            "text_size": "display"
+                          }
+                        },
+                        {
+                          "type": "icon",
+                          "settings": {
+                            "icon": "five-stars",
+                            "source": "library",
+                            "icon_width": 74
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "settings": {
+                            "text": "<p>The products feel luxurious, absorb quickly, and leave my skin hydrated.</p>",
+                            "text_size": "display"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "image",
+                      "settings": {
+                        "image_ratio_desktop": "portrait",
+                        "image_ratio_mobile": "portrait",
+                        "width_desktop": "custom",
+                        "width_custom_desktop": 25,
+                        "width_mobile": "custom",
+                        "width_custom_mobile": 25,
+                        "corner_radius": "rounded"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "divider",
+                  "settings": {
+                    "width": "full",
+                    "desktop_spacing": 0,
+                    "mobile_spacing": 0
                   }
                 },
                 {
-                  "type": "heading",
+                  "type": "product-summary",
                   "settings": {
-                    "text": "<p>Main Heading</p>",
-                    "heading_size": "display",
-                    "html_tag": "h3",
-                    "width": "fill",
-                    "customize_mobile_size": false,
-                    "width_mobile": "fill"
-                  }
-                },
-                {
-                  "type": "text",
-                  "settings": {
-                    "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, nisi quis viverra ornare.</p>",
-                    "text_size": "display",
-                    "width": "fill",
-                    "customize_mobile_size": false,
-                    "width_mobile": "fill"
+                    "placeholder_title": "Mediclube Face Cream Moisturizer",
+                    "font_size": 16,
+                    "font_weight": "600"
                   }
                 }
               ]
@@ -431,54 +541,100 @@
               "type": "slide",
               "settings": {
                 "direction": "vertical",
-                "alignment": "center",
-                "gap_desktop": 24,
-                "gap_mobile": 12,
+                "alignment": "left",
                 "height": "fill",
-                "appearance_type": "inherit",
-                "border_type": "none",
-                "corner_radius": "square",
-                "shadow": "none",
-                "customize_mobile_padding": false
+                "gap_desktop": 24,
+                "gap_mobile": 24,
+                "appearance_type": "scheme",
+                "background_color": "#ffffff",
+                "corner_radius": "rounded",
+                "padding_top": 32,
+                "padding_bottom": 32,
+                "padding_left": 32,
+                "padding_right": 32,
+                "color_scheme": "scheme-1",
+                "customize_mobile_padding": true,
+                "padding_top_mobile": 20,
+                "padding_bottom_mobile": 20,
+                "padding_left_mobile": 20,
+                "padding_right_mobile": 20
               },
               "blocks": [
                 {
-                  "type": "image",
+                  "type": "group",
                   "settings": {
-                    "image_ratio_desktop": "custom",
-                    "image_ratio_custom_width_desktop": 2,
-                    "image_ratio_custom_height_desktop": 1,
-                    "image_ratio_mobile": "custom",
-                    "image_ratio_custom_width_mobile": 2,
-                    "image_ratio_custom_height_mobile": 1,
-                    "width_desktop": "custom",
-                    "width_custom_desktop": 40,
-                    "width_mobile": "custom",
-                    "width_custom_mobile": 40,
-                    "limit_width_desktop": false,
-                    "limit_width_mobile": false,
-                    "corner_radius": "square"
+                    "direction": "horizontal",
+                    "width": "fill",
+                    "height": "fit",
+                    "gap_desktop": 16,
+                    "gap_mobile": 12,
+                    "position_horizontal": "top",
+                    "customize_mobile_alignment": false
+                  },
+                  "blocks": [
+                    {
+                      "type": "group",
+                      "settings": {
+                        "direction": "vertical",
+                        "width": "fill",
+                        "height": "fit",
+                        "gap_desktop": 8,
+                        "gap_mobile": 8,
+                        "alignment": "left"
+                      },
+                      "blocks": [
+                        {
+                          "type": "text",
+                          "settings": {
+                            "text": "<p>Jason K.</p>",
+                            "text_size": "display"
+                          }
+                        },
+                        {
+                          "type": "icon",
+                          "settings": {
+                            "icon": "five-stars",
+                            "source": "library",
+                            "icon_width": 74
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "settings": {
+                            "text": "<p>Since switching to this skincare line, my skin feels calmer and brighter.</p>",
+                            "text_size": "display"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "image",
+                      "settings": {
+                        "image_ratio_desktop": "portrait",
+                        "image_ratio_mobile": "portrait",
+                        "width_desktop": "custom",
+                        "width_custom_desktop": 25,
+                        "width_mobile": "custom",
+                        "width_custom_mobile": 25,
+                        "corner_radius": "rounded"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "divider",
+                  "settings": {
+                    "width": "full",
+                    "desktop_spacing": 0,
+                    "mobile_spacing": 0
                   }
                 },
                 {
-                  "type": "heading",
+                  "type": "product-summary",
                   "settings": {
-                    "text": "<p>Main Heading</p>",
-                    "heading_size": "display",
-                    "html_tag": "h3",
-                    "width": "fill",
-                    "customize_mobile_size": false,
-                    "width_mobile": "fill"
-                  }
-                },
-                {
-                  "type": "text",
-                  "settings": {
-                    "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, nisi quis viverra ornare.</p>",
-                    "text_size": "display",
-                    "width": "fill",
-                    "customize_mobile_size": false,
-                    "width_mobile": "fill"
+                    "placeholder_title": "Premium CBD Oil",
+                    "font_size": 16,
+                    "font_weight": "600"
                   }
                 }
               ]
@@ -487,54 +643,202 @@
               "type": "slide",
               "settings": {
                 "direction": "vertical",
-                "alignment": "center",
-                "gap_desktop": 24,
-                "gap_mobile": 12,
+                "alignment": "left",
                 "height": "fill",
-                "appearance_type": "inherit",
-                "border_type": "none",
-                "corner_radius": "square",
-                "shadow": "none",
-                "customize_mobile_padding": false
+                "gap_desktop": 24,
+                "gap_mobile": 24,
+                "appearance_type": "scheme",
+                "background_color": "#ffffff",
+                "corner_radius": "rounded",
+                "padding_top": 32,
+                "padding_bottom": 32,
+                "padding_left": 32,
+                "padding_right": 32,
+                "color_scheme": "scheme-1",
+                "customize_mobile_padding": true,
+                "padding_top_mobile": 20,
+                "padding_bottom_mobile": 20,
+                "padding_left_mobile": 20,
+                "padding_right_mobile": 20
               },
               "blocks": [
                 {
-                  "type": "image",
+                  "type": "group",
                   "settings": {
-                    "image_ratio_desktop": "custom",
-                    "image_ratio_custom_width_desktop": 2,
-                    "image_ratio_custom_height_desktop": 1,
-                    "image_ratio_mobile": "custom",
-                    "image_ratio_custom_width_mobile": 2,
-                    "image_ratio_custom_height_mobile": 1,
-                    "width_desktop": "custom",
-                    "width_custom_desktop": 40,
-                    "width_mobile": "custom",
-                    "width_custom_mobile": 40,
-                    "limit_width_desktop": false,
-                    "limit_width_mobile": false,
-                    "corner_radius": "square"
+                    "direction": "horizontal",
+                    "width": "fill",
+                    "height": "fit",
+                    "gap_desktop": 16,
+                    "gap_mobile": 12,
+                    "position_horizontal": "top",
+                    "customize_mobile_alignment": false
+                  },
+                  "blocks": [
+                    {
+                      "type": "group",
+                      "settings": {
+                        "direction": "vertical",
+                        "width": "fill",
+                        "height": "fit",
+                        "gap_desktop": 8,
+                        "gap_mobile": 8,
+                        "alignment": "left"
+                      },
+                      "blocks": [
+                        {
+                          "type": "text",
+                          "settings": {
+                            "text": "<p>Rosier J.</p>",
+                            "text_size": "display"
+                          }
+                        },
+                        {
+                          "type": "icon",
+                          "settings": {
+                            "icon": "five-stars",
+                            "source": "library",
+                            "icon_width": 74
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "settings": {
+                            "text": "<p>After just a few weeks, I noticed reduced dryness and a more balanced tone.</p>",
+                            "text_size": "display"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "image",
+                      "settings": {
+                        "image_ratio_desktop": "portrait",
+                        "image_ratio_mobile": "portrait",
+                        "width_desktop": "custom",
+                        "width_custom_desktop": 25,
+                        "width_mobile": "custom",
+                        "width_custom_mobile": 25,
+                        "corner_radius": "rounded"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "divider",
+                  "settings": {
+                    "width": "full",
+                    "desktop_spacing": 0,
+                    "mobile_spacing": 0
                   }
                 },
                 {
-                  "type": "heading",
+                  "type": "product-summary",
                   "settings": {
-                    "text": "<p>Main Heading</p>",
-                    "heading_size": "display",
-                    "html_tag": "h3",
+                    "placeholder_title": "Clujue Restoring Oil",
+                    "font_size": 16,
+                    "font_weight": "600"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "slide",
+              "settings": {
+                "direction": "vertical",
+                "alignment": "left",
+                "height": "fill",
+                "gap_desktop": 24,
+                "gap_mobile": 24,
+                "appearance_type": "scheme",
+                "background_color": "#ffffff",
+                "corner_radius": "rounded",
+                "padding_top": 32,
+                "padding_bottom": 32,
+                "padding_left": 32,
+                "padding_right": 32,
+                "color_scheme": "scheme-1",
+                "customize_mobile_padding": true,
+                "padding_top_mobile": 20,
+                "padding_bottom_mobile": 20,
+                "padding_left_mobile": 20,
+                "padding_right_mobile": 20
+              },
+              "blocks": [
+                {
+                  "type": "group",
+                  "settings": {
+                    "direction": "horizontal",
                     "width": "fill",
-                    "customize_mobile_size": false,
-                    "width_mobile": "fill"
+                    "height": "fit",
+                    "gap_desktop": 16,
+                    "gap_mobile": 12,
+                    "position_horizontal": "top",
+                    "customize_mobile_alignment": false
+                  },
+                  "blocks": [
+                    {
+                      "type": "group",
+                      "settings": {
+                        "direction": "vertical",
+                        "width": "fill",
+                        "height": "fit",
+                        "gap_desktop": 8,
+                        "gap_mobile": 8,
+                        "alignment": "left"
+                      },
+                      "blocks": [
+                        {
+                          "type": "text",
+                          "settings": {
+                            "text": "<p>Alex M.</p>",
+                            "text_size": "display"
+                          }
+                        },
+                        {
+                          "type": "icon",
+                          "settings": {
+                            "icon": "five-stars",
+                            "source": "library",
+                            "icon_width": 74
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "settings": {
+                            "text": "<p>My skin feels softer and more comfortable throughout the day.</p>",
+                            "text_size": "display"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "image",
+                      "settings": {
+                        "image_ratio_desktop": "portrait",
+                        "image_ratio_mobile": "portrait",
+                        "width_desktop": "custom",
+                        "width_custom_desktop": 25,
+                        "width_mobile": "custom",
+                        "width_custom_mobile": 25,
+                        "corner_radius": "rounded"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "divider",
+                  "settings": {
+                    "width": "full",
+                    "desktop_spacing": 0,
+                    "mobile_spacing": 0
                   }
                 },
                 {
-                  "type": "text",
+                  "type": "product-summary",
                   "settings": {
-                    "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, nisi quis viverra ornare.</p>",
-                    "text_size": "display",
-                    "width": "fill",
-                    "customize_mobile_size": false,
-                    "width_mobile": "fill"
+                    "placeholder_title": "Daily Skin Care",
+                    "font_size": 16,
+                    "font_weight": "600"
                   }
                 }
               ]
