@@ -552,8 +552,10 @@ const initialize = (root) => {
   const paginationType = root.dataset.swiperPaginationType === 'progress_bar' ? 'progressbar' : 'bullets';
   const autoplay = root.dataset.swiperAutoplay === 'true';
   const fractionControls = root.dataset.carouselControlsStyle === 'fraction';
+  const communityVideoSection = root.closest('[data-community-videos]');
   const loop = root.dataset.carouselLoop === 'true';
-  const manualLoopRequested = root.dataset.carouselManualLoop === 'true';
+  const pressTestimonialSection = root.closest('[data-press-testimonials]');
+  const manualLoopRequested = root.dataset.carouselManualLoop === 'true' || Boolean(communityVideoSection) || Boolean(pressTestimonialSection);
   const showNextSlidePreview = viewport.dataset.swiperNextSlidePreview === 'true';
   const desktopColumns = number(root.dataset.swiperColumnsDesktop, 4);
   const mobileColumns = number(root.dataset.swiperColumnsMobile, 1);
@@ -561,9 +563,9 @@ const initialize = (root) => {
   const slideCount = Array.from(wrapper.children).filter((slide) => slide.classList.contains('swiper-slide')).length;
   const previewEnabled = showNextSlidePreview && slideCount > desktopColumns;
   viewport.dataset.swiperNextSlidePreview = String(previewEnabled);
-  // The shared Swiper preview attribute is a CSS-only overflow hook. Sections
-  // that require centered-slide runtime must opt in explicitly on their root.
-  const useCenteredSlidePreview = root.dataset.showNextSlidePreviewOnDesktop === 'true';
+  // The shared Swiper preview attribute is a CSS-only overflow hook. Community
+  // videos and explicitly opted-in carousels also center the desktop preview.
+  const useCenteredSlidePreview = root.dataset.showNextSlidePreviewOnDesktop === 'true' || Boolean(communityVideoSection);
   const centerActiveSlide = root.dataset.carouselCentered === 'true';
   const transition = root.dataset.transition === 'fade' ? 'fade' : 'slide';
   const fade = transition === 'fade' && !useCenteredSlidePreview;
@@ -587,7 +589,7 @@ const initialize = (root) => {
       [desktopBreakpoint]: {
         slidesPerView: fade ? 1 : desktopColumns,
         spaceBetween: fade ? 0 : number(root.dataset.swiperGapDesktop, 16),
-        ...(useCenteredSlidePreview ? { centeredSlides: true, spaceBetween: 24 } : {})
+        ...(useCenteredSlidePreview ? { centeredSlides: true } : {})
       }
     },
     controls: {
@@ -681,7 +683,7 @@ const initialize = (root) => {
     updateFraction();
     fractionCleanup = () => swiper.off('init slideChange update', updateFraction);
   }
-  const pressSection = root.closest('[data-press-testimonials]');
+  const pressSection = pressTestimonialSection;
   const videoSection = root.closest('[data-community-videos]');
   const syncActiveContent = () => {
     if (swiper.destroyed) return;
@@ -690,7 +692,9 @@ const initialize = (root) => {
       const panel = pressSection.querySelector('[data-press-content]');
       const quote = activeSlide?.querySelector('[data-press-quote]');
       if (panel && quote) panel.innerHTML = quote.innerHTML;
-      root.querySelectorAll('[data-press-logo]').forEach((button) => button.setAttribute('aria-pressed', String(button.closest('.swiper-slide') === activeSlide)));
+      root.querySelectorAll('[data-press-logo]').forEach((button) => {
+        button.setAttribute('aria-pressed', String(button.closest('.swiper-slide') === activeSlide));
+      });
     }
     if (videoSection) {
       root.querySelectorAll('.swiper-slide').forEach((slide) => {
@@ -700,21 +704,26 @@ const initialize = (root) => {
       });
     }
   };
-  const selectPressLogo = (event) => {
-    const button = event.target.closest('[data-press-logo]');
-    if (!button) return;
-    const slide = button.closest('.swiper-slide');
-    const index = Number(slide.dataset.swiperSlideIndex);
-    if (loop && Number.isFinite(index)) swiper.slideToLoop(index); else swiper.slideTo(swiper.slides.indexOf(slide));
-  };
   if (pressSection || videoSection) {
     swiper.on('slideChange update breakpoint', syncActiveContent);
-    if (pressSection) root.addEventListener('click', selectPressLogo);
     syncActiveContent();
   }
+  const selectPressLogo = (event) => {
+    if (!pressSection) return;
+    const button = event.target.closest('[data-press-logo]');
+    const slide = button?.closest('.swiper-slide');
+    if (!slide) return;
+    const cloneIndex = Number(slide.dataset.carouselLoopSource);
+    const physicalIndex = swiper.slides.indexOf(slide);
+    const logicalIndex = Number.isInteger(cloneIndex) ? cloneIndex : manualLoop?.logicalIndex(physicalIndex);
+    if (Number.isInteger(logicalIndex) && manualLoop) swiper.slideTo(manualLoop.originalIndex(logicalIndex), swiper.params.speed);
+    else if (Number.isInteger(logicalIndex) && swiper.params.loop) swiper.slideToLoop(logicalIndex, swiper.params.speed);
+    else if (physicalIndex >= 0) swiper.slideTo(physicalIndex, swiper.params.speed);
+  };
+  if (pressSection) root.addEventListener('click', selectPressLogo);
   const activeContentCleanup = () => {
     swiper.off('slideChange update breakpoint', syncActiveContent);
-    root.removeEventListener('click', selectPressLogo);
+    if (pressSection) root.removeEventListener('click', selectPressLogo);
   };
   const state = {
     swiper,

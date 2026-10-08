@@ -1,18 +1,27 @@
+{% liquid
+  assign press_testimonials_carousel = section.blocks | where: 'type', 'carousel' | first
+  assign press_testimonials_initial_slide = press_testimonials_carousel.blocks.first
+%}
 <section class="press-testimonials color-scheme {{ section.settings.color_scheme }}" data-press-testimonials style="--community-padding-top:{{ section.settings.padding_top }}px; --community-padding-bottom:{{ section.settings.padding_bottom }}px; --community-padding-top-mobile:{{ section.settings.padding_top_mobile }}px; --community-padding-bottom-mobile:{{ section.settings.padding_bottom_mobile }}px;">
 <div class="container page-width press-testimonials__content">
-<div class="press-testimonials__quote" data-press-content aria-live="polite" aria-atomic="true"></div>
+<div class="press-testimonials__quote" data-press-content aria-live="polite" aria-atomic="true">{% if press_testimonials_initial_slide.settings.quote != blank %}<h3 class="heading-text heading-md">{{ press_testimonials_initial_slide.settings.quote }}</h3>{% endif %}</div>
 {% content_for 'blocks' %}
 </div></section>
 {% stylesheet %}
 .press-testimonials { padding-top:var(--community-padding-top,80px); padding-bottom:var(--community-padding-bottom,80px); overflow:hidden; }
-.press-testimonials__content { display:flex; flex-direction:column; gap:32px; }
+.press-testimonials__content { display:flex; flex-direction:column; gap:0; }
+.press-testimonials .carousel-block__viewport { height:80px; overflow:hidden; }
+.press-testimonials .carousel-block__viewport > .swiper-wrapper { align-items:center; }
 .press-testimonials .carousel-block__pagination--bullets { --swiper-pagination-bullet-active-width:8px; --swiper-pagination-bullet-active-height:8px; --swiper-pagination-bullet-active-hit-width:24px; }
-@media(max-width:767.98px) { .press-testimonials { padding-top:var(--community-padding-top-mobile,56px); padding-bottom:var(--community-padding-bottom-mobile,56px); } }
-.press-testimonials__quote { text-align:center; max-width:900px; margin-inline:auto; }
-.press-testimonials__quote p { margin:0; }
-.press-testimonials__content > .block-header { order:0; }
-.press-testimonials__quote { order:1; }
-.press-testimonials__content > .carousel-block { order:2; }
+@media(max-width:767.98px) { .press-testimonials { padding-top:var(--community-padding-top-mobile,56px); padding-bottom:var(--community-padding-bottom-mobile,56px); } .press-testimonials__content { gap:28px; } .press-testimonials .carousel-block__viewport { height:65px; } }
+.press-testimonials__quote { text-align:center; width:100%; max-width:920px; margin-inline:auto; }
+.press-testimonials__quote h3 { margin:0; }
+.press-testimonials__content > .block-header { order:0; margin-bottom:20px; }
+.press-testimonials__quote { order:1; margin-bottom:32px; }
+.press-testimonials__content > .carousel-block { order:2; width:100%; max-width:672px; margin-inline:auto; }
+.press-testimonials .press-testimonial-slide { height:50px; align-self:center; }
+.press-testimonials .press-testimonial-slide.swiper-slide-active { height:80px; }
+@media(max-width:767.98px) { .press-testimonials__content > .block-header { margin-bottom:12px; } .press-testimonials__quote { margin-bottom:28px; } .press-testimonials .press-testimonial-slide { height:40px; } .press-testimonials .press-testimonial-slide.swiper-slide-active { height:65px; } }
 {% endstylesheet %}
 {% schema %}
 {
@@ -105,13 +114,13 @@
         {
           "type": "carousel",
           "settings": {
-            "columns_desktop": "3",
-            "columns_mobile": "1",
+            "columns_desktop": "5",
+            "columns_mobile": "3",
             "center_active_slide": true,
             "loop": true,
-            "gap_desktop": 24,
-            "gap_mobile": 12,
-            "show_next_slide_preview_on_mobile": true,
+            "gap_desktop": 28,
+            "gap_mobile": 16,
+            "show_next_slide_preview_on_mobile": false,
             "show_navigation_on_desktop": false,
             "show_pagination_on_desktop": false,
             "show_pagination_on_mobile": false

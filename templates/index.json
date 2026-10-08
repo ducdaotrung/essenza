@@ -3737,8 +3737,8 @@
             "layout_type": "grid",
             "columns_desktop": "1",
             "columns_mobile": "1",
-            "product_gap_desktop": 24,
-            "product_gap_mobile": 16,
+            "product_gap_desktop": 0,
+            "product_gap_mobile": 0,
             "show_navigation_on_desktop": true,
             "navigation_position": "outside",
             "navigation_style": "icon_only",
@@ -3832,7 +3832,7 @@
         "padding_bottom": 80,
         "padding_top_mobile": 56,
         "padding_bottom_mobile": 56,
-        "color_scheme": "scheme-4"
+        "background_color": "#fbf8f4"
       },
       "blocks": {
         "header_1": {
@@ -3872,7 +3872,7 @@
             "loop": true,
             "show_next_slide_preview_on_desktop": true,
             "show_next_slide_preview_on_mobile": true,
-            "gap_desktop": 24,
+            "gap_desktop": 28,
             "gap_mobile": 12,
             "show_navigation_on_desktop": false,
             "show_pagination_on_desktop": true,
@@ -3890,9 +3890,9 @@
                   "type": "video",
                   "settings": {
                     "aspect_ratio_desktop": "custom",
-                    "custom_aspect_ratio_desktop": 0.6,
+                    "custom_aspect_ratio_desktop": 0.75,
                     "aspect_ratio_mobile": "custom",
-                    "custom_aspect_ratio_mobile": 0.6,
+                    "custom_aspect_ratio_mobile": 0.75,
                     "width_desktop": "fill",
                     "width_mobile": "fill"
                   }
@@ -3910,9 +3910,9 @@
                   "type": "video",
                   "settings": {
                     "aspect_ratio_desktop": "custom",
-                    "custom_aspect_ratio_desktop": 0.6,
+                    "custom_aspect_ratio_desktop": 0.75,
                     "aspect_ratio_mobile": "custom",
-                    "custom_aspect_ratio_mobile": 0.6,
+                    "custom_aspect_ratio_mobile": 0.75,
                     "width_desktop": "fill",
                     "width_mobile": "fill"
                   }
@@ -3930,9 +3930,9 @@
                   "type": "video",
                   "settings": {
                     "aspect_ratio_desktop": "custom",
-                    "custom_aspect_ratio_desktop": 0.6,
+                    "custom_aspect_ratio_desktop": 0.75,
                     "aspect_ratio_mobile": "custom",
-                    "custom_aspect_ratio_mobile": 0.6,
+                    "custom_aspect_ratio_mobile": 0.75,
                     "width_desktop": "fill",
                     "width_mobile": "fill"
                   }
@@ -3950,9 +3950,9 @@
                   "type": "video",
                   "settings": {
                     "aspect_ratio_desktop": "custom",
-                    "custom_aspect_ratio_desktop": 0.6,
+                    "custom_aspect_ratio_desktop": 0.75,
                     "aspect_ratio_mobile": "custom",
-                    "custom_aspect_ratio_mobile": 0.6,
+                    "custom_aspect_ratio_mobile": 0.75,
                     "width_desktop": "fill",
                     "width_mobile": "fill"
                   }
@@ -3970,9 +3970,9 @@
                   "type": "video",
                   "settings": {
                     "aspect_ratio_desktop": "custom",
-                    "custom_aspect_ratio_desktop": 0.6,
+                    "custom_aspect_ratio_desktop": 0.75,
                     "aspect_ratio_mobile": "custom",
-                    "custom_aspect_ratio_mobile": 0.6,
+                    "custom_aspect_ratio_mobile": 0.75,
                     "width_desktop": "fill",
                     "width_mobile": "fill"
                   }
@@ -3990,9 +3990,9 @@
                   "type": "video",
                   "settings": {
                     "aspect_ratio_desktop": "custom",
-                    "custom_aspect_ratio_desktop": 0.6,
+                    "custom_aspect_ratio_desktop": 0.75,
                     "aspect_ratio_mobile": "custom",
-                    "custom_aspect_ratio_mobile": 0.6,
+                    "custom_aspect_ratio_mobile": 0.75,
                     "width_desktop": "fill",
                     "width_mobile": "fill"
                   }
@@ -4010,9 +4010,9 @@
                   "type": "video",
                   "settings": {
                     "aspect_ratio_desktop": "custom",
-                    "custom_aspect_ratio_desktop": 0.6,
+                    "custom_aspect_ratio_desktop": 0.75,
                     "aspect_ratio_mobile": "custom",
-                    "custom_aspect_ratio_mobile": 0.6,
+                    "custom_aspect_ratio_mobile": 0.75,
                     "width_desktop": "fill",
                     "width_mobile": "fill"
                   }
@@ -4071,13 +4071,13 @@
         "carousel_2": {
           "type": "carousel",
           "settings": {
-            "columns_desktop": "3",
-            "columns_mobile": "1",
+            "columns_desktop": "5",
+            "columns_mobile": "3",
             "center_active_slide": true,
             "loop": true,
-            "gap_desktop": 24,
-            "gap_mobile": 12,
-            "show_next_slide_preview_on_mobile": true,
+            "gap_desktop": 28,
+            "gap_mobile": 16,
+            "show_next_slide_preview_on_mobile": false,
             "show_navigation_on_desktop": false,
             "show_pagination_on_desktop": false,
             "show_pagination_on_mobile": false
