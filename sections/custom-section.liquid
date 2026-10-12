@@ -481,15 +481,54 @@
   "presets": [
     {
       "name": "t:general.custom_section",
+      "category": "t:general.layout"
+    },
+    {
+      "name": "Social carousel",
       "category": "t:general.layout",
       "settings": {
-        "section_width": "page_width",
-        "alignment": "left",
+        "section_width": "full_width",
+        "alignment": "center",
         "customize_mobile_alignment": false,
-        "alignment_mobile": "left",
+        "content_gap": 40,
+        "customize_mobile_gap": true,
+        "content_gap_mobile": 32,
         "color_scheme": "scheme-1",
-        "customize_mobile_padding": false
-      }
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "customize_mobile_padding": true,
+        "padding_top_mobile": 56,
+        "padding_bottom_mobile": 56
+      },
+      "blocks": [
+        {
+          "type": "header",
+          "settings": { "width": "fill", "alignment": "center", "gap_desktop": 16, "gap_mobile": 12 },
+          "blocks": [
+            { "type": "heading", "settings": { "text": "<p>Express Yourself With</p>", "heading_size": "md", "html_tag": "h2" } },
+            { "type": "eyebrow", "settings": { "text": "<p>#Hellobeauty_Evela</p>", "color": "#666666" } }
+          ]
+        },
+        {
+          "type": "carousel",
+          "settings": {
+            "columns_desktop": "5",
+            "columns_mobile": "2",
+            "gap_desktop": 8,
+            "gap_mobile": 8,
+            "show_navigation_on_desktop": false,
+            "show_pagination_on_desktop": false,
+            "show_pagination_on_mobile": false
+          },
+          "blocks": [
+            { "type": "social-gallery-slide", "settings": { "social_network": "instagram" } },
+            { "type": "social-gallery-slide", "settings": { "social_network": "instagram" } },
+            { "type": "social-gallery-slide", "settings": { "social_network": "instagram" } },
+            { "type": "social-gallery-slide", "settings": { "social_network": "instagram" } },
+            { "type": "social-gallery-slide", "settings": { "social_network": "instagram" } }
+          ]
+        }
+      ]
     }
   ]
 }

@@ -97,7 +97,6 @@
 %}
 
 {% capture menu_style %}
-  {% if heading_size == 'custom' %}--menu-block-heading-custom-size: {{ heading_custom_size }}px;{% endif %}
   {% if heading_gap != 16 %}--menu-block-heading-gap: {{ heading_gap }}px;{% endif %}
   {% if menu_gap != 8 %}--menu-block-menu-gap: {{ menu_gap }}px;{% endif %}
   {% if heading_color != blank %}--menu-block-heading-color: {{ heading_color | escape }};{% endif %}
@@ -108,6 +107,7 @@
 {% capture heading_markup %}
   <{{ heading_tag }}
     class="{{ heading_class }}"
+    {% if heading_size == 'custom' %}style="font-size: {{ heading_custom_size }}px;"{% endif %}
   >{{ heading_content }}</{{ heading_tag }}>
 {% endcapture %}
 {% assign heading_markup = heading_markup | strip %}
@@ -178,10 +178,6 @@
     </div>
   {% endif %}
 </nav>
-
-{% stylesheet %}
-  .menu-block__heading.heading-custom { font-size: var(--menu-block-heading-custom-size, var(--font-heading-custom)); }
-{% endstylesheet %}
 
 {% schema %}
 {

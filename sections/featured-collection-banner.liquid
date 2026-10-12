@@ -148,6 +148,20 @@
       gap: var(--featured-collection-banner-gap-desktop, 30px);
     }
 
+    .featured-collection-banner__content:has(> .image-card--featured-collection-banner):has(> .product-list-banner) > .image-card--featured-collection-banner {
+      flex: 3 1 0;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .featured-collection-banner__content:has(> .image-card--featured-collection-banner):has(> .product-list-banner) > .product-list-banner {
+      flex: 5 1 0;
+      min-width: 0;
+      width: 100%;
+      max-width: 100%;
+      overflow: hidden;
+    }
+
     .featured-collection-banner__content > :is(.image-card--featured-collection-banner, .product-list-banner) {
       flex-basis: calc((100% - var(--featured-collection-banner-gap-desktop, 30px)) / 2);
       position: sticky;

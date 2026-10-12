@@ -583,7 +583,7 @@ const initialize = (root) => {
     ...(fade ? { fadeEffect: { crossFade: true } } : {}),
     preventInteractionOnTransition: true,
     speed: prefersReducedMotion() ? 0 : 600,
-    slidesPerView: fade ? 1 : (mobilePreviewEnabled ? 1.2 : mobileColumns),
+    slidesPerView: fade ? 1 : (pressTestimonialSection ? 'auto' : (mobilePreviewEnabled ? 1.2 : mobileColumns)),
     spaceBetween: fade ? 0 : number(root.dataset.swiperGapMobile, 12),
     breakpoints: {
       [desktopBreakpoint]: {
@@ -606,6 +606,15 @@ const initialize = (root) => {
   if (!swiper) {
     manualLoop?.destroy();
     return;
+  }
+  if (pressTestimonialSection) {
+    const updateTestimonialSlideWidths = () => {
+      window.requestAnimationFrame(() => {
+        if (!swiper.destroyed) swiper.update();
+      });
+    };
+    swiper.on('slideChange', updateTestimonialSlideWidths);
+    updateTestimonialSlideWidths();
   }
   let hotspotContentSchemeCleanup = null;
   if (root.hasAttribute('data-hotspot-full-width-carousel')) {

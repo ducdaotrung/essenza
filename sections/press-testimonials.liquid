@@ -14,6 +14,12 @@
 .press-testimonials .carousel-block__viewport > .swiper-wrapper { align-items:center; }
 .press-testimonials .carousel-block__pagination--bullets { --swiper-pagination-bullet-active-width:8px; --swiper-pagination-bullet-active-height:8px; --swiper-pagination-bullet-active-hit-width:24px; }
 @media(max-width:767.98px) { .press-testimonials { padding-top:var(--community-padding-top-mobile,56px); padding-bottom:var(--community-padding-bottom-mobile,56px); } .press-testimonials__content { gap:28px; } .press-testimonials .carousel-block__viewport { height:65px; } }
+@media(max-width:767.98px) {
+  .press-testimonials .press-testimonial-slide { width:80px; }
+  .press-testimonials .press-testimonial-slide.swiper-slide-active { width:130px; }
+  .press-testimonials .press-testimonial-slide__image { width:80px; max-width:none; }
+  .press-testimonials .press-testimonial-slide.swiper-slide-active .press-testimonial-slide__image { width:130px; }
+}
 .press-testimonials__quote { text-align:center; width:100%; max-width:920px; margin-inline:auto; }
 .press-testimonials__quote h3 { margin:0; }
 .press-testimonials__content > .block-header { order:0; margin-bottom:20px; }

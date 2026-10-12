@@ -87,9 +87,7 @@
     assign carousel_border_thickness = 1
   endif
   assign carousel_corner_radius = block.settings.corner_radius | default: 'square'
-  unless carousel_corner_radius == 'square' or carousel_corner_radius == 'slightly_rounded' or carousel_corner_radius == 'rounded' or carousel_corner_radius == 'pill'
-    assign carousel_corner_radius = 'square'
-  endunless
+  assign carousel_custom_corner_radius = block.settings.custom_corner_radius | default: 0 | plus: 0 | at_least: 0 | at_most: 40
   assign image_text_card_radius = '0px'
   case carousel_corner_radius
     when 'slightly_rounded'
@@ -98,6 +96,8 @@
       assign image_text_card_radius = '12px'
     when 'pill'
       assign image_text_card_radius = '999px'
+    when 'custom'
+      assign image_text_card_radius = carousel_custom_corner_radius | append: 'px'
   endcase
   assign image_text_card_toggle_icon = block.settings.image_text_card_toggle_icon | default: 'plus'
   unless image_text_card_toggle_icon == 'plus' or image_text_card_toggle_icon == 'arrow' or image_text_card_toggle_icon == 'chevron'
@@ -232,6 +232,7 @@
 {% endcapture %}
 
 {% capture carousel_style %}
+  --carousel-slide-radius: {{ image_text_card_radius }};
   --carousel-padding-top: {{ carousel_padding_top }}px;
   --carousel-padding-bottom: {{ carousel_padding_bottom }}px;
   {% if carousel_customize_mobile_padding %}
@@ -393,6 +394,9 @@
     },
     {
       "type": "press-testimonial-slide"
+    },
+    {
+      "type": "social-gallery-slide"
     }
   ],
   "settings": [
@@ -582,9 +586,24 @@
         {
           "value": "pill",
           "label": "Pill"
+        },
+        {
+          "value": "custom",
+          "label": "t:options.radius_preset.custom"
         }
       ],
       "default": "square"
+    },
+    {
+      "type": "range",
+      "id": "custom_corner_radius",
+      "label": "t:labels.custom_corner_radius",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "default": 8,
+      "visible_if": "{{ block.settings.corner_radius == 'custom' }}"
     },
     {
       "type": "header",

@@ -338,8 +338,10 @@
               type="email"
               name="contact[email]"
               value="{{ form.email | escape }}"
+              inputmode="email"
               autocorrect="off"
               autocapitalize="off"
+              spellcheck="false"
               autocomplete="email"
               aria-required="true"
               {% if form.errors %}
@@ -415,14 +417,14 @@
     min-width: 0;
   }
 
-  .email-signup-block .form__control--input:not([type='checkbox']):not([type='radio']):not([type='hidden']),
-  .email-signup-block--layout-input_with_button .email-signup-block__input-wrap {
+  .email-signup-block .form__control--input:not([type='checkbox']):not([type='radio']):not([type='hidden']) {
     border-radius: 0 !important;
     background-color: var(--email-signup-background-color, var(--input-background-color));
   }
 
   .email-signup-block--layout-horizontal .form__fields {
     align-items: center;
+    gap: 10px;
   }
 
   .email-signup-block--layout-underlined_input .form__fields {
@@ -446,10 +448,12 @@
     align-items: stretch;
     width: 100%;
     min-width: 0;
-    min-height: var(--email-signup-field-height-desktop, var(--input-height));
-    padding: 0.65rem 0.875rem;
-    border: var(--input-border-width) solid var(--input-border-color);
-    border-radius: var(--input-radius);
+    height: 48px;
+    min-height: 48px;
+    padding: 0;
+    border: 1px solid #ccc;
+    border-radius: 9999px;
+    overflow: hidden;
     background-color: var(--email-signup-background-color, var(--input-background-color));
     color: var(--input-text-color);
     font-size: var(--form-input-font-size);
@@ -458,8 +462,7 @@
 
   .email-signup-block--layout-input_with_button .email-signup-block__input-wrap:focus-within {
     border-color: var(--input-focus-color);
-    outline: 2px solid var(--input-focus-color);
-    outline-offset: -2px;
+    outline: none;
   }
 
   .email-signup-block--layout-input_with_button .email-signup-block__input-wrap--error {
@@ -469,8 +472,9 @@
   .email-signup-block--layout-input_with_button .email-signup-block__input-wrap > input.form__control:not([type='checkbox']):not([type='radio']):not([type='hidden']) {
     flex: 1 1 auto;
     width: auto;
+    height: 100%;
     min-height: 0;
-    padding: 0;
+    padding: 0 20px;
     border: 0;
     border-radius: 0;
     background: transparent;
@@ -481,6 +485,24 @@
 
   .email-signup-block--layout-input_with_button .email-signup-block__input-wrap > input.form__control:focus,
   .email-signup-block--layout-input_with_button .email-signup-block__input-wrap > input.form__control:focus-visible {
+    outline: none;
+  }
+
+  .email-signup-block--layout-horizontal .email-signup-block__field > input.form__control:not([type='checkbox']):not([type='radio']):not([type='hidden']) {
+    height: 48px;
+    min-height: 48px;
+    padding-inline: 20px;
+    border: 1px solid #ccc;
+    border-radius: 999px !important;
+    background-color: #fff;
+    outline: none;
+    box-shadow: none;
+  }
+
+  .email-signup-block--layout-horizontal .email-signup-block__field > input.form__control:focus,
+  .email-signup-block--layout-horizontal .email-signup-block__field > input.form__control:focus-visible,
+  .email-signup-block__submit:focus,
+  .email-signup-block__submit:focus-visible {
     outline: none;
   }
 
@@ -518,6 +540,23 @@
   .email-signup-block__submit {
     max-width: 100%;
     white-space: nowrap;
+  }
+
+  .email-signup-block--layout-horizontal .email-signup-block__submit {
+    height: 48px;
+    min-height: 48px;
+    padding-inline: 36px;
+    border-radius: 999px !important;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: capitalize;
+  }
+
+  .email-signup-block--layout-horizontal .email-signup-block__submit:hover {
+    border-color: var(--button-border);
+    background: var(--button-background);
+    color: var(--button-foreground);
+    transform: none;
   }
 
   .email-signup-block--layout-vertical .email-signup-block__button,
