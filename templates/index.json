@@ -4423,7 +4423,7 @@
             "center_active_slide": true,
             "transition_style": "slide",
             "columns_desktop": "5",
-            "columns_mobile": "3",
+            "columns_mobile": "1",
             "loop": true,
             "show_next_slide_preview_on_desktop": false,
             "show_next_slide_preview_on_mobile": false,
