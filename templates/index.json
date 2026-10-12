@@ -255,8 +255,8 @@
         "padding_left": 20,
         "padding_right": 20,
         "customize_mobile_padding": true,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0,
+        "padding_top_mobile": 10,
+        "padding_bottom_mobile": 10,
         "padding_left_mobile": 16,
         "padding_right_mobile": 16
       }
@@ -4657,14 +4657,14 @@
               "type": "blog-card",
               "static": true,
               "settings": {
-                "ratio": "original",
+                "ratio": "landscape",
                 "media_layout": "stacked",
                 "alignment": "left",
                 "position": "space-between",
                 "desktop_gap": 4,
                 "mobile_gap": 4,
                 "border_thickness": 0,
-                "corner_radius": "inherit",
+                "corner_radius": "rounded",
                 "shadow": "none",
                 "color_type": "inherit",
                 "color_scheme": "scheme-1",
