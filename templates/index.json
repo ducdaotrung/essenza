@@ -5132,7 +5132,7 @@
             "field_height": "medium",
             "input_placeholder": "Your email",
             "button_label": "Subscribe",
-            "button_style": "primary",
+            "button_style": "secondary",
             "show_icon": false,
             "icon": "arrow_right",
             "icon_position": "after",
