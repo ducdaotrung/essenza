@@ -1310,21 +1310,14 @@
   {% endfor %}
 
   {%- comment -%}
-    Global button colors are root fallbacks. Scheme scopes override these
-    inherited tokens; setting them on .btn would mask the active scheme.
+    Global button colors are optional overrides. Keep the scheme values
+    inherited when a global setting is blank, and apply only configured values
+    directly to the button so they take precedence over its scheme ancestor.
   {%- endcomment -%}
-  :root {
-    {% if settings.button_primary_background_color != blank %}
-      --button-primary-background: {{ settings.button_primary_background_color }};
-    {% endif %}
-    {% if settings.button_primary_text_color != blank %}
-      --button-primary-text: {{ settings.button_primary_text_color }};
-    {% endif %}
-    {% if settings.button_secondary_background_color != blank %}
-      --button-secondary-background: {{ settings.button_secondary_background_color }};
-    {% endif %}
-    {% if settings.button_secondary_text_color != blank %}
-      --button-secondary-text: {{ settings.button_secondary_text_color }};
-    {% endif %}
+  .btn {
+    --button-primary-background: {% if settings.button_primary_background_color != blank %}{{ settings.button_primary_background_color }}{% else %}inherit{% endif %};
+    --button-primary-text: {% if settings.button_primary_text_color != blank %}{{ settings.button_primary_text_color }}{% else %}inherit{% endif %};
+    --button-secondary-background: {% if settings.button_secondary_background_color != blank %}{{ settings.button_secondary_background_color }}{% else %}inherit{% endif %};
+    --button-secondary-text: {% if settings.button_secondary_text_color != blank %}{{ settings.button_secondary_text_color }}{% else %}inherit{% endif %};
   }
 {% endstyle %}
