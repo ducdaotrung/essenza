@@ -1,4 +1,3 @@
-{%- capture theme_size_text_size -%}{%- render 'typography-size-token', size: block.settings.text_size, role: 'body', fallback: 'md' -%}{%- endcapture -%}
 {% doc %}
   Renders links to the store policies configured in Shopify.
 
@@ -20,7 +19,10 @@
     assign policy_links_gap_mobile = 12
   endif
 
-  assign policy_links_text_size = theme_size_text_size | default: 'md'
+  assign policy_links_text_size = block.settings.text_size | default: 'display'
+  if policy_links_text_size == 'display'
+    assign policy_links_text_size = 'md'
+  endif
   unless policy_links_text_size == 'xs' or policy_links_text_size == 'sm' or policy_links_text_size == 'md' or policy_links_text_size == 'lg' or policy_links_text_size == 'xl' or policy_links_text_size == 'xxl'
     assign policy_links_text_size = 'md'
   endunless
@@ -33,6 +35,8 @@
   endfor
 
   assign policy_links_class = 'policy-links-block body-text body-' | append: policy_links_text_size
+  assign policy_links_link_class = 'policy-links-block__link link-underline body-text body-' | append: policy_links_text_size
+  assign policy_links_font_size = 'var(--font-body-' | append: policy_links_text_size | append: ')'
 %}
 
 {% capture policy_links_style %}
@@ -66,16 +70,16 @@
       >
         {% if block.settings.show_terms_privacy_only %}
           <li class="policy-links-block__item">
-            <a class="policy-links-block__link link-underline" data-underline="persistent" href="{{ shop.terms_of_service.url | default: '/policies/terms-of-service' }}">Terms of Service</a>
+            <a class="{{ policy_links_link_class }}" style="font-size: {{ policy_links_font_size }};" data-underline="persistent" href="{{ shop.terms_of_service.url | default: '/policies/terms-of-service' }}">Terms of Service</a>
           </li>
           <li class="policy-links-block__item">
-            <a class="policy-links-block__link link-underline" data-underline="persistent" href="{{ shop.privacy_policy.url | default: '/policies/privacy-policy' }}">Privacy Policy</a>
+            <a class="{{ policy_links_link_class }}" style="font-size: {{ policy_links_font_size }};" data-underline="persistent" href="{{ shop.privacy_policy.url | default: '/policies/privacy-policy' }}">Privacy Policy</a>
           </li>
         {% else %}
           {% for policy in shop.policies %}
             {% if policy != blank and policy.url != blank and policy.title != blank %}
               <li class="policy-links-block__item">
-                <a class="policy-links-block__link link-underline" data-underline="persistent" href="{{ policy.url | escape }}">{{ policy.title | escape }}</a>
+                <a class="{{ policy_links_link_class }}" style="font-size: {{ policy_links_font_size }};" data-underline="persistent" href="{{ policy.url | escape }}">{{ policy.title | escape }}</a>
               </li>
             {% endif %}
           {% endfor %}
