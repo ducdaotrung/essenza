@@ -24,6 +24,10 @@
   color: var(--menu-block-heading-color, var(--heading-color));
 }
 
+.menu-block__heading.heading-custom {
+  font-size: var(--heading-block-custom-size, var(--font-heading-custom));
+}
+
 .menu-block__summary {
   display: flex;
   align-items: center;

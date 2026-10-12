@@ -102,9 +102,9 @@
     assign input_placeholder = 'email_signup.placeholder' | t
   endif
 
-  assign button_style = block.settings.button_style | default: 'primary'
+  assign button_style = block.settings.button_style | default: 'secondary'
   unless button_style == 'primary' or button_style == 'secondary' or button_style == 'tertiary'
-    assign button_style = 'primary'
+    assign button_style = 'secondary'
   endunless
   if form_layout == 'underlined_input'
     assign button_style = 'tertiary'
@@ -930,7 +930,7 @@
         { "value": "secondary", "label": "t:options.button_variant.secondary" },
         { "value": "tertiary", "label": "t:options.button_variant.tertiary" }
       ],
-      "default": "primary",
+      "default": "secondary",
       "visible_if": "{{ block.settings.form_layout != 'underlined_input' }}"
     },
     {
@@ -1168,7 +1168,7 @@
         "max_width_mobile": 480,
         "field_height": "large",
         "button_label": "Submit",
-        "button_style": "primary",
+        "button_style": "secondary",
         "show_icon": true,
         "icon": "arrow_right",
         "icon_position": "after",

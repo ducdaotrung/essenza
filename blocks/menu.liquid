@@ -1,5 +1,3 @@
-{%- assign theme_typography_tag = block.settings.html_tag | default: 'h2' -%}
-{%- capture theme_size_heading_size -%}{%- render 'typography-size-token', size: block.settings.heading_size, role: 'heading', fallback: 'lg', tag: theme_typography_tag -%}{%- endcapture -%}
 {%- capture theme_size_menu_size -%}{%- render 'typography-size-token', size: block.settings.menu_size, role: 'body', fallback: 'md' -%}{%- endcapture -%}
 {% doc %}
   Renders the first level of a navigation menu with an optional heading and a
@@ -38,9 +36,9 @@
 
   assign collapse_menu_on_mobile = block.settings.collapse_menu_on_mobile | default: true, allow_false: true
 
-  assign heading_size = theme_size_heading_size | default: 'lg'
+  assign heading_size = block.settings.heading_size | default: 'display'
   unless heading_size == 'display' or heading_size == 'xl' or heading_size == 'lg' or heading_size == 'md' or heading_size == 'sm' or heading_size == 'xs' or heading_size == 'custom'
-    assign heading_size = 'lg'
+    assign heading_size = 'display'
   endunless
   assign heading_custom_size = block.settings.custom_heading_size | default: 24 | plus: 0
   if heading_custom_size < 10 or heading_custom_size > 100
@@ -51,6 +49,22 @@
   unless heading_tag == 'div' or heading_tag == 'h1' or heading_tag == 'h2' or heading_tag == 'h3' or heading_tag == 'h4' or heading_tag == 'h5' or heading_tag == 'h6'
     assign heading_tag = 'h2'
   endunless
+  if heading_size == 'display'
+    case heading_tag
+      when 'h1'
+        assign heading_size = 'display'
+      when 'h3'
+        assign heading_size = 'lg'
+      when 'h4'
+        assign heading_size = 'md'
+      when 'h5'
+        assign heading_size = 'sm'
+      when 'h6'
+        assign heading_size = 'xs'
+      when 'h2', 'div'
+        assign heading_size = 'display'
+    endcase
+  endif
 
   assign heading_color = block.settings.heading_color
   if heading_color == 'heading'
@@ -107,7 +121,7 @@
 {% capture heading_markup %}
   <{{ heading_tag }}
     class="{{ heading_class }}"
-    {% if heading_size == 'custom' %}style="font-size: {{ heading_custom_size }}px;"{% endif %}
+    {% if heading_size == 'custom' %}style="--heading-block-custom-size: {{ heading_custom_size }}px;"{% endif %}
   >{{ heading_content }}</{{ heading_tag }}>
 {% endcapture %}
 {% assign heading_markup = heading_markup | strip %}
