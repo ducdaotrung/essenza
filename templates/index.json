@@ -350,7 +350,7 @@
             "use_recommendations": false,
             "recommendation_type": "related",
             "products": [],
-            "collection": "",
+            "collection": "best-sellers-essenza-1",
             "max_products": 8,
             "layout_type": "carousel",
             "columns_desktop": "4",
