@@ -75,7 +75,7 @@
                   "type": "text",
                   "settings": {
                     "text": "<p>Our skin care products are made with all natural ingredients but none of the pro on this store are real.&nbsp;</p>",
-                    "text_size": "display",
+                    "text_size": "sm",
                     "height_limit": "none",
                     "text_color": "#666666",
                     "width": "fill",
@@ -99,7 +99,7 @@
                   "type": "text",
                   "settings": {
                     "text": "<p><a href=\"tel:+15550000000\">+1 (555) 000-0000</a></p>",
-                    "text_size": "display",
+                    "text_size": "sm",
                     "height_limit": "none",
                     "text_color": "#666666",
                     "width": "fill",
@@ -123,7 +123,7 @@
                   "type": "text",
                   "settings": {
                     "text": "<p><a href=\"mailto:beaemail@layouthub.com\">beaemail@layouthub.com</a></p>",
-                    "text_size": "display",
+                    "text_size": "sm",
                     "height_limit": "none",
                     "text_color": "#666666",
                     "width": "fill",
