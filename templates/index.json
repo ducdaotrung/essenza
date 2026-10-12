@@ -3639,6 +3639,7 @@
           "type": "image",
           "static": true,
           "settings": {
+            "image": "shopify://shop_images/essenza-shop-the-look.png",
             "show_image_first_mobile": false,
             "image_link": "",
             "open_in_new_tab": false,
@@ -3781,10 +3782,10 @@
               "type": "shop-the-look-product",
               "settings": {
                 "compact": true,
-                "product": "",
+                "product": "healthy-skin-collagen-mask",
                 "show_hotspot": true,
-                "hotspot_horizontal": 72,
-                "hotspot_vertical": 48,
+                "hotspot_horizontal": 57,
+                "hotspot_vertical": 35,
                 "customize_mobile_position": false,
                 "hotspot_horizontal_mobile": 50,
                 "hotspot_vertical_mobile": 50
@@ -3795,7 +3796,7 @@
               "type": "shop-the-look-product",
               "settings": {
                 "compact": true,
-                "product": "",
+                "product": "laneige-deep-cleansing-product",
                 "show_hotspot": true,
                 "hotspot_horizontal": 32,
                 "hotspot_vertical": 62,
@@ -3809,10 +3810,10 @@
               "type": "shop-the-look-product",
               "settings": {
                 "compact": true,
-                "product": "",
+                "product": "medicube-face-cream-moisturiser",
                 "show_hotspot": true,
-                "hotspot_horizontal": 54,
-                "hotspot_vertical": 82,
+                "hotspot_horizontal": 33,
+                "hotspot_vertical": 32,
                 "customize_mobile_position": false,
                 "hotspot_horizontal_mobile": 50,
                 "hotspot_vertical_mobile": 50
