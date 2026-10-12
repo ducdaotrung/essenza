@@ -210,7 +210,7 @@
                     "custom_heading_size": 18,
                     "html_tag": "h4",
                     "heading_color": "#181818",
-                    "menu_size": "xs",
+                    "menu_size": "sm",
                     "menu_color": "#181818"
                   },
                   "blocks": {}
@@ -254,7 +254,7 @@
                     "custom_heading_size": 18,
                     "html_tag": "h4",
                     "heading_color": "#181818",
-                    "menu_size": "xs",
+                    "menu_size": "sm",
                     "menu_color": "#181818"
                   },
                   "blocks": {}
