@@ -108,6 +108,7 @@
   assign menu_class = 'menu-block menu-block--icon-' | append: menu_icon
   assign heading_class = 'menu-block__heading heading-text heading-' | append: heading_size
   assign menu_list_class = 'menu-block__list body-text body-' | append: menu_size
+  assign menu_font_size = 'var(--font-body-' | append: menu_size | append: ')'
 %}
 
 {% capture menu_style %}
@@ -130,7 +131,7 @@
   {% if has_menu %}
     <ul class="{{ menu_list_class }}" role="list">
       {% for menu_link in selected_menu.links %}
-        <li class="menu-block__item{% if menu_link.active or menu_link.child_active %} menu-block__item--active{% endif %}">
+        <li class="menu-block__item body-text body-{{ menu_size }}{% if menu_link.active or menu_link.child_active %} menu-block__item--active{% endif %}" style="font-size: {{ menu_font_size }};">
           {% if menu_link.url != blank %}
             <a
               class="menu-block__link link-underline{% if menu_link.active or menu_link.child_active or menu_link.current %} link-underline--active{% endif %}"
