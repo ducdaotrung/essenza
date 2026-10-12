@@ -529,7 +529,7 @@
                     "show_country_name": false,
                     "show_country_flag": true,
                     "show_language_selector": true,
-                    "font_size": "display"
+                    "font_size": "sm"
                   },
                   "blocks": {}
                 },
@@ -537,7 +537,7 @@
                   "type": "text",
                   "settings": {
                     "text": "<p>© 2025 LayoutHub. Powered by Shopify.</p>",
-                    "text_size": "xs",
+                    "text_size": "sm",
                     "height_limit": "none",
                     "text_color": "#666666",
                     "width": "fit",
@@ -612,7 +612,7 @@
                     "show_terms_privacy_only": true,
                     "gap_desktop": 12,
                     "gap_mobile": 12,
-                    "text_size": "xs",
+                    "text_size": "sm",
                     "text_color": "#666666"
                   },
                   "blocks": {}
