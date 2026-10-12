@@ -2707,6 +2707,7 @@
                     "image_2": {
                       "type": "image",
                       "settings": {
+                        "image": "shopify://shop_images/essenza-customer-1.png",
                         "show_image_first_mobile": false,
                         "image_link": "",
                         "open_in_new_tab": false,
@@ -2765,7 +2766,7 @@
                 "product_summary_3": {
                   "type": "product-summary",
                   "settings": {
-                    "product": "",
+                    "product": "medicube-face-cream-moisturiser",
                     "placeholder_title": "Mediclube Face Cream Moisturizer",
                     "font_size": 16,
                     "font_weight": "600"
@@ -2980,6 +2981,7 @@
                     "image_2": {
                       "type": "image",
                       "settings": {
+                        "image": "shopify://shop_images/essenza-customer-2.png",
                         "show_image_first_mobile": false,
                         "image_link": "",
                         "open_in_new_tab": false,
@@ -3038,7 +3040,7 @@
                 "product_summary_3": {
                   "type": "product-summary",
                   "settings": {
-                    "product": "",
+                    "product": "premium-cbd-oil-2",
                     "placeholder_title": "Premium CBD Oil",
                     "font_size": 16,
                     "font_weight": "600"
@@ -3253,6 +3255,8 @@
                     "image_2": {
                       "type": "image",
                       "settings": {
+                        "image": "shopify://shop_images/essenza-customer-3.png",
+                        "mobile_image": "shopify://shop_images/essenza-customer-1.png",
                         "show_image_first_mobile": false,
                         "image_link": "",
                         "open_in_new_tab": false,
@@ -3311,7 +3315,7 @@
                 "product_summary_3": {
                   "type": "product-summary",
                   "settings": {
-                    "product": "",
+                    "product": "olaplec-bonding-oil",
                     "placeholder_title": "Clujue Restoring Oil",
                     "font_size": 16,
                     "font_weight": "600"
@@ -3584,7 +3588,7 @@
                 "product_summary_3": {
                   "type": "product-summary",
                   "settings": {
-                    "product": "",
+                    "product": "beauty-of-joseon-cleansing",
                     "placeholder_title": "Daily Skin Care",
                     "font_size": 16,
                     "font_weight": "600"
