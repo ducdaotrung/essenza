@@ -3996,13 +3996,14 @@
             "video_product_slide_1": {
               "type": "video-product-slide",
               "settings": {
-                "product": ""
+                "product": "rose-hip-seed-oil"
               },
               "blocks": {
                 "video_1": {
                   "type": "video",
                   "settings": {
                     "video_source": "uploaded",
+                    "video": "shopify://files/videos/essenza-video-3.mp4",
                     "external_video_url": "",
                     "autoplay": false,
                     "loop_video": false,
