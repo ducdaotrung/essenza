@@ -4927,6 +4927,7 @@
             "slide_1": {
               "type": "social-gallery-slide",
               "settings": {
+                "image": "shopify://shop_images/essenza-social-1.png",
                 "alt_text": "",
                 "social_network": "instagram",
                 "social_url": "",
@@ -4938,6 +4939,7 @@
             "slide_2": {
               "type": "social-gallery-slide",
               "settings": {
+                "image": "shopify://shop_images/essenza-social-2.png",
                 "alt_text": "",
                 "social_network": "instagram",
                 "social_url": "",
@@ -4949,6 +4951,7 @@
             "slide_3": {
               "type": "social-gallery-slide",
               "settings": {
+                "image": "shopify://shop_images/essenza-social-3.png",
                 "alt_text": "",
                 "social_network": "instagram",
                 "social_url": "",
@@ -4960,6 +4963,7 @@
             "slide_4": {
               "type": "social-gallery-slide",
               "settings": {
+                "image": "shopify://shop_images/essenza-social-4.png",
                 "alt_text": "",
                 "social_network": "instagram",
                 "social_url": "",
@@ -4971,6 +4975,7 @@
             "slide_5": {
               "type": "social-gallery-slide",
               "settings": {
+                "image": "shopify://shop_images/essenza-social-5.png",
                 "alt_text": "",
                 "social_network": "instagram",
                 "social_url": "",
