@@ -194,10 +194,11 @@
               "type": "image",
               "name": "t:general.image",
               "settings": {
+                "image": "shopify://shop_images/essenza-banner.png",
                 "show_image_first_mobile": false,
                 "image_link": "",
                 "open_in_new_tab": false,
-                "alt_text": "",
+                "alt_text": "Hero image",
                 "device": "desktop",
                 "image_ratio_desktop": "custom",
                 "image_ratio_custom_width_desktop": 7,
@@ -237,7 +238,7 @@
       "block_order": [
         "grid_k9zT96"
       ],
-      "name": "t:general.custom_section",
+      "name": "Hero",
       "settings": {
         "section_width": "full_width_no_padding",
         "limit_width": true,
