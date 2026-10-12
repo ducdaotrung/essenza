@@ -4483,14 +4483,16 @@
               "type": "press-testimonial-slide",
               "settings": {
                 "name": "Marie Claire",
-                "quote": "<p>Beauty is an experience, a feeling that begins with self-care.</p>"
+                "logo": "shopify://shop_images/essenza-brand-3.png",
+                "quote": "<p>“Beauty is an experience, a feeling that begins with self-care, grows with confidence, and lingers long after the first impression.”</p>"
               },
               "blocks": {}
             },
             "press_testimonial_slide_2": {
               "type": "press-testimonial-slide",
               "settings": {
-                "name": "L’Officiel",
+                "name": "Shiseido",
+                "logo": "shopify://shop_images/essenza-brand-4.png",
                 "quote": "<p>A thoughtful approach to everyday skincare.</p>"
               },
               "blocks": {}
@@ -4499,6 +4501,7 @@
               "type": "press-testimonial-slide",
               "settings": {
                 "name": "M·A·C",
+                "logo": "shopify://shop_images/essenza-brand-5.png",
                 "quote": "<p>Beauty Is An Experience, A Feeling That Begins With Self-Care, Grows With Confidence, And Lingers Long After The First Impression.</p>"
               },
               "blocks": {}
@@ -4507,6 +4510,7 @@
               "type": "press-testimonial-slide",
               "settings": {
                 "name": "Vogue",
+                "logo": "shopify://shop_images/essenza-brand-1.png",
                 "quote": "<p>Discover beauty that fits your daily ritual.</p>"
               },
               "blocks": {}
@@ -4515,6 +4519,7 @@
               "type": "press-testimonial-slide",
               "settings": {
                 "name": "Lancôme",
+                "logo": "shopify://shop_images/essenza-brand-2.jpg",
                 "quote": "<p>Care for your skin, and let your confidence shine.</p>"
               },
               "blocks": {}
