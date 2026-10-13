@@ -138,7 +138,11 @@
 >
   <div class="collection-card-title__top-row">
     <{{ collection_card_title_tag }} class="collection-card-title__heading heading-text heading-{{ collection_card_title_size }}">
-      {{ collection_card_title | escape }}
+      {% if collection_card_title_collection.url != blank %}
+        <a class="collection-card-title__link" href="{{ collection_card_title_collection.url | escape }}">{{ collection_card_title | escape }}</a>
+      {% else %}
+        {{ collection_card_title | escape }}
+      {% endif %}
     </{{ collection_card_title_tag }}>
   </div>
   {% if collection_card_title_show_count %}
@@ -173,6 +177,7 @@
   }
 
   .collection-card-title__heading.heading-custom { font-size: var(--collection-card-title-custom-size, var(--font-heading-custom)); }
+  .collection-card-title__link { color: inherit; text-decoration: none; }
 
   .collection-card-title__count {
     display: block;
