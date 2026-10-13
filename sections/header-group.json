@@ -69,15 +69,15 @@
             "header-menu": {
               "type": "_header-menu",
               "settings": {
-                "menu": "main-menu",
-                "gap": 24,
+                "menu": "essenza-header-menu",
+                "gap": 36,
                 "show_dropdown_icon": true,
                 "dropdown_trigger": "hover",
                 "font": "accent",
                 "font_size": "display",
                 "letter_spacing": "normal",
                 "text_case": "original",
-                "text_color": "",
+                "text_color": "#181818",
                 "submenu_font": "body",
                 "submenu_font_size": "display",
                 "submenu_text_case": "original",
