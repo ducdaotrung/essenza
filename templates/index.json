@@ -2638,7 +2638,7 @@
                           "type": "text",
                           "settings": {
                             "text": "<p>Jennie K.</p>",
-                            "text_size": "display",
+                            "text_size": "sm",
                             "height_limit": "none",
                             "text_color": "",
                             "width": "fit",
@@ -2912,7 +2912,7 @@
                           "type": "text",
                           "settings": {
                             "text": "<p>Jason K.</p>",
-                            "text_size": "display",
+                            "text_size": "sm",
                             "height_limit": "none",
                             "text_color": "",
                             "width": "fit",
@@ -3186,7 +3186,7 @@
                           "type": "text",
                           "settings": {
                             "text": "<p>Rosier J.</p>",
-                            "text_size": "display",
+                            "text_size": "md",
                             "height_limit": "none",
                             "text_color": "",
                             "width": "fit",
@@ -3461,7 +3461,7 @@
                           "type": "text",
                           "settings": {
                             "text": "<p>Alex M.</p>",
-                            "text_size": "display",
+                            "text_size": "sm",
                             "height_limit": "none",
                             "text_color": "",
                             "width": "fit",
@@ -3541,6 +3541,7 @@
                     "image_2": {
                       "type": "image",
                       "settings": {
+                        "image": "shopify://shop_images/essenza-customer-1.png",
                         "show_image_first_mobile": false,
                         "image_link": "",
                         "open_in_new_tab": false,
