@@ -318,38 +318,50 @@
     {{ block.shopify_attributes }}
   >
     <div class="countdown-timer__units" aria-hidden="true">
-      <div class="countdown-timer__unit" data-countdown-unit="days" data-countdown-unit-label="{{ 'countdown.days' | t | escape }}">
+      <div class="countdown-timer__unit" data-countdown-unit="days" data-countdown-unit-label="{{ 'countdown.days' | t | downcase | capitalize | escape }}">
         <span class="countdown-timer__value" data-countdown-value="days">{{ countdown_days_display }}</span>
         {% if countdown_style != 'numbers_only' %}
-          <span class="countdown-timer__label" data-countdown-label>{{ 'countdown.days' | t }}</span>
+          <span class="countdown-timer__label" data-countdown-label>{{ 'countdown.days' | t | downcase | capitalize }}</span>
         {% endif %}
       </div>
-      <div class="countdown-timer__unit" data-countdown-unit="hours" data-countdown-unit-label="{{ 'countdown.hours' | t | escape }}">
+      <div class="countdown-timer__unit" data-countdown-unit="hours" data-countdown-unit-label="{{ 'countdown.hours' | t | downcase | capitalize | escape }}">
         <span class="countdown-timer__value" data-countdown-value="hours">{{ countdown_hours_display }}</span>
         {% if countdown_style != 'numbers_only' %}
-          <span class="countdown-timer__label" data-countdown-label>{{ 'countdown.hours' | t }}</span>
+          <span class="countdown-timer__label" data-countdown-label>{{ 'countdown.hours' | t | downcase | capitalize }}</span>
         {% endif %}
       </div>
-      <div class="countdown-timer__unit" data-countdown-unit="minutes" data-countdown-unit-label="{{ 'countdown.minutes' | t | escape }}">
+      <div class="countdown-timer__unit" data-countdown-unit="minutes" data-countdown-unit-label="{{ 'countdown.minutes' | t | downcase | capitalize | escape }}">
         <span class="countdown-timer__value" data-countdown-value="minutes">{{ countdown_minutes_display }}</span>
         {% if countdown_style != 'numbers_only' %}
-          <span class="countdown-timer__label" data-countdown-label>{{ 'countdown.minutes' | t }}</span>
+          <span class="countdown-timer__label" data-countdown-label>{{ 'countdown.minutes' | t | downcase | capitalize }}</span>
         {% endif %}
       </div>
-      <div class="countdown-timer__unit" data-countdown-unit="seconds" data-countdown-unit-label="{{ 'countdown.seconds' | t | escape }}">
+      <div class="countdown-timer__unit" data-countdown-unit="seconds" data-countdown-unit-label="{{ 'countdown.seconds' | t | downcase | capitalize | escape }}">
         <span class="countdown-timer__value" data-countdown-value="seconds">{{ countdown_seconds_display }}</span>
         {% if countdown_style != 'numbers_only' %}
-          <span class="countdown-timer__label" data-countdown-label>{{ 'countdown.seconds' | t }}</span>
+          <span class="countdown-timer__label" data-countdown-label>{{ 'countdown.seconds' | t | downcase | capitalize }}</span>
         {% endif %}
       </div>
     </div>
     <span class="countdown-timer__announcement visually-hidden" data-countdown-announcement aria-live="polite">
-      {{ countdown_days_display }} {{ 'countdown.days' | t }}, {{ countdown_hours_display }} {{ 'countdown.hours' | t }}, {{ countdown_minutes_display }} {{ 'countdown.minutes' | t }}, {{ countdown_seconds_display }} {{ 'countdown.seconds' | t }}
+      {{ countdown_days_display }} {{ 'countdown.days' | t | downcase | capitalize }}, {{ countdown_hours_display }} {{ 'countdown.hours' | t | downcase | capitalize }}, {{ countdown_minutes_display }} {{ 'countdown.minutes' | t | downcase | capitalize }}, {{ countdown_seconds_display }} {{ 'countdown.seconds' | t | downcase | capitalize }}
     </span>
   </countdown-timer>
 {% endif %}
 
 {% stylesheet %}
+  .countdown-timer__unit { position:relative; }
+  .countdown-timer__unit:not(:last-child)::after {
+    content: ':';
+    position:absolute;
+    inset-inline-end:-0.4rem;
+    top:50%;
+    transform:translate(50%,-50%);
+    font-size:var(--countdown-number-size);
+    line-height:var(--countdown-number-line-height);
+    color:var(--countdown-number-color);
+  }
+  .countdown-timer .countdown-timer__label { text-transform:capitalize; }
   .countdown-timer {
     display: block;
     width: fit-content;
@@ -464,7 +476,7 @@
 
   .countdown-timer--style-with-labels .countdown-timer__label {
     letter-spacing: 0.08em;
-    text-transform: uppercase;
+    text-transform: capitalize;
   }
 
   .countdown-timer--style-inline .countdown-timer__label,

@@ -29,6 +29,7 @@
 .community-video-card__product .product-summary__image,
 .community-video-card__product .product-summary__image :is(img,svg) { border-radius:8px; }
 .community-video-card__product .product-summary__content { display:flex; flex-direction:column; align-items:flex-start; gap:4px; font-size:16px; font-weight:500; }
+.community-video-card__product .product-summary__content > :is(a,span:not(.shop-the-look-variant-select)) { display:block; max-width:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; text-transform:capitalize; }
 .community-video-card__product .shop-the-look-variant-select { position:relative; display:inline-flex; align-self:flex-start; max-width:100%; margin-top:2px; padding:0; }
 .community-video-card__product .shop-the-look-variant-select::after { position:absolute; top:50%; right:2px; width:6px; height:6px; border-right:1px solid currentColor; border-bottom:1px solid currentColor; content:""; pointer-events:none; transform:translateY(-70%) rotate(45deg); }
 .community-video-card__product .product-summary__content select { width:fit-content; max-width:100%; min-height:0; margin:0; padding:0 14px 0 0; border:0; border-radius:0; background:transparent; outline:none; box-shadow:none; font:inherit; }
