@@ -5169,7 +5169,7 @@
       },
       "name": "t:general.email_signup_form",
       "settings": {
-        "section_width": "full_width_no_padding",
+        "section_width": "full_width",
         "alignment": "center",
         "customize_mobile_alignment": false,
         "alignment_mobile": "center",
