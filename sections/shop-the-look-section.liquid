@@ -91,7 +91,7 @@
         {% if section.settings.show_add_all %}<form action="{{ routes.cart_add_url }}" method="post" data-look-bundle>{% endif %}
         {% content_for 'block', type: 'shop-the-look-products', id: 'product-list' %}
         {% if section.settings.show_add_all %}
-          {% render 'theme-button', label: 'Add All To Cart', type: 'submit', attributes: 'data-look-add-all disabled' %}
+          {% render 'theme-button', label: 'Add All To Cart', type: 'submit', variant: section.settings.add_all_button_style, attributes: 'data-look-add-all disabled' %}
           </form>
         {% endif %}
       </div>
@@ -476,6 +476,18 @@
       "id": "show_add_all",
       "label": "Show Add all to cart",
       "default": false
+    },
+    {
+      "type": "select",
+      "id": "add_all_button_style",
+      "label": "Add all button style",
+      "options": [
+        { "value": "primary", "label": "t:options.button_variant.primary" },
+        { "value": "secondary", "label": "t:options.button_variant.secondary" },
+        { "value": "tertiary", "label": "t:options.button_variant.tertiary" }
+      ],
+      "default": "primary",
+      "visible_if": "{{ section.settings.show_add_all }}"
     },
     {
       "type": "range",
