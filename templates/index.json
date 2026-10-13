@@ -159,7 +159,7 @@
                   "type": "button",
                   "name": "t:general.button",
                   "settings": {
-                    "button_label": "Shop Now only $29",
+                    "button_label": "Shop Now Only $29",
                     "button_link": "",
                     "button_open_in_new_tab": false,
                     "button_style": "primary",
@@ -3762,6 +3762,7 @@
           "type": "shop-the-look-products",
           "static": true,
           "settings": {
+            "button_style": "primary",
             "layout_type": "grid",
             "columns_desktop": "1",
             "columns_mobile": "1",
@@ -3846,6 +3847,7 @@
         "padding_top_mobile": 56,
         "padding_bottom_mobile": 56,
         "show_add_all": true,
+        "add_all_button_style": "primary",
         "media_radius_desktop": 24,
         "media_radius_mobile": 16,
         "product_gap_desktop": 24,
