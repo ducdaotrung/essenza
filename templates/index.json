@@ -3769,7 +3769,7 @@
           "type": "shop-the-look-products",
           "static": true,
           "settings": {
-            "button_style": "primary",
+            "button_style": "secondary",
             "layout_type": "grid",
             "columns_desktop": "1",
             "columns_mobile": "1",
