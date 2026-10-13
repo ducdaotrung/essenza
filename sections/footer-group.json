@@ -244,7 +244,7 @@
                 "footer-shop-categories-menu": {
                   "type": "menu",
                   "settings": {
-                    "menu": "",
+                    "menu": "shop-categories",
                     "heading": "Shop Categories",
                     "collapse_menu_on_mobile": true,
                     "icon": "plus",
