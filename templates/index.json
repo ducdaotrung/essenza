@@ -370,7 +370,7 @@
             "pagination_top_padding_mobile": 24,
             "pagination_limit_width": true,
             "pagination_max_width": 260,
-            "autoplay": false,
+            "autoplay": true,
             "autoplay_pause_on_hover": true,
             "autoplay_speed": 4
           },
@@ -627,7 +627,7 @@
             "pagination_top_padding_mobile": 16,
             "pagination_limit_width": true,
             "pagination_max_width": 260,
-            "autoplay": false,
+            "autoplay": true,
             "autoplay_pause_on_hover": true,
             "autoplay_speed": 4
           },
@@ -1096,7 +1096,7 @@
             "pagination_top_padding_mobile": 24,
             "pagination_limit_width": false,
             "pagination_max_width": 600,
-            "autoplay": false,
+            "autoplay": true,
             "autoplay_pause_on_hover": true,
             "autoplay_speed": 4
           },
@@ -2099,7 +2099,7 @@
             "pagination_top_padding_mobile": 24,
             "pagination_limit_width": true,
             "pagination_max_width": 260,
-            "autoplay": false,
+            "autoplay": true,
             "autoplay_pause_on_hover": true,
             "autoplay_speed": 4
           },
@@ -2507,7 +2507,7 @@
             "pagination_padding_mobile": 24,
             "pagination_limit_width": false,
             "pagination_max_width": 260,
-            "autoplay": false,
+            "autoplay": true,
             "pause_on_hover": true,
             "autoplay_speed": 4,
             "padding_top": 0,
@@ -3997,7 +3997,7 @@
             "pagination_padding_mobile": 24,
             "pagination_limit_width": false,
             "pagination_max_width": 260,
-            "autoplay": false,
+            "autoplay": true,
             "pause_on_hover": true,
             "autoplay_speed": 4,
             "padding_top": 0,
