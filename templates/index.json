@@ -1791,7 +1791,7 @@
                 "max_width_mobile": 480,
                 "appearance_type": "scheme",
                 "color_scheme": "scheme-1",
-                "background_color": "#FBF8F4",
+                "background_color": "#fbf8f4",
                 "border_type": "none",
                 "border_color": "",
                 "corner_radius": "custom",
@@ -2074,7 +2074,13 @@
           "type": "collection-list-items",
           "static": true,
           "settings": {
-            "collections": [],
+            "collections": [
+              "body-care-1",
+              "brightening",
+              "moisturizing",
+              "healthy-aging",
+              "clarifying"
+            ],
             "layout": "carousel",
             "columns_desktop": "5",
             "columns_mobile": "1",
