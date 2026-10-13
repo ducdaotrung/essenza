@@ -247,9 +247,14 @@
     {% endif %}
   </div>
 
+  {% if section.settings.show_add_all %}
+    {% assign look_button_style = block.settings.button_style | default: section.settings.add_all_button_style | default: 'primary' %}
+    {% render 'theme-button', label: 'Add All To Cart', type: 'submit', variant: look_button_style, attributes: 'data-look-add-all disabled', class: 'shop-the-look-products__button' %}
+  {% endif %}
 </div>
 
 {% stylesheet %}
+  .shop-the-look-products__button { margin-top:24px; }
   .shop-the-look-products {
     width: 100%;
     min-width: 0;
@@ -592,6 +597,18 @@
   "tag": null,
   "blocks": [{ "type": "shop-the-look-product" }],
   "settings": [
+    { "type": "header", "content": "t:general.button" },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "t:labels.style",
+      "options": [
+        { "value": "primary", "label": "t:options.button_variant.primary" },
+        { "value": "secondary", "label": "t:options.button_variant.secondary" },
+        { "value": "tertiary", "label": "t:options.button_variant.tertiary" }
+      ],
+      "default": "primary"
+    },
     {
       "type": "header",
       "content": "t:general.layout"

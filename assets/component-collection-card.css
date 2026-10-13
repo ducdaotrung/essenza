@@ -82,11 +82,11 @@
   }
 
   .collection-card-kernel--linked .collection-card-kernel__content {
-    pointer-events: auto;
+    pointer-events: none;
   }
 
   .collection-card-kernel--linked .collection-card-kernel__content :where(a, button, input, select, textarea) {
-    pointer-events: none;
+    pointer-events: auto;
   }
 
   .collection-card-kernel--design-mode .collection-card-kernel__content {

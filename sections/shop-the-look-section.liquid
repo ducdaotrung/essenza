@@ -91,7 +91,6 @@
         {% if section.settings.show_add_all %}<form action="{{ routes.cart_add_url }}" method="post" data-look-bundle>{% endif %}
         {% content_for 'block', type: 'shop-the-look-products', id: 'product-list' %}
         {% if section.settings.show_add_all %}
-          {% render 'theme-button', label: 'Add All To Cart', type: 'submit', variant: section.settings.add_all_button_style, attributes: 'data-look-add-all disabled' %}
           </form>
         {% endif %}
       </div>
