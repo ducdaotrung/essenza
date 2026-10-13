@@ -200,7 +200,7 @@
                 "footer-customer-menu": {
                   "type": "menu",
                   "settings": {
-                    "menu": "",
+                    "menu": "customer",
                     "heading": "Customer",
                     "collapse_menu_on_mobile": true,
                     "icon": "plus",
