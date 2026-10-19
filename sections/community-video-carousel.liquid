@@ -13,6 +13,10 @@
 .community-video-carousel .community-video-card.swiper-slide-active > .community-video-card__media { overflow:visible; }
 .community-video-carousel .community-video-card.swiper-slide-active .video-block__media { height:calc(133.333cqw + 50px); aspect-ratio:auto; }
 .community-video-carousel .video-block__media { interpolate-size:allow-keywords; transition:height 600ms ease; }
+@media(min-width:768px) {
+  .community-video-carousel .video-block__media { height:132.2580645cqw; aspect-ratio:auto; }
+  .community-video-carousel .community-video-card.swiper-slide-active .video-block__media { height:150cqw; }
+}
 .community-video-carousel .community-video-card__media,
 .community-video-carousel .video-block__media { border-radius:16px; }
 .community-video-carousel .video__play { width:auto; height:auto; border-radius:0; color:#fff; background:transparent; }

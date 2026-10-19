@@ -153,6 +153,42 @@ const observeSize = (state) => {
   state.resizeObserver.observe(state.carousel);
 };
 
+const alignFeaturedBannerNavigation = (carousel, scope, swiper) => {
+  const section = scope.closest('.featured-collection__container');
+  const hasBanner = section?.querySelector(
+    ':scope > .featured-collection__additional-blocks > .image-card--featured-collection-banner'
+  );
+  const navigation = scope.querySelector('[data-product-list-navigation]:not(.product-list__navigation--top)');
+  const navigationParent = navigation?.offsetParent;
+  if (!hasBanner || !navigation || !navigationParent) return null;
+
+  let frame = 0;
+  const align = () => {
+    window.cancelAnimationFrame(frame);
+    frame = window.requestAnimationFrame(() => {
+      if (!isVisible(carousel)) return;
+      const slide = carousel.querySelector('.swiper-slide-active') || carousel.querySelector('.swiper-slide');
+      const media = slide?.querySelector('.product-card__media');
+      if (!media) return;
+
+      const mediaRect = media.getBoundingClientRect();
+      const parentRect = navigationParent.getBoundingClientRect();
+      navigation.style.top = `${mediaRect.top + mediaRect.height / 2 - parentRect.top}px`;
+    });
+  };
+
+  swiper.on('slideChangeTransitionEnd resize breakpoint update', align);
+  window.addEventListener('resize', align);
+  align();
+
+  return () => {
+    window.cancelAnimationFrame(frame);
+    window.removeEventListener('resize', align);
+    swiper.off('slideChangeTransitionEnd resize breakpoint update', align);
+    navigation.style.removeProperty('top');
+  };
+};
+
 const initialize = (carousel) => {
   if (!carousel || instances.has(carousel)) return;
 
@@ -166,6 +202,7 @@ const initialize = (carousel) => {
     visibilityObserver: null,
     mobileQuery: null,
     mobileQueryHandler: null,
+    navigationAlignmentCleanup: null,
   };
   instances.set(carousel, state);
 
@@ -193,6 +230,7 @@ const initialize = (carousel) => {
     return;
   }
   state.swiper = swiper;
+  state.navigationAlignmentCleanup = alignFeaturedBannerNavigation(carousel, scope, swiper);
   startAutoplay(state);
   observeSize(state);
   observeVisibility(state);
@@ -213,6 +251,7 @@ const destroy = (carousel) => {
   state.resizeObserver?.disconnect();
   state.visibilityObserver?.disconnect();
   state.mobileQuery?.removeEventListener('change', state.mobileQueryHandler);
+  state.navigationAlignmentCleanup?.();
   if (state.swiper) destroySwiperCarousel(state.swiper);
   instances.delete(carousel);
 };

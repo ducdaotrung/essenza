@@ -822,7 +822,7 @@
         "link": "",
         "open_in_new_tab": false,
         "media_type": "video",
-        "video": "shopify://files/videos/202509261316.mp4",
+        "video": "",
         "overlay": "#00000033",
         "parallax_effect": "none",
         "desktop_height": "custom",
@@ -4017,7 +4017,7 @@
                   "type": "video",
                   "settings": {
                     "video_source": "uploaded",
-                    "video": "shopify://files/videos/essenza-video-3.mp4",
+                    "video": "",
                     "external_video_url": "",
                     "autoplay": false,
                     "loop_video": false,
@@ -4066,7 +4066,7 @@
                   "type": "video",
                   "settings": {
                     "video_source": "uploaded",
-                    "video": "shopify://files/videos/essenza-video-6.mp4",
+                    "video": "",
                     "external_video_url": "",
                     "autoplay": false,
                     "loop_video": false,
@@ -4115,7 +4115,7 @@
                   "type": "video",
                   "settings": {
                     "video_source": "uploaded",
-                    "video": "shopify://files/videos/essenza-video-2.mp4",
+                    "video": "",
                     "external_video_url": "",
                     "autoplay": false,
                     "loop_video": false,
@@ -4164,7 +4164,7 @@
                   "type": "video",
                   "settings": {
                     "video_source": "uploaded",
-                    "video": "shopify://files/videos/essenza-video-4.mp4",
+                    "video": "",
                     "external_video_url": "",
                     "autoplay": false,
                     "loop_video": false,
@@ -4213,7 +4213,7 @@
                   "type": "video",
                   "settings": {
                     "video_source": "uploaded",
-                    "video": "shopify://files/videos/essenza-video-5.mp4",
+                    "video": "",
                     "external_video_url": "",
                     "autoplay": false,
                     "loop_video": false,
@@ -4262,7 +4262,7 @@
                   "type": "video",
                   "settings": {
                     "video_source": "uploaded",
-                    "video": "shopify://files/videos/essenza-video-5.mp4",
+                    "video": "",
                     "external_video_url": "",
                     "autoplay": false,
                     "loop_video": false,
@@ -4311,7 +4311,7 @@
                   "type": "video",
                   "settings": {
                     "video_source": "uploaded",
-                    "video": "shopify://files/videos/essenza-video-1.mp4",
+                    "video": "",
                     "external_video_url": "",
                     "autoplay": false,
                     "loop_video": false,
