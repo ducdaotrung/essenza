@@ -393,7 +393,7 @@
         "desktop_alignment": "center",
         "mobile_alignment": "center",
         "gap_desktop": 20,
-        "gap_mobile": 24,
+        "gap_mobile": 36,
         "color_scheme": "scheme-1",
         "padding_top": 80,
         "padding_bottom": 80,
