@@ -948,14 +948,14 @@ h6 {
 .heading-h1 {
   font-size: var(--font-heading-display);
   line-height: var(--font-heading-display-line-height);
-  letter-spacing: var(--font-heading-display-letter-spacing);
+  letter-spacing: 0px;
   text-transform: var(--font-heading-display-text-transform);
 }
 
 .heading-custom {
   font-size: var(--font-heading-custom);
   line-height: var(--font-heading-custom-line-height);
-  letter-spacing: var(--font-heading-custom-letter-spacing);
+  letter-spacing: 0px;
   text-transform: var(--font-heading-custom-text-transform);
 }
 
