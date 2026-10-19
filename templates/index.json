@@ -822,7 +822,6 @@
         "link": "",
         "open_in_new_tab": false,
         "media_type": "video",
-        "video": "",
         "overlay": "#00000033",
         "parallax_effect": "none",
         "desktop_height": "custom",
@@ -4017,7 +4016,6 @@
                   "type": "video",
                   "settings": {
                     "video_source": "uploaded",
-                    "video": "",
                     "external_video_url": "",
                     "autoplay": false,
                     "loop_video": false,
@@ -4066,7 +4064,6 @@
                   "type": "video",
                   "settings": {
                     "video_source": "uploaded",
-                    "video": "",
                     "external_video_url": "",
                     "autoplay": false,
                     "loop_video": false,
@@ -4115,7 +4112,6 @@
                   "type": "video",
                   "settings": {
                     "video_source": "uploaded",
-                    "video": "",
                     "external_video_url": "",
                     "autoplay": false,
                     "loop_video": false,
@@ -4164,7 +4160,6 @@
                   "type": "video",
                   "settings": {
                     "video_source": "uploaded",
-                    "video": "",
                     "external_video_url": "",
                     "autoplay": false,
                     "loop_video": false,
@@ -4213,7 +4208,6 @@
                   "type": "video",
                   "settings": {
                     "video_source": "uploaded",
-                    "video": "",
                     "external_video_url": "",
                     "autoplay": false,
                     "loop_video": false,
@@ -4262,7 +4256,6 @@
                   "type": "video",
                   "settings": {
                     "video_source": "uploaded",
-                    "video": "",
                     "external_video_url": "",
                     "autoplay": false,
                     "loop_video": false,
@@ -4311,7 +4304,6 @@
                   "type": "video",
                   "settings": {
                     "video_source": "uploaded",
-                    "video": "",
                     "external_video_url": "",
                     "autoplay": false,
                     "loop_video": false,
