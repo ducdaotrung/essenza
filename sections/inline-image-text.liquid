@@ -75,8 +75,6 @@
 
   <div class="container {{ inline_image_text_container_width }} inline-image-text__container">
     <div class="inline-image-text__content layout-flow layout-flow--responsive align-content" style="{{ inline_image_text_content_style }}">
-      {% content_for "block", type: "text", id: "text" %}
-      {% content_for "block", type: "inline-image-heading", id: "editorial-text" %}
       {% content_for "blocks" %}
     </div>
   </div>
@@ -335,8 +333,6 @@
           "settings": {
             "text": "<p>EMPOWER YOUR SKIN CARE</p>"
           },
-          "id": "eyebrow",
-          "static": true,
           "type": "eyebrow"
         },
         {
@@ -358,8 +354,6 @@
             "corner_radius": "full",
             "html_tag": "h2"
           },
-          "id": "editorial-text",
-          "static": true,
           "type": "inline-image-heading"
         }
       ],
