@@ -181,10 +181,10 @@
   position: relative;
   flex: 0 0 auto;
   /* Keep the visual bullet small while giving the button a usable touch area. */
-  width: var(--swiper-pagination-bullet-hit-width, 24px);
-  min-width: var(--swiper-pagination-bullet-hit-width, 24px);
-  height: var(--swiper-pagination-bullet-hit-size, 24px);
-  min-height: var(--swiper-pagination-bullet-hit-size, 24px);
+  width: var(--swiper-pagination-bullet-hit-width, 8px);
+  min-width: var(--swiper-pagination-bullet-hit-width, 8px);
+  height: var(--swiper-pagination-bullet-hit-size, 8px);
+  min-height: var(--swiper-pagination-bullet-hit-size, 8px);
   margin: 0;
   padding: 0;
   border: 0;
@@ -223,8 +223,6 @@
   content: '';
   pointer-events: none;
   transform: translate(-50%, -50%);
-  transition: width var(--motion-duration-standard) var(--motion-ease-standard),
-    height var(--motion-duration-standard) var(--motion-ease-standard);
 }
 
 .swiper > :is(
@@ -249,8 +247,8 @@
   .swiper-pagination.swiper-pagination-bullets
 ) .swiper-pagination-bullet-active {
   opacity: var(--swiper-pagination-bullet-opacity, 1);
-  width: var(--swiper-pagination-bullet-active-hit-width, 48px);
-  min-width: var(--swiper-pagination-bullet-active-hit-width, 48px);
+  width: var(--swiper-pagination-bullet-active-hit-width, 8px);
+  min-width: var(--swiper-pagination-bullet-active-hit-width, 8px);
 }
 
 .swiper > :is(
@@ -261,31 +259,22 @@
   .swiper-pagination[data-pagination-type='bullets'],
   .swiper-pagination.swiper-pagination-bullets
 ) .swiper-pagination-bullet-active::after {
-  width: var(--swiper-pagination-bullet-active-width, var(--swiper-pagination-bullet-width, 32px));
-  height: var(--swiper-pagination-bullet-active-height, var(--swiper-pagination-bullet-height, 8px));
+  width: var(--swiper-pagination-bullet-active-width, 8px);
+  height: var(--swiper-pagination-bullet-active-height, 8px);
 }
 
 .swiper > :is(
   .swiper-pagination[data-pagination-type='bullets'],
   .swiper-pagination.swiper-pagination-bullets
 ) .swiper-pagination-bullet-active::before {
-  background: color-mix(in srgb, var(--swiper-pagination-color, var(--body-color)) 24%, transparent);
+  background: var(--swiper-pagination-color, var(--body-color));
 }
 
 .swiper > :is(
   .swiper-pagination[data-pagination-type='bullets'],
   .swiper-pagination.swiper-pagination-bullets
 ) .swiper-pagination-bullet-active::after {
-  opacity: 1;
-  transform: translate(-50%, -50%) scaleX(1);
-}
-
-.swiper[data-swiper-autoplay='true'] > :is(
-  .swiper-pagination[data-pagination-type='bullets'],
-  .swiper-pagination.swiper-pagination-bullets
-) .swiper-pagination-bullet-active::after {
-  transform: translate(-50%, -50%) scaleX(0);
-  animation: swiper-pagination-bullet-progress var(--swiper-pagination-bullet-progress-duration, 4s) linear both;
+  display: none;
 }
 
 .swiper.swiper-rtl > :is(
@@ -295,35 +284,7 @@
   transform-origin: right center;
 }
 
-@keyframes swiper-pagination-bullet-progress {
-  from {
-    transform: translate(-50%, -50%) scaleX(0);
-  }
-
-  to {
-    transform: translate(-50%, -50%) scaleX(1);
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .swiper > :is(
-    .swiper-pagination[data-pagination-type='bullets'],
-    .swiper-pagination.swiper-pagination-bullets
-  ) .swiper-pagination-bullet::before,
-  .swiper > :is(
-    .swiper-pagination[data-pagination-type='bullets'],
-    .swiper-pagination.swiper-pagination-bullets
-  ) .swiper-pagination-bullet::after {
-    transition: none;
-  }
-
-  .swiper[data-swiper-autoplay='true'] > :is(
-    .swiper-pagination[data-pagination-type='bullets'],
-    .swiper-pagination.swiper-pagination-bullets
-  ) .swiper-pagination-bullet-active::after {
-    animation: none;
-    transform: translate(-50%, -50%) scaleX(1);
-  }
 }
 
 @media (hover: hover) {

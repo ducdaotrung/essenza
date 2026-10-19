@@ -577,6 +577,7 @@ const initialize = (root) => {
   const modules = fade ? [EffectFade, ...paginationModules] : paginationModules;
   const options = {
     loop: loop && !manualLoop,
+    autoHeight: Boolean(communityVideoSection),
     initialSlide: manualLoop?.initialSlide || 0,
     effect: fade ? 'fade' : 'slide',
     centeredSlides: centerActiveSlide,
@@ -645,6 +646,22 @@ const initialize = (root) => {
     hotspotContentSchemeCleanup = () => swiper.off('init slideChange', syncHotspotContentScheme);
   }
   const manualPaginationCleanup = createManualPagination(pagination, swiper, manualLoop);
+  let communityVideoHeightCleanup = null;
+  if (communityVideoSection) {
+    let frame = 0;
+    const updateCommunityVideoHeight = () => {
+      window.cancelAnimationFrame(frame);
+      frame = window.requestAnimationFrame(() => {
+        if (!swiper.destroyed) swiper.updateAutoHeight(swiper.params.speed);
+      });
+    };
+    swiper.on('slideChangeTransitionStart resize breakpoint', updateCommunityVideoHeight);
+    updateCommunityVideoHeight();
+    communityVideoHeightCleanup = () => {
+      window.cancelAnimationFrame(frame);
+      swiper.off('slideChangeTransitionStart resize breakpoint', updateCommunityVideoHeight);
+    };
+  }
   if (manualLoop) {
     swiper.on('slideChangeTransitionEnd', manualLoop.restore);
     swiper.on('slideChangeTransitionStart', manualLoop.clearReset);
@@ -744,6 +761,7 @@ const initialize = (root) => {
     fractionCleanup,
     manualLoop,
     manualPaginationCleanup,
+    communityVideoHeightCleanup,
     autoplayCleanup: autoplay
       ? bindCarouselAutoplay(
           swiper,
@@ -767,6 +785,7 @@ const destroy = (root) => {
   state.slideChangeCleanup?.();
   state.fractionCleanup?.();
   state.manualPaginationCleanup?.();
+  state.communityVideoHeightCleanup?.();
   state.revealCleanup?.();
   if (state.manualLoop) {
     state.swiper.off('slideChangeTransitionEnd', state.manualLoop.restore);
