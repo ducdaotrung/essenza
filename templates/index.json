@@ -406,27 +406,16 @@
       "type": "inline-image-text",
       "blocks": {
         "text": {
-          "type": "text",
+          "type": "eyebrow",
           "static": true,
           "settings": {
             "text": "<p>EMPOWER YOUR SKIN CARE</p>",
-            "text_size": "display",
-            "height_limit": "none",
-            "text_color": "",
-            "width": "fit",
-            "max_width": 640,
-            "customize_mobile_size": false,
-            "width_mobile": "fit",
-            "max_width_mobile": 480,
+            "show_background": false,
+            "show_icon": false,
             "padding_top": 0,
             "padding_bottom": 0,
             "padding_left": 0,
-            "padding_right": 0,
-            "customize_mobile_padding": false,
-            "padding_top_mobile": 0,
-            "padding_bottom_mobile": 0,
-            "padding_left_mobile": 0,
-            "padding_right_mobile": 0
+            "padding_right": 0
           },
           "blocks": {}
         },
