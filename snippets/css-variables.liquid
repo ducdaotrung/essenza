@@ -270,6 +270,10 @@
   endif
 
   assign eyebrow_size = settings.type_eyebrow_size | default: 12
+  assign eyebrow_weight = settings.type_eyebrow_weight | default: '500'
+  unless eyebrow_weight == '300' or eyebrow_weight == '400' or eyebrow_weight == '500' or eyebrow_weight == '600' or eyebrow_weight == '700' or eyebrow_weight == '800' or eyebrow_weight == '900'
+    assign eyebrow_weight = '500'
+  endunless
   assign eyebrow_line_height = '1.5'
   case settings.type_eyebrow_line_height
     when 'tight'
@@ -287,6 +291,9 @@
       assign eyebrow_letter_spacing = '0.08em'
     when 'extra_loose'
       assign eyebrow_letter_spacing = '0.2em'
+    when 'custom'
+      assign eyebrow_custom_letter_spacing = settings.type_eyebrow_letter_spacing_custom | default: 1.5 | append: 'px'
+      assign eyebrow_letter_spacing = eyebrow_custom_letter_spacing
   endcase
   assign eyebrow_text_case = 'none'
   if settings.type_eyebrow_case == 'uppercase'
@@ -845,6 +852,9 @@
 %}
 
 {% style %}
+  {% if eyebrow_weight != '500' and body_font != blank %}
+    {{ body_font | font_modify: 'weight', eyebrow_weight | font_face: font_display: 'swap' }}
+  {% endif %}
   {% if button_font_weight != 'inherit' %}
     {% if body_font != blank %}{{ body_font | font_modify: 'weight', button_font_weight | font_face: font_display: 'swap' }}{% endif %}
     {% if heading_font != blank %}{{ heading_font | font_modify: 'weight', button_font_weight | font_face: font_display: 'swap' }}{% endif %}
@@ -953,7 +963,7 @@
     --font-eyebrow-line-height: {{ eyebrow_line_height }};
     --font-eyebrow-letter-spacing: {{ eyebrow_letter_spacing }};
     --font-eyebrow-text-transform: {{ eyebrow_text_case }};
-    --font-eyebrow-weight: 500;
+    --font-eyebrow-weight: {{ eyebrow_weight }};
     --type-body-size: var(--font-body-md);
     --type-body-leading: var(--font-body-line-height);
     --type-heading-1-size: var(--font-heading-display);

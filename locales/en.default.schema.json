@@ -1094,7 +1094,8 @@
       "relaxed": "Relaxed",
       "loose": "Loose",
       "reference": "1.2px",
-      "extra_loose": "Extra loose"
+      "extra_loose": "Extra loose",
+      "custom": "Custom"
     },
     "product_card_style": {
       "standard": "Standard",

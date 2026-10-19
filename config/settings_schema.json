@@ -710,6 +710,21 @@
       },
       {
         "type": "select",
+        "id": "type_eyebrow_weight",
+        "label": "Font weight",
+        "options": [
+          { "value": "300", "label": "Light (300)" },
+          { "value": "400", "label": "Regular (400)" },
+          { "value": "500", "label": "Medium (500)" },
+          { "value": "600", "label": "Semibold (600)" },
+          { "value": "700", "label": "Bold (700)" },
+          { "value": "800", "label": "Extra bold (800)" },
+          { "value": "900", "label": "Black (900)" }
+        ],
+        "default": "500"
+      },
+      {
+        "type": "select",
         "id": "type_eyebrow_line_height",
         "label": "t:labels.line_height",
         "options": [
@@ -727,9 +742,21 @@
           { "value": "normal", "label": "t:options.letter_spacing.normal" },
           { "value": "relaxed", "label": "t:options.letter_spacing.relaxed" },
           { "value": "loose", "label": "t:options.letter_spacing.loose" },
-          { "value": "extra_loose", "label": "t:options.letter_spacing.extra_loose" }
+          { "value": "extra_loose", "label": "t:options.letter_spacing.extra_loose" },
+          { "value": "custom", "label": "t:options.letter_spacing.custom" }
         ],
         "default": "extra_loose"
+      },
+      {
+        "type": "range",
+        "id": "type_eyebrow_letter_spacing_custom",
+        "label": "Custom letter spacing",
+        "min": 0,
+        "max": 10,
+        "step": 0.1,
+        "unit": "px",
+        "default": 1.5,
+        "visible_if": "{{ settings.type_eyebrow_letter_spacing == 'custom' }}"
       },
       {
         "type": "select",
