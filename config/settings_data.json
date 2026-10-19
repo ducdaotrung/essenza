@@ -22,7 +22,7 @@
     "type_accent_font": "dm_sans_n4",
     "type_body_size": 16,
     "type_body_leading": "normal",
-    "type_letter_spacing": "normal",
+    "type_letter_spacing": "relaxed",
     "type_heading_1_size_desktop": 56,
     "type_heading_1_size_tablet": 46,
     "type_heading_1_size_mobile": 36,
