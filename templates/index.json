@@ -79,19 +79,18 @@
                 "padding_right_mobile": 0
               },
               "blocks": {
-                "text_hx9RDa": {
-                  "type": "text",
-                  "name": "t:general.text",
+                "eyebrow_UYAQJB": {
+                  "type": "eyebrow",
+                  "name": "t:general.eyebrow",
                   "settings": {
                     "text": "<p>WHERE ELEGANCE MEETS TIMELESS CARE</p>",
-                    "text_size": "display",
-                    "height_limit": "none",
-                    "text_color": "#181818",
-                    "width": "fit",
-                    "max_width": 640,
-                    "customize_mobile_size": false,
-                    "width_mobile": "fit",
-                    "max_width_mobile": 480,
+                    "color": "",
+                    "show_background": false,
+                    "show_icon": false,
+                    "icon": "circle",
+                    "border_thickness": 0,
+                    "corner_radius": "square",
+                    "color_scheme": "scheme-1",
                     "padding_top": 0,
                     "padding_bottom": 0,
                     "padding_left": 0,
@@ -184,7 +183,7 @@
                 }
               },
               "block_order": [
-                "text_hx9RDa",
+                "eyebrow_UYAQJB",
                 "heading_ccBPGP",
                 "text_eA33mt",
                 "button_GnVqzh"
@@ -706,19 +705,18 @@
     "skin_campaign": {
       "type": "hero",
       "blocks": {
-        "text_xKDWN6": {
-          "type": "text",
-          "name": "t:general.text",
+        "eyebrow_JV8in4": {
+          "type": "eyebrow",
+          "name": "t:general.eyebrow",
           "settings": {
             "text": "<p>GENTLE AND SAFE</p>",
-            "text_size": "display",
-            "height_limit": "none",
-            "text_color": "",
-            "width": "fit",
-            "max_width": 640,
-            "customize_mobile_size": false,
-            "width_mobile": "fit",
-            "max_width_mobile": 480,
+            "color": "",
+            "show_background": false,
+            "show_icon": false,
+            "icon": "circle",
+            "border_thickness": 0,
+            "corner_radius": "square",
+            "color_scheme": "scheme-1",
             "padding_top": 0,
             "padding_bottom": 0,
             "padding_left": 0,
@@ -809,7 +807,7 @@
         }
       },
       "block_order": [
-        "text_xKDWN6",
+        "eyebrow_JV8in4",
         "campaign-title",
         "text_3YQTMd",
         "campaign-cta"
