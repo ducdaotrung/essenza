@@ -4391,18 +4391,18 @@
             "padding_right_mobile": 0
           },
           "blocks": {
-            "text_1": {
-              "type": "text",
+            "eyebrow_XQcYUM": {
+              "type": "eyebrow",
+              "name": "t:general.eyebrow",
               "settings": {
                 "text": "<p>ON PRESS</p>",
-                "text_size": "display",
-                "height_limit": "none",
-                "text_color": "",
-                "width": "fit",
-                "max_width": 640,
-                "customize_mobile_size": false,
-                "width_mobile": "fit",
-                "max_width_mobile": 480,
+                "color": "",
+                "show_background": false,
+                "show_icon": false,
+                "icon": "circle",
+                "border_thickness": 0,
+                "corner_radius": "square",
+                "color_scheme": "scheme-1",
                 "padding_top": 0,
                 "padding_bottom": 0,
                 "padding_left": 0,
@@ -4417,7 +4417,7 @@
             }
           },
           "block_order": [
-            "text_1"
+            "eyebrow_XQcYUM"
           ]
         },
         "carousel_2": {
