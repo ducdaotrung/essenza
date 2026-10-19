@@ -8,38 +8,45 @@
       {% assign card_form_id = 'CommunityProduct-' | append: section.id | append: '-' | append: block.id %}
       {% form 'product', selected_product, id: card_form_id %}
         {% render 'product-summary', product: selected_product, shop_look: true, price_in_content: true %}
-        {% render 'theme-button', label: 'Add to cart', aria_label: 'Add to cart', type: 'submit', icon: 'cart', icon_only: true, disabled: product_unavailable, class: 'community-video-card__add-to-cart' %}
+        <button class="community-video-card__add-to-cart" type="submit" aria-label="Add to cart"{% if product_unavailable %} disabled{% endif %}>
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true">
+            <path d="M0.5 0.5H1.83333L3.60667 8.78C3.67172 9.08324 3.84045 9.35432 4.08381 9.54657C4.32717 9.73883 4.62994 9.84023 4.94 9.83333H11.46C11.7635 9.83284 12.0577 9.72886 12.294 9.53856C12.5304 9.34825 12.6948 9.08302 12.76 8.78667L13.86 3.83333H2.54667M5.13333 13.1333C5.13333 13.5015 4.83486 13.8 4.46667 13.8C4.09848 13.8 3.8 13.5015 3.8 13.1333C3.8 12.7651 4.09848 12.4667 4.46667 12.4667C4.83486 12.4667 5.13333 12.7651 5.13333 13.1333ZM12.4667 13.1333C12.4667 13.5015 12.1682 13.8 11.8 13.8C11.4318 13.8 11.1333 13.5015 11.1333 13.1333C11.1333 12.7651 11.4318 12.4667 11.8 12.4667C12.1682 12.4667 12.4667 12.7651 12.4667 13.1333Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
       {% endform %}
     {% else %}
       {% render 'product-summary', placeholder_title: 'Select a product', price_in_content: true %}
-      {% render 'theme-button', label: 'Add to cart', aria_label: 'Add to cart', icon: 'cart', icon_only: true, disabled: true, class: 'community-video-card__add-to-cart' %}
+      <button class="community-video-card__add-to-cart" type="button" aria-label="Add to cart" disabled>
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true">
+          <path d="M0.5 0.5H1.83333L3.60667 8.78C3.67172 9.08324 3.84045 9.35432 4.08381 9.54657C4.32717 9.73883 4.62994 9.84023 4.94 9.83333H11.46C11.7635 9.83284 12.0577 9.72886 12.294 9.53856C12.5304 9.34825 12.6948 9.08302 12.76 8.78667L13.86 3.83333H2.54667M5.13333 13.1333C5.13333 13.5015 4.83486 13.8 4.46667 13.8C4.09848 13.8 3.8 13.5015 3.8 13.1333C3.8 12.7651 4.09848 12.4667 4.46667 12.4667C4.83486 12.4667 5.13333 12.7651 5.13333 13.1333ZM12.4667 13.1333C12.4667 13.5015 12.1682 13.8 11.8 13.8C11.4318 13.8 11.1333 13.5015 11.1333 13.1333C11.1333 12.7651 11.4318 12.4667 11.8 12.4667C12.1682 12.4667 12.4667 12.7651 12.4667 13.1333Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
     {% endif %}
   </div>
 </article>
 {% stylesheet %}
 .community-video-card { min-width:0; }
 .community-video-card__media { overflow:hidden; border-radius:16px; }
-.community-video-card__product { visibility:hidden; margin-top:12px; padding:12px 6px; border:1px solid #B3B3B3; border-radius:12px; }
+.community-video-card__product { visibility:hidden; margin-top:12px; padding:6px 12px 6px 6px; border:1px solid #B3B3B3; border-radius:12px; }
 .carousel-block__viewport:not(.swiper-initialized) .community-video-card:first-child .community-video-card__product { visibility:visible; }
 .swiper-slide-active > .community-video-card__product { visibility:visible; }
 .community-video-card__product form,
-.community-video-card__product:not(:has(form)) { display:grid; grid-template-columns:minmax(0,1fr) 32px; align-items:center; gap:8px; }
-.community-video-card__product .product-summary { align-items:flex-start; gap:16px; }
-.community-video-card__product .product-summary__image { width:40px; height:40px; flex-basis:40px; }
+.community-video-card__product:not(:has(form)) { display:flex; align-items:center; gap:16px; }
+.community-video-card__product .product-summary { flex:1 1 auto; min-width:0; align-items:center; gap:16px; }
+.community-video-card__product .product-summary__image { width:72px; height:72px; flex:0 0 72px; }
 .community-video-card__product .product-summary__image,
 .community-video-card__product .product-summary__image :is(img,svg) { border-radius:8px; }
-.community-video-card__product .product-summary__content { display:flex; flex-direction:column; align-items:flex-start; gap:4px; font-size:16px; font-weight:500; }
-.community-video-card__product .product-summary__content > :is(a,span:not(.shop-the-look-variant-select)) { display:block; max-width:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; text-transform:capitalize; }
-.community-video-card__product .shop-the-look-variant-select { position:relative; display:inline-flex; align-self:flex-start; max-width:100%; margin-top:2px; padding:0; }
-.community-video-card__product .shop-the-look-variant-select::after { position:absolute; top:50%; right:2px; width:6px; height:6px; border-right:1px solid currentColor; border-bottom:1px solid currentColor; content:""; pointer-events:none; transform:translateY(-70%) rotate(45deg); }
-.community-video-card__product .product-summary__content select { width:fit-content; max-width:100%; min-height:0; margin:0; padding:0 14px 0 0; border:0; border-radius:0; background:transparent; outline:none; box-shadow:none; font:inherit; }
+.community-video-card__product .product-summary__content { display:flex; min-width:0; flex-direction:column; align-items:flex-start; gap:0; color:#181818; font-size:16px; font-weight:500; line-height:25px; }
+.community-video-card__product .product-summary__content > :is(a,span:not(.shop-the-look-variant-select)) { display:block; max-width:100%; overflow:hidden; color:#181818; text-overflow:ellipsis; white-space:nowrap; text-transform:capitalize; font-size:16px; font-weight:500; line-height:25px; }
+.community-video-card__product .shop-the-look-variant-select { position:relative; display:inline-flex; align-self:flex-start; max-width:100%; margin:0 !important; padding:0; color:#666; font-size:14px !important; line-height:20px; }
+.community-video-card__product .shop-the-look-variant-select::after { position:absolute; top:50%; right:0; width:8px; height:8px; border-right:1px solid currentColor; border-bottom:1px solid currentColor; content:""; pointer-events:none; transform:translateY(-70%) rotate(45deg); }
+.community-video-card__product .product-summary__content select { width:fit-content; max-width:100%; min-height:0; margin:0 !important; padding:0 16px 0 0; appearance:none; -webkit-appearance:none; border:0; border-radius:0; background:transparent; outline:none; box-shadow:none; color:#666; font-family:inherit; font-size:14px !important; font-weight:400; line-height:20px; }
 .community-video-card__product .product-summary__content select:focus,
 .community-video-card__product .product-summary__content select:focus-visible { outline:none; box-shadow:none; }
-.community-video-card__product .price { color:#666; font-size:14px; font-weight:400; }
-.community-video-card__product .community-video-card__add-to-cart { display:grid; width:32px; min-width:32px; height:32px; min-height:32px; padding:0; place-items:center; border:0; border-radius:50%; background:#1d1d1d; color:#fff; }
-.community-video-card__product .community-video-card__add-to-cart .btn__label { width:100%; height:100%; justify-content:center; }
-.community-video-card__product .community-video-card__add-to-cart .btn__icon { width:16px; height:16px; }
-.community-video-card__product .community-video-card__add-to-cart svg { width:16px; height:16px; }
+.community-video-card__product .price { color:#181818; font-size:16px; font-weight:500; line-height:25px; }
+.community-video-card__product .community-video-card__add-to-cart { display:grid; width:32px; min-width:32px; height:32px; min-height:32px; flex:0 0 32px; padding:0; place-items:center; border:0; border-radius:50%; background:#1F1F1F; color:#fff; }
+.community-video-card__product .community-video-card__add-to-cart svg { display:block; width:15px; height:15px; }
+@media(max-width:767.98px) { .community-video-card__product { padding:6px 10px 6px 6px; } }
 {% endstylesheet %}
 {% schema %}
 {
