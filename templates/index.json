@@ -1807,19 +1807,18 @@
                 "padding_right_mobile": 0
               },
               "blocks": {
-                "text_hfGn7h": {
-                  "type": "text",
-                  "name": "t:general.text",
+                "eyebrow_3nLwGW": {
+                  "type": "eyebrow",
+                  "name": "t:general.eyebrow",
                   "settings": {
                     "text": "<p>COUNTDOWN IS ON</p>",
-                    "text_size": "display",
-                    "height_limit": "none",
-                    "text_color": "",
-                    "width": "fit",
-                    "max_width": 640,
-                    "customize_mobile_size": false,
-                    "width_mobile": "fit",
-                    "max_width_mobile": 480,
+                    "color": "",
+                    "show_background": false,
+                    "show_icon": false,
+                    "icon": "circle",
+                    "border_thickness": 0,
+                    "corner_radius": "square",
+                    "color_scheme": "scheme-1",
                     "padding_top": 0,
                     "padding_bottom": 0,
                     "padding_left": 0,
@@ -1945,7 +1944,7 @@
                 }
               },
               "block_order": [
-                "text_hfGn7h",
+                "eyebrow_3nLwGW",
                 "heading_4gzBGE",
                 "text_9EmnGV",
                 "countdown_timer_m4y4tX",
@@ -2218,18 +2217,18 @@
             "padding_right_mobile": 24
           },
           "blocks": {
-            "text_6qPBcV": {
-              "type": "text",
+            "eyebrow_dxkcr4": {
+              "type": "eyebrow",
+              "name": "t:general.eyebrow",
               "settings": {
                 "text": "<p>BEFORE & AFTER</p>",
-                "text_size": "display",
-                "height_limit": "none",
-                "text_color": "",
-                "width": "fill",
-                "max_width": 640,
-                "customize_mobile_size": false,
-                "width_mobile": "fit",
-                "max_width_mobile": 480,
+                "color": "",
+                "show_background": false,
+                "show_icon": false,
+                "icon": "circle",
+                "border_thickness": 0,
+                "corner_radius": "square",
+                "color_scheme": "scheme-1",
                 "padding_top": 0,
                 "padding_bottom": 0,
                 "padding_left": 0,
@@ -2320,7 +2319,7 @@
             }
           },
           "block_order": [
-            "text_6qPBcV",
+            "eyebrow_dxkcr4",
             "heading_rfVeKm",
             "text_4fYfxk",
             "button_NLbH8N"
