@@ -370,7 +370,7 @@
         "section_width": "page_width",
         "desktop_alignment": "center",
         "mobile_alignment": "center",
-        "gap_desktop": 20,
+        "gap_desktop": 40,
         "gap_mobile": 36,
         "color_scheme": "scheme-1",
         "padding_top": 80,
@@ -799,7 +799,6 @@
         "link": "",
         "open_in_new_tab": false,
         "media_type": "video",
-        "video": "",
         "overlay": "#00000033",
         "parallax_effect": "none",
         "desktop_height": "custom",
@@ -3595,8 +3594,7 @@
         "customize_mobile_padding": true,
         "padding_top_mobile": 56,
         "padding_bottom_mobile": 56,
-        "item_radius": 16,
-        "dot_gap": 16
+        "item_radius": 16
       }
     },
     "shop_the_look_creams": {
@@ -3972,7 +3970,6 @@
                   "type": "video",
                   "settings": {
                     "video_source": "uploaded",
-                    "video": "",
                     "external_video_url": "",
                     "autoplay": false,
                     "loop_video": false,
@@ -4021,7 +4018,6 @@
                   "type": "video",
                   "settings": {
                     "video_source": "uploaded",
-                    "video": "",
                     "external_video_url": "",
                     "autoplay": false,
                     "loop_video": false,
@@ -4070,7 +4066,6 @@
                   "type": "video",
                   "settings": {
                     "video_source": "uploaded",
-                    "video": "",
                     "external_video_url": "",
                     "autoplay": false,
                     "loop_video": false,
@@ -4119,7 +4114,6 @@
                   "type": "video",
                   "settings": {
                     "video_source": "uploaded",
-                    "video": "",
                     "external_video_url": "",
                     "autoplay": false,
                     "loop_video": false,
@@ -4168,7 +4162,6 @@
                   "type": "video",
                   "settings": {
                     "video_source": "uploaded",
-                    "video": "",
                     "external_video_url": "",
                     "autoplay": false,
                     "loop_video": false,
@@ -4217,7 +4210,6 @@
                   "type": "video",
                   "settings": {
                     "video_source": "uploaded",
-                    "video": "",
                     "external_video_url": "",
                     "autoplay": false,
                     "loop_video": false,
@@ -4266,7 +4258,6 @@
                   "type": "video",
                   "settings": {
                     "video_source": "uploaded",
-                    "video": "",
                     "external_video_url": "",
                     "autoplay": false,
                     "loop_video": false,
