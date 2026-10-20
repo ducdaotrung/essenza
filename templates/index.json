@@ -799,7 +799,7 @@
         "link": "",
         "open_in_new_tab": false,
         "media_type": "video",
-        "video": "shopify://files/videos/202509261316.mp4",
+        "video": "",
         "overlay": "#00000033",
         "parallax_effect": "none",
         "desktop_height": "custom",
@@ -3971,7 +3971,7 @@
                   "type": "video",
                   "settings": {
                     "video_source": "uploaded",
-                    "video": "shopify://files/videos/essenza-video-3.mp4",
+                    "video": "",
                     "external_video_url": "",
                     "autoplay": false,
                     "loop_video": false,
@@ -4020,7 +4020,7 @@
                   "type": "video",
                   "settings": {
                     "video_source": "uploaded",
-                    "video": "shopify://files/videos/essenza-video-6.mp4",
+                    "video": "",
                     "external_video_url": "",
                     "autoplay": false,
                     "loop_video": false,
@@ -4069,7 +4069,7 @@
                   "type": "video",
                   "settings": {
                     "video_source": "uploaded",
-                    "video": "shopify://files/videos/essenza-video-2.mp4",
+                    "video": "",
                     "external_video_url": "",
                     "autoplay": false,
                     "loop_video": false,
@@ -4118,7 +4118,7 @@
                   "type": "video",
                   "settings": {
                     "video_source": "uploaded",
-                    "video": "shopify://files/videos/essenza-video-1.mp4",
+                    "video": "",
                     "external_video_url": "",
                     "autoplay": false,
                     "loop_video": false,
@@ -4167,7 +4167,7 @@
                   "type": "video",
                   "settings": {
                     "video_source": "uploaded",
-                    "video": "shopify://files/videos/essenza-video-4.mp4",
+                    "video": "",
                     "external_video_url": "",
                     "autoplay": false,
                     "loop_video": false,
@@ -4216,7 +4216,7 @@
                   "type": "video",
                   "settings": {
                     "video_source": "uploaded",
-                    "video": "shopify://files/videos/From KlickPin CF self care skin care face mask face masks skin care routine self care routine [Video] in 2025 _ Skin care tools Skin care routine Clear skin.mp4",
+                    "video": "",
                     "external_video_url": "",
                     "autoplay": false,
                     "loop_video": false,
@@ -4265,7 +4265,7 @@
                   "type": "video",
                   "settings": {
                     "video_source": "uploaded",
-                    "video": "shopify://files/videos/Pralle hydratisierte Haut in Sekunden! 💦✨ Feuchtigkeit die bleibt - für einen strahlenden Glow Jetzt ausprobieren!  marbert marbertgermany aquabooster skincare hautpflege hydrationboost.mp4",
+                    "video": "",
                     "external_video_url": "",
                     "autoplay": false,
                     "loop_video": false,
@@ -4676,9 +4676,11 @@
                 "blog_card_tag_KM7WGW": {
                   "type": "blog-card-tag",
                   "settings": {
-                    "max_tag": 3,
+                    "max_tag": 1,
+                    "custom_text": "Tips",
+                    "show_category_dot": true,
                     "style": "text",
-                    "text_case": "uppercase",
+                    "text_case": "original",
                     "font": "accent",
                     "font_size": "display",
                     "letter_spacing": "normal",
