@@ -2119,7 +2119,7 @@
         "section_width": "page_width",
         "desktop_alignment": "center",
         "mobile_alignment": "center",
-        "gap_desktop": 20,
+        "gap_desktop": 40,
         "gap_mobile": 36,
         "background_media": "none",
         "color_scheme": "",
