@@ -799,6 +799,7 @@
         "link": "",
         "open_in_new_tab": false,
         "media_type": "video",
+        "video": "shopify://files/videos/202509261316.mp4",
         "overlay": "#00000033",
         "parallax_effect": "none",
         "desktop_height": "custom",
