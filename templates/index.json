@@ -4595,7 +4595,7 @@
           "type": "view-all-button",
           "static": true,
           "settings": {
-            "button_label": "View all",
+            "button_label": "View All",
             "button_link": "",
             "button_open_in_new_tab": false,
             "button_style": "text",
@@ -4673,7 +4673,7 @@
                     "custom_text": "Tips",
                     "show_category_dot": true,
                     "style": "text",
-                    "text_case": "original",
+                    "text_case": "uppercase",
                     "font": "accent",
                     "font_size": "display",
                     "letter_spacing": "normal",
