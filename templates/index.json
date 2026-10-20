@@ -415,7 +415,7 @@
             "font_size": 24,
             "text_color": "",
             "width": "custom",
-            "max_width": 900,
+            "max_width": 1040,
             "customize_mobile_size": false,
             "width_mobile": "fit",
             "max_width_mobile": 480,
