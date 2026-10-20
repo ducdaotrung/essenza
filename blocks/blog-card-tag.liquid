@@ -100,28 +100,10 @@
   >
     {% if blog_card_tag_custom_text != blank %}
       <span class="blog-card-tag__label">{{ blog_card_tag_custom_text | escape }}</span>
-      {% assign blog_card_tag_category = blank %}
-      {% assign blog_card_tag_prefix_normalized = blog_card_tag_custom_text | downcase %}
-      {% for blog_card_tag_candidate in blog_card_tag_article.tags %}
-        {% assign blog_card_tag_candidate_normalized = blog_card_tag_candidate | strip | downcase %}
-        {% if blog_card_tag_candidate_normalized != blog_card_tag_prefix_normalized %}
-          {% assign blog_card_tag_category = blog_card_tag_candidate %}
-          {% break %}
-        {% endif %}
-      {% endfor %}
+      {% assign blog_card_tag_category = blog_card_tag_article.blog.title | strip %}
       {% if blog_card_tag_show_category_dot and blog_card_tag_category != blank %}
         <span class="blog-card-tag__separator" aria-hidden="true"></span>
-        {% assign blog_card_tag_category_url = blank %}
-        {% if blog_card_tag_blog.url != blank %}
-          {% assign blog_card_tag_category_handle = blog_card_tag_category | handleize %}
-          {% assign blog_card_tag_category_url = blog_card_tag_blog.url | append: '/tagged/' | append: blog_card_tag_category_handle %}
-        {% endif %}
-        {% if blog_card_tag_category_url != blank %}<a class="blog-card-tag__link" href="{{ blog_card_tag_category_url | escape }}">{% endif %}
-          <span class="blog-card-tag__label">{{ blog_card_tag_category | escape }}</span>
-        {% if blog_card_tag_category_url != blank %}</a>{% endif %}
-      {% elsif blog_card_tag_show_category_dot and request.design_mode %}
-        <span class="blog-card-tag__separator" aria-hidden="true"></span>
-        <span class="blog-card-tag__label">Category</span>
+        <span class="blog-card-tag__label">{{ blog_card_tag_category | escape }}</span>
       {% endif %}
     {% elsif blog_card_tag_article.tags != blank %}
       {% for blog_card_tag_value in blog_card_tag_article.tags limit: blog_card_tag_max %}
