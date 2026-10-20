@@ -3971,6 +3971,7 @@
                   "type": "video",
                   "settings": {
                     "video_source": "uploaded",
+                    "video": "shopify://files/videos/essenza-video-3.mp4",
                     "external_video_url": "",
                     "autoplay": false,
                     "loop_video": false,
@@ -4019,6 +4020,7 @@
                   "type": "video",
                   "settings": {
                     "video_source": "uploaded",
+                    "video": "shopify://files/videos/essenza-video-1.mp4",
                     "external_video_url": "",
                     "autoplay": false,
                     "loop_video": false,
@@ -4067,6 +4069,7 @@
                   "type": "video",
                   "settings": {
                     "video_source": "uploaded",
+                    "video": "shopify://files/videos/essenza-video-4.mp4",
                     "external_video_url": "",
                     "autoplay": false,
                     "loop_video": false,
@@ -4115,6 +4118,7 @@
                   "type": "video",
                   "settings": {
                     "video_source": "uploaded",
+                    "video": "shopify://files/videos/essenza-video-2.mp4",
                     "external_video_url": "",
                     "autoplay": false,
                     "loop_video": false,
@@ -4163,6 +4167,7 @@
                   "type": "video",
                   "settings": {
                     "video_source": "uploaded",
+                    "video": "shopify://files/videos/essenza-video-6.mp4",
                     "external_video_url": "",
                     "autoplay": false,
                     "loop_video": false,
@@ -4211,6 +4216,7 @@
                   "type": "video",
                   "settings": {
                     "video_source": "uploaded",
+                    "video": "shopify://files/videos/essenza-video-5.mp4",
                     "external_video_url": "",
                     "autoplay": false,
                     "loop_video": false,
@@ -4259,6 +4265,7 @@
                   "type": "video",
                   "settings": {
                     "video_source": "uploaded",
+                    "video": "shopify://files/videos/From KlickPin CF Pin by Davidia Agency on Pins by you in 2025 _ Cosmetic creative Uma oils Woman face.mp4",
                     "external_video_url": "",
                     "autoplay": false,
                     "loop_video": false,
