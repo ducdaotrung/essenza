@@ -146,15 +146,10 @@
   }
 
   .collection-thumbnails__pagination--bullets {
-    --swiper-pagination-bullet-size: 0.5rem;
-    --swiper-pagination-bullet-horizontal-gap: 0;
-    --swiper-pagination-bullet-inactive-color: color-mix(in srgb, var(--body-color) 30%, transparent);
-    --swiper-pagination-bullet-inactive-opacity: 1;
-    --swiper-pagination-color: var(--body-color);
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
+    gap: var(--swiper-pagination-bullet-gap, 0px);
   }
 
   @media (min-width: 768px) and (hover: hover) and (pointer: fine) {

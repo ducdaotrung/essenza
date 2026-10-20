@@ -86,10 +86,10 @@
 
 /* Slideshow and hotspot controls share overlay geometry; sections own inset tokens. */
 .swiper > .swiper-pagination.swiper-pagination--overlay {
-  --swiper-pagination-color: var(--heading-color);
+  --swiper-pagination-color: #181818;
   --swiper-pagination-progressbar-bg-color: color-mix(in srgb, var(--heading-color) 30%, transparent);
-  --swiper-pagination-bullet-inactive-color: color-mix(in srgb, var(--heading-color) 30%, transparent);
-  --swiper-pagination-bullet-inactive-opacity: .55;
+  --swiper-pagination-bullet-inactive-color: #CCCCCC;
+  --swiper-pagination-bullet-inactive-opacity: 1;
   --swiper-pagination-bullet-horizontal-gap: 0px;
   position: absolute;
   inset-block: auto 0;
@@ -100,7 +100,7 @@
   width: auto;
   max-width: 100%;
   box-sizing: border-box;
-  gap: var(--swiper-pagination-bullet-gap, 8px);
+  gap: var(--swiper-pagination-bullet-gap, 0px);
   align-items: center;
   justify-content: var(--swiper-pagination-justify, flex-start);
   margin: 0;
@@ -171,7 +171,7 @@
   box-sizing: border-box;
   align-items: center;
   justify-content: var(--swiper-pagination-justify, center);
-  gap: var(--swiper-pagination-bullet-gap, 8px);
+  gap: var(--swiper-pagination-bullet-gap, 0px);
 }
 
 .swiper > :is(
@@ -181,10 +181,10 @@
   position: relative;
   flex: 0 0 auto;
   /* Keep the visual bullet small while giving the button a usable touch area. */
-  width: var(--swiper-pagination-bullet-hit-width, 8px);
-  min-width: var(--swiper-pagination-bullet-hit-width, 8px);
-  height: var(--swiper-pagination-bullet-hit-size, 8px);
-  min-height: var(--swiper-pagination-bullet-hit-size, 8px);
+  width: var(--swiper-pagination-bullet-hit-width, 24px);
+  min-width: var(--swiper-pagination-bullet-hit-width, 24px);
+  height: var(--swiper-pagination-bullet-hit-size, 24px);
+  min-height: var(--swiper-pagination-bullet-hit-size, 24px);
   margin: 0;
   padding: 0;
   border: 0;
@@ -194,6 +194,7 @@
   background: transparent;
   opacity: var(--swiper-pagination-bullet-inactive-opacity, 1);
   transform: none;
+  transition: none;
 }
 
 /* State classes must win over the bullet layout, including before init. */
@@ -223,6 +224,8 @@
   content: '';
   pointer-events: none;
   transform: translate(-50%, -50%);
+  transition: none;
+  animation: none;
 }
 
 .swiper > :is(
@@ -247,8 +250,8 @@
   .swiper-pagination.swiper-pagination-bullets
 ) .swiper-pagination-bullet-active {
   opacity: var(--swiper-pagination-bullet-opacity, 1);
-  width: var(--swiper-pagination-bullet-active-hit-width, 8px);
-  min-width: var(--swiper-pagination-bullet-active-hit-width, 8px);
+  width: var(--swiper-pagination-bullet-active-hit-width, 24px);
+  min-width: var(--swiper-pagination-bullet-active-hit-width, 24px);
 }
 
 .swiper > :is(
@@ -259,8 +262,8 @@
   .swiper-pagination[data-pagination-type='bullets'],
   .swiper-pagination.swiper-pagination-bullets
 ) .swiper-pagination-bullet-active::after {
-  width: var(--swiper-pagination-bullet-active-width, 8px);
-  height: var(--swiper-pagination-bullet-active-height, 8px);
+  width: 8px;
+  height: 8px;
 }
 
 .swiper > :is(
@@ -277,23 +280,11 @@
   display: none;
 }
 
-.swiper.swiper-rtl > :is(
+.swiper > :is(
   .swiper-pagination[data-pagination-type='bullets'],
   .swiper-pagination.swiper-pagination-bullets
-) .swiper-pagination-bullet-active::after {
-  transform-origin: right center;
-}
-
-@media (prefers-reduced-motion: reduce) {
-}
-
-@media (hover: hover) {
-  .swiper[data-swiper-autoplay='true'][data-swiper-autoplay-pause-on-hover='true']:has(> .swiper-wrapper:hover) > :is(
-    .swiper-pagination[data-pagination-type='bullets'],
-    .swiper-pagination.swiper-pagination-bullets
-  ) .swiper-pagination-bullet-active::after {
-    animation-play-state: paused;
-  }
+) .swiper-pagination-bullet:is(.swiper-pagination-bullet-active, .swiper-pagination-bullet-active-main, .swiper-pagination-bullet-active-prev, .swiper-pagination-bullet-active-next, .swiper-pagination-bullet-active-prev-prev, .swiper-pagination-bullet-active-next-next) {
+  transform: none;
 }
 
 .swiper-carousel__navigation--centered {

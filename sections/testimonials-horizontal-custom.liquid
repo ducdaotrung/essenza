@@ -57,7 +57,6 @@
 
 {% capture testimonials_horizontal_custom_style %}
   --testimonial-card-radius: {{ section.settings.item_radius | default: 16 }}px;
-  --testimonial-dot-gap: {{ section.settings.dot_gap | default: 16 }}px;
   {% if testimonials_horizontal_custom_alignment != 'start' %}--flex-align: {{ testimonials_horizontal_custom_alignment }};{% endif %}
   {% if section.settings.customize_mobile_alignment and testimonials_horizontal_custom_alignment_mobile != testimonials_horizontal_custom_alignment %}--flex-align-mobile: {{ testimonials_horizontal_custom_alignment_mobile }};{% endif %}
   {% if testimonials_horizontal_custom_padding_top != 0 %}--section-padding-top: {{ testimonials_horizontal_custom_padding_top }}px;{% endif %}
@@ -103,17 +102,6 @@
   .testimonials-horizontal-custom .carousel-slide > .group {
     border-radius: var(--testimonial-card-radius, 16px);
   }
-  .testimonials-horizontal-custom .carousel-block__pagination--bullets {
-    --swiper-pagination-bullet-size: 8px;
-    --swiper-pagination-bullet-width: 8px;
-    --swiper-pagination-bullet-height: 8px;
-    --swiper-pagination-bullet-active-width: 8px;
-    --swiper-pagination-bullet-active-height: 8px;
-    --swiper-pagination-bullet-hit-width: 24px;
-    --swiper-pagination-bullet-active-hit-width: 24px;
-    --swiper-pagination-bullet-gap: max(0px, calc(var(--testimonial-dot-gap, 16px) - 16px));
-  }
-
   .testimonials-horizontal-custom .carousel-slide .icon-block { color: #ffb800; }
   .testimonials-horizontal-custom .carousel-slide > .group > .divider-block { margin-top: auto; }
   .testimonials-horizontal-custom {
@@ -372,16 +360,6 @@
       "step": 1,
       "default": 16,
       "unit": "px"
-    },
-    {
-      "type": "range",
-      "id": "dot_gap",
-      "label": "Dot gap",
-      "min": 16,
-      "max": 48,
-      "step": 1,
-      "default": 16,
-      "unit": "px"
     }
   ],
   "presets": [
@@ -401,8 +379,7 @@
         "customize_mobile_padding": true,
         "padding_top_mobile": 56,
         "padding_bottom_mobile": 56,
-        "item_radius": 16,
-        "dot_gap": 16
+        "item_radius": 16
       },
       "blocks": [
         {

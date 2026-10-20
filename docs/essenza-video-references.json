@@ -1,0 +1,38 @@
+{
+  "source": "templates/index.json",
+  "reason": "Temporarily cleared uploaded video references rejected by the development store. Re-select valid resources in Theme Editor.",
+  "videos": [
+    {
+      "line": 814,
+      "reference": "shopify://files/videos/202509261316.mp4"
+    },
+    {
+      "line": 4008,
+      "reference": "shopify://files/videos/essenza-video-3.mp4"
+    },
+    {
+      "line": 4057,
+      "reference": "shopify://files/videos/essenza-video-6.mp4"
+    },
+    {
+      "line": 4106,
+      "reference": "shopify://files/videos/essenza-video-2.mp4"
+    },
+    {
+      "line": 4155,
+      "reference": "shopify://files/videos/essenza-video-4.mp4"
+    },
+    {
+      "line": 4204,
+      "reference": "shopify://files/videos/essenza-video-5.mp4"
+    },
+    {
+      "line": 4253,
+      "reference": "shopify://files/videos/essenza-video-1.mp4"
+    },
+    {
+      "line": 4302,
+      "reference": "shopify://files/videos/From KlickPin CF self care skin care face mask face masks skin care routine self care routine [Video] in 2025 _ Skin care tools Skin care routine Clear skin.mp4"
+    }
+  ]
+}
